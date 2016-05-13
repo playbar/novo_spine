@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="physics">
-      <UniqueIdentifier>{08593631-5bf5-46aa-9436-62595c4f7bf6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="deprecated">
       <UniqueIdentifier>{0b1152b1-c732-4560-8629-87843b0fbd7c}</UniqueIdentifier>
     </Filter>
@@ -48,9 +45,6 @@
     </Filter>
     <Filter Include="external\xxhash">
       <UniqueIdentifier>{b4e2b1e5-2d79-44a3-af45-728d47b7bdb2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="storage">
-      <UniqueIdentifier>{44bdf58f-4af2-433c-b4af-58dc05ef96b5}</UniqueIdentifier>
     </Filter>
     <Filter Include="3d">
       <UniqueIdentifier>{63733c51-582a-4f0f-9a82-e066da459a72}</UniqueIdentifier>
@@ -268,9 +262,6 @@
     <Filter Include="external\poly2tri\sweep">
       <UniqueIdentifier>{c37eceeb-5702-4ff7-88de-94680a22266f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="physics3d">
-      <UniqueIdentifier>{e492faef-2169-4117-8d73-e0c66271fe25}</UniqueIdentifier>
-    </Filter>
     <Filter Include="external\clipper">
       <UniqueIdentifier>{ff65e340-b79d-4f87-9b4c-ed46bda5d20f}</UniqueIdentifier>
     </Filter>
@@ -288,21 +279,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\physics\CCPhysicsBody.cpp">
-      <Filter>physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\physics\CCPhysicsContact.cpp">
-      <Filter>physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\physics\CCPhysicsJoint.cpp">
-      <Filter>physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\physics\CCPhysicsShape.cpp">
-      <Filter>physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\physics\CCPhysicsWorld.cpp">
-      <Filter>physics</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\external\xxhash\xxhash.c">
       <Filter>external\xxhash</Filter>
     </ClCompile>
@@ -762,9 +738,6 @@
     </ClCompile>
     <ClCompile Include="CCFastTMXTiledMap.cpp">
       <Filter>2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\storage\local-storage\LocalStorage.cpp">
-      <Filter>storage</Filter>
     </ClCompile>
     <ClCompile Include="..\platform\CCGLView.cpp">
       <Filter>platform</Filter>
@@ -1839,30 +1812,6 @@
     <ClCompile Include="..\..\external\poly2tri\sweep\sweep_context.cc">
       <Filter>external\poly2tri\sweep</Filter>
     </ClCompile>
-    <ClCompile Include="..\physics3d\CCPhysics3D.cpp">
-      <Filter>physics3d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\physics3d\CCPhysics3DComponent.cpp">
-      <Filter>physics3d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\physics3d\CCPhysics3DConstraint.cpp">
-      <Filter>physics3d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\physics3d\CCPhysics3DDebugDrawer.cpp">
-      <Filter>physics3d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\physics3d\CCPhysics3DObject.cpp">
-      <Filter>physics3d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\physics3d\CCPhysics3DShape.cpp">
-      <Filter>physics3d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\physics3d\CCPhysics3DWorld.cpp">
-      <Filter>physics3d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\physics3d\CCPhysicsSprite3D.cpp">
-      <Filter>physics3d</Filter>
-    </ClCompile>
     <ClCompile Include="..\renderer\CCPass.cpp">
       <Filter>renderer</Filter>
     </ClCompile>
@@ -1955,21 +1904,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\physics\CCPhysicsBody.h">
-      <Filter>physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics\CCPhysicsContact.h">
-      <Filter>physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics\CCPhysicsJoint.h">
-      <Filter>physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics\CCPhysicsShape.h">
-      <Filter>physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics\CCPhysicsWorld.h">
-      <Filter>physics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\external\xxhash\xxhash.h">
       <Filter>external\xxhash</Filter>
     </ClInclude>
@@ -2492,9 +2426,6 @@
     </ClInclude>
     <ClInclude Include="CCFastTMXLayer.h">
       <Filter>2d</Filter>
-    </ClInclude>
-    <ClInclude Include="..\storage\local-storage\LocalStorage.h">
-      <Filter>storage</Filter>
     </ClInclude>
     <ClInclude Include="..\platform\CCGLView.h">
       <Filter>platform</Filter>
@@ -3194,9 +3125,6 @@
     </ClInclude>
     <ClInclude Include="..\3d\CCFrustum.h" />
     <ClInclude Include="..\3d\CCPlane.h" />
-    <ClInclude Include="..\physics\CCPhysicsHelper.h">
-      <Filter>physics</Filter>
-    </ClInclude>
     <ClInclude Include="..\3d\CCTerrain.h">
       <Filter>3d</Filter>
     </ClInclude>
@@ -3682,30 +3610,6 @@
     </ClInclude>
     <ClInclude Include="..\..\external\poly2tri\sweep\sweep_context.h">
       <Filter>external\poly2tri\sweep</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics3d\CCPhysics3D.h">
-      <Filter>physics3d</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics3d\CCPhysics3DComponent.h">
-      <Filter>physics3d</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics3d\CCPhysics3DConstraint.h">
-      <Filter>physics3d</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics3d\CCPhysics3DDebugDrawer.h">
-      <Filter>physics3d</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics3d\CCPhysics3DObject.h">
-      <Filter>physics3d</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics3d\CCPhysics3DShape.h">
-      <Filter>physics3d</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics3d\CCPhysics3DWorld.h">
-      <Filter>physics3d</Filter>
-    </ClInclude>
-    <ClInclude Include="..\physics3d\CCPhysicsSprite3D.h">
-      <Filter>physics3d</Filter>
     </ClInclude>
     <ClInclude Include="..\renderer\CCPass.h">
       <Filter>renderer</Filter>

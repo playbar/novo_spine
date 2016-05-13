@@ -180,12 +180,12 @@ THE SOFTWARE.
 #include "renderer/ccGLStateCache.h"
 #include "renderer/ccShaders.h"
 
-// physics
-#include "physics/CCPhysicsBody.h"
-#include "physics/CCPhysicsContact.h"
-#include "physics/CCPhysicsJoint.h"
-#include "physics/CCPhysicsShape.h"
-#include "physics/CCPhysicsWorld.h"
+//// physics
+//#include "physics/CCPhysicsBody.h"
+//#include "physics/CCPhysicsContact.h"
+//#include "physics/CCPhysicsJoint.h"
+//#include "physics/CCPhysicsShape.h"
+//#include "physics/CCPhysicsWorld.h"
 
 // platform
 #include "platform/CCCommon.h"
