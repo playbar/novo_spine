@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include <spine/spine-cocos2dx.h>
 
-class HelloWorld : public cocos2d::Layer
+class HelloWorld : public cocos2d::LayerColor
 {
 
 private:

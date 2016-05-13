@@ -25,7 +25,7 @@ bool HelloWorld::init()
 {
     //////////////////////////////
     // 1. super init first
-    if ( !Layer::init() )
+    if ( !LayerColor::initWithColor(ccc4(255,255,255,255)))
     {
         return false;
     }
@@ -75,8 +75,8 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     //this->addChild(sprite, 0);
 	//skeletonNode = SkeletonAnimation::createWithFile("spine/spineboy.json", "spine/spineboy.atlas", 0.6f);
-	skeletonNode = SkeletonAnimation::createWithFile("spine/speedy.json", "spine/speedy.atlas", 0.6f);
-	//skeletonNode->setScale(0.5);
+	skeletonNode = SkeletonAnimation::createWithFile("spine/spineboy.json", "spine/spineboy.atlas", 0.6f);
+	skeletonNode->setScale(0.5);
 
 	skeletonNode->setStartListener([this](int trackIndex) {
 		spTrackEntry* entry = spAnimationState_getCurrent(skeletonNode->getState(), trackIndex);
@@ -99,15 +99,27 @@ bool HelloWorld::init()
 	spTrackEntry* jumpEntry = skeletonNode->addAnimation(0, "jump", false, 3);
 	skeletonNode->addAnimation(0, "run", true);
 
-	//skeletonNode->setTrackStartListener(jumpEntry, [] (int trackIndex) {
-	//	log("jumped!");
-	//});
-
 	Size windowSize = Director::getInstance()->getWinSize();
 	skeletonNode->setPosition(Vec2(windowSize.width / 2, 20));
 
 	addChild(skeletonNode);
+	scheduleUpdate();
 
+	EventListenerTouchOneByOne* listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = [this](Touch* touch, Event* event) -> bool {
+		if (!skeletonNode->getDebugBonesEnabled())
+			skeletonNode->setDebugBonesEnabled(true);
+		else if (skeletonNode->getTimeScale() == 1)
+			skeletonNode->setTimeScale(0.3f);
+		else
+		{
+			skeletonNode->setTimeScale(1);
+			skeletonNode->setDebugBonesEnabled(false);
+		}
+
+		return true;
+	};
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
     return true;
 }
