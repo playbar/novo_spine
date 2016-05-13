@@ -2,9 +2,14 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include <spine/spine-cocos2dx.h>
 
 class HelloWorld : public cocos2d::Layer
 {
+
+private:
+	spine::SkeletonAnimation* skeletonNode;
+
 public:
     static cocos2d::Scene* createScene();
 

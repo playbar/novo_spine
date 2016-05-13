@@ -1,2 +1,13 @@
 *.a
 cocos2d/licenses/
+*.obj
+*.tlog
+*.log
+*.pdb
+*.lib
+*.idb
+*.sdf
+*.opensdf
+*.dll
+proj.win32/Debug.win32/
+*.suo

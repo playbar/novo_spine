@@ -1,7 +1,9 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
+#include "spine/spine.h"
 
 USING_NS_CC;
+using namespace spine;
 
 Scene* HelloWorld::createScene()
 {
@@ -65,14 +67,48 @@ bool HelloWorld::init()
     this->addChild(label, 1);
 
     // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
+    //Sprite* sprite = Sprite::create("HelloWorld.png");
 
     // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    //sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
     // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
-    
+    //this->addChild(sprite, 0);
+	//skeletonNode = SkeletonAnimation::createWithFile("spine/spineboy.json", "spine/spineboy.atlas", 0.6f);
+	skeletonNode = SkeletonAnimation::createWithFile("spine/speedy.json", "spine/speedy.atlas", 0.6f);
+	//skeletonNode->setScale(0.5);
+
+	skeletonNode->setStartListener([this](int trackIndex) {
+		spTrackEntry* entry = spAnimationState_getCurrent(skeletonNode->getState(), trackIndex);
+		const char* animationName = (entry && entry->animation) ? entry->animation->name : 0;
+		log("%d start: %s", trackIndex, animationName);
+	});
+	skeletonNode->setEndListener([](int trackIndex) {
+		log("%d end", trackIndex);
+	});
+	skeletonNode->setCompleteListener([](int trackIndex, int loopCount) {
+		log("%d complete: %d", trackIndex, loopCount);
+	});
+	skeletonNode->setEventListener([](int trackIndex, spEvent* event) {
+		log("%d event: %s, %d, %f, %s", trackIndex, event->data->name, event->intValue, event->floatValue, event->stringValue);
+	});
+
+	skeletonNode->setMix("walk", "jump", 0.2f);
+	skeletonNode->setMix("jump", "run", 0.2f);
+	skeletonNode->setAnimation(0, "walk", true);
+	spTrackEntry* jumpEntry = skeletonNode->addAnimation(0, "jump", false, 3);
+	skeletonNode->addAnimation(0, "run", true);
+
+	//skeletonNode->setTrackStartListener(jumpEntry, [] (int trackIndex) {
+	//	log("jumped!");
+	//});
+
+	Size windowSize = Director::getInstance()->getWinSize();
+	skeletonNode->setPosition(Vec2(windowSize.width / 2, 20));
+
+	addChild(skeletonNode);
+
+
     return true;
 }
 
