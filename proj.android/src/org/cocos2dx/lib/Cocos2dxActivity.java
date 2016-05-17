@@ -42,11 +42,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-import org.cocos2dx.lib.Cocos2dxHelper.Cocos2dxHelperListener;
-
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
+
+import org.cocos2dx.lib.Cocos2dxHelper.Cocos2dxHelperListener;
 
 public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener {
     // ===========================================================

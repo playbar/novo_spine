@@ -10,13 +10,13 @@
 
     <application android:label="@string/app_name"
                  android:icon="@drawable/icon" 
-                 android:debuggable="true">
+                 >
 					 
         <!-- Tell Cocos2dxActivity the name of our .so -->
         <meta-data android:name="android.app.lib_name"
                    android:value="MyGame" />
 
-        <activity android:name="org.cocos2dx.cpp.AppActivity"
+        <activity android:name="org.cocos2dx.lib.Cocos2dxActivity"
                   android:label="@string/app_name"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
