@@ -26,7 +26,31 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.cpp;
 
+import java.io.File;
+
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
+
 public class AppActivity extends Cocos2dxActivity {
+	private final String TAG_LOG = "AppActivity";
+	@Override
+	 protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate( savedInstanceState);
+		String path = getSDPath();
+		Log.e(TAG_LOG, path);
+		
+	}
+	public String getSDPath(){
+	       File sdDir = null;
+	       boolean sdCardExist = Environment.getExternalStorageState()  
+	       .equals(android.os.Environment.MEDIA_MOUNTED);//判断sd卡是否存在
+	       if(sdCardExist)  
+	       {                              
+	         sdDir = Environment.getExternalStorageDirectory();//获取跟目录
+	      }  
+	       return sdDir.toString();
+	}
 }

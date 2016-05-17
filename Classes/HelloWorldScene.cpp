@@ -47,7 +47,22 @@ bool HelloWorld::init()
                                            "CloseNormal.png",
                                            "CloseSelected.png",
                                            CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+
+    std::string filePath =  FileUtils::getInstance()->getWritablePath();
+    log("writeablePath:%s", filePath.c_str());
     
+    FILE *pfile = fopen("/data/data/com.novo.spine/files/test.txt", "r");
+    if( pfile ){
+    	char temp[10] = {0};
+    	fread( temp, 4, 1, pfile);
+    	//fwrite("test", 4, 1, pfile);
+    	fclose(pfile);
+    	log("ok  %s*************", temp );
+    }
+    else{
+    	log("fail *************");
+    }
+
     closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
                                 origin.y + closeItem->getContentSize().height/2));
 
