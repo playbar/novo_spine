@@ -105,8 +105,8 @@ bool HelloWorld::init()
 void HelloWorld::InitSkeleton()
 {
 	//skeletonNode = SkeletonAnimation::createWithFile("spine/spineboy.json", "spine/spineboy.atlas", 0.6f);
-	skeletonNode = SkeletonAnimation::createWithFile("spine/powerup.json", "spine/powerup.atlas", 0.6f);
-	skeletonNode->setScale(1);
+	skeletonNode = SkeletonAnimation::createWithFile("D:/test/spine/spineboy.json", "D:/test/spine/spineboy.atlas", 0.6f);
+	//skeletonNode->setScale(0.5);
 
 	skeletonNode->setStartListener([this](int trackIndex) {
 		spTrackEntry* entry = spAnimationState_getCurrent(skeletonNode->getState(), trackIndex);
@@ -125,7 +125,7 @@ void HelloWorld::InitSkeleton()
 
 	skeletonNode->setMix("walk", "jump", 0.2f);
 	skeletonNode->setMix("jump", "run", 0.2f);
-	skeletonNode->setAnimation(0, "animation", true);
+	skeletonNode->setAnimation(0, "walk", true);
 	spTrackEntry* jumpEntry = skeletonNode->addAnimation(0, "jump", false, 3);
 	skeletonNode->addAnimation(0, "run", true);
 
