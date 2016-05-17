@@ -73,7 +73,7 @@ bool HelloWorld::init()
 
 	InitSkeleton();
 
-	initSprite3D();
+	//initSprite3D();
 
     // add "HelloWorld" splash screen"
     //Sprite* sprite = Sprite::create("HelloWorld.png");
@@ -90,8 +90,8 @@ bool HelloWorld::init()
 void HelloWorld::InitSkeleton()
 {
 	//skeletonNode = SkeletonAnimation::createWithFile("spine/spineboy.json", "spine/spineboy.atlas", 0.6f);
-	skeletonNode = SkeletonAnimation::createWithFile("spine/spineboy.json", "spine/spineboy.atlas", 0.6f);
-	skeletonNode->setScale(0.5);
+	skeletonNode = SkeletonAnimation::createWithFile("D:/test/spine/spineboy.json", "D:/test/spine/spineboy.atlas", 0.6f);
+	//skeletonNode->setScale(0.5);
 
 	skeletonNode->setStartListener([this](int trackIndex) {
 		spTrackEntry* entry = spAnimationState_getCurrent(skeletonNode->getState(), trackIndex);
