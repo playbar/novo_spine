@@ -104,8 +104,8 @@ bool HelloWorld::init()
 
 void HelloWorld::InitSkeleton()
 {
-	skeletonNode = SkeletonAnimation::createWithFile("spine/skeleton.json", "spine/skeleton.atlas", 0.6f);
-	//skeletonNode = SkeletonAnimation::createWithFile("D:/test/spine/skeleton.json", "D:/test/spine/skeleton.atlas", 0.6f);
+	skeletonNode = SkeletonAnimation::createWithFile("spine/ship.json", "spine/ship.atlas", 0.6f);
+	//skeletonNode = SkeletonAnimation::createWithFile("D:/test/spine/ship.json", "D:/test/spine/ship.atlas", 0.6f);
 	skeletonNode->setScale(1);
 
 	skeletonNode->setStartListener([this](int trackIndex) {
@@ -130,7 +130,7 @@ void HelloWorld::InitSkeleton()
 	skeletonNode->addAnimation(0, "run", true);
 
 	Size windowSize = Director::getInstance()->getWinSize();
-	skeletonNode->setPosition(Vec2(windowSize.width / 2, 80));
+	skeletonNode->setPosition(Vec2(windowSize.width / 2, 400));
 
 	addChild(skeletonNode, 2);
 	scheduleUpdate();

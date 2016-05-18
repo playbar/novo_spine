@@ -29,6 +29,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
+import android.graphics.Point;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.os.Bundle;
@@ -41,8 +42,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.FrameLayout.LayoutParams;
 
 import org.cocos2dx.lib.Cocos2dxHelper.Cocos2dxHelperListener;
+
+import com.seu.magiccamera.activity.Constants;
+import com.seu.magicfilter.camera.MagicCameraDisplay;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -58,7 +63,7 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
     // ===========================================================
     // Fields
     // ===========================================================
-    
+    private Cocos2dxRenderer mMagicCameraDisplay;
     private Cocos2dxGLSurfaceView mGLSurfaceView = null;
     private int[] mGLContextAttrs = null;
     private Cocos2dxHandler mHandler = null;   
@@ -266,6 +271,7 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
         
         this.mGLContextAttrs = getGLContextAttrs();
         this.init();
+        initConstants();
 
         if (mVideoHelper == null) {
             mVideoHelper = new Cocos2dxVideoHelper(this, mFrameLayout);
@@ -283,6 +289,13 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
+    
+	private void initConstants() {
+		Point outSize = new Point();
+		getWindowManager().getDefaultDisplay().getRealSize(outSize);
+		Constants.mScreenWidth = outSize.x;
+		Constants.mScreenHeight = outSize.y;
+	}
     //native method,call GLViewImpl::getGLContextAttrs() to get the OpenGL ES context attributions
     private static native int[] getGLContextAttrs();
     
@@ -299,6 +312,10 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
     	Log.d(TAG, "onResume()");
         super.onResume();
        	resumeIfHasFocus();
+    	if(mMagicCameraDisplay != null)
+		{
+			mMagicCameraDisplay.onResume();
+		}
     }
     
     @Override
@@ -323,11 +340,15 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
         super.onPause();
         Cocos2dxHelper.onPause();
         mGLSurfaceView.onPause();
+		if(mMagicCameraDisplay != null)
+			mMagicCameraDisplay.onPause();
     }
     
     @Override
     protected void onDestroy() {
         super.onDestroy();
+		if(mMagicCameraDisplay != null)
+			mMagicCameraDisplay.onDestroy();
     }
 
     @Override
@@ -370,17 +391,19 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
         mFrameLayout.setLayoutParams(framelayout_params);
 
         // Cocos2dxEditText layout
-        ViewGroup.LayoutParams edittext_layout_params =
-            new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                                       ViewGroup.LayoutParams.WRAP_CONTENT);
-        Cocos2dxEditBox edittext = new Cocos2dxEditBox(this);
-        edittext.setLayoutParams(edittext_layout_params);
-
-
-        mFrameLayout.addView(edittext);
+//        ViewGroup.LayoutParams edittext_layout_params =
+//            new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//                                       ViewGroup.LayoutParams.WRAP_CONTENT);
+//        Cocos2dxEditBox edittext = new Cocos2dxEditBox(this);
+//        edittext.setLayoutParams(edittext_layout_params);
+//
+//
+//        mFrameLayout.addView(edittext);
 
         // Cocos2dxGLSurfaceView
         this.mGLSurfaceView = this.onCreateView();
+        //FrameLayout.LayoutParams params = new LayoutParams(Constants.mScreenWidth, Constants.mScreenHeight);
+        //mGLSurfaceView.setLayoutParams(params);	
 
         // ...add to FrameLayout
         mFrameLayout.addView(this.mGLSurfaceView);
@@ -389,11 +412,19 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
         if (isAndroidEmulator())
            this.mGLSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
 
-        this.mGLSurfaceView.setCocos2dxRenderer(new Cocos2dxRenderer());
-        this.mGLSurfaceView.setCocos2dxEditText(edittext);
-
+        //mGLSurfaceView.setEGLContextClientVersion(2);
+        
+        //this.mGLSurfaceView.setCocos2dxRenderer(mMagicCameraDisplay);
+        //this.mGLSurfaceView.setCocos2dxEditText(edittext);
+        //mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+        
         // Set framelayout as the content view
         setContentView(mFrameLayout);
+        mMagicCameraDisplay = new Cocos2dxRenderer(this, mGLSurfaceView);
+        mGLSurfaceView.setEGLContextClientVersion(2);
+		mGLSurfaceView.setCocos2dxRenderer(mMagicCameraDisplay);
+		mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+		return;
     }
 
     

@@ -83,9 +83,9 @@ public abstract class MagicDisplay implements Renderer{
                 .asFloatBuffer();
         mGLTextureBuffer.put(TextureRotationUtil.TEXTURE_NO_ROTATION).position(0);
 
-		mGLSurfaceView.setEGLContextClientVersion(2);
-		mGLSurfaceView.setRenderer(this);
-		mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+		//mGLSurfaceView.setEGLContextClientVersion(2);
+		//mGLSurfaceView.setRenderer(this);
+		//mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 	}
 	
 	/**
