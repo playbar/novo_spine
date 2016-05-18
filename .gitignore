@@ -21,3 +21,5 @@ proj.android/libs/
 proj.android/.settings/org.eclipse.jdt.core.prefs
 proj.android/lint.xml
 proj.android/assets/
+proj.android/.externalToolBuilders/
+proj.android/gen/
