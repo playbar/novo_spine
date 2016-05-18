@@ -31,9 +31,9 @@ import android.util.SparseArray;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import java.lang.ref.WeakReference;
-
 import org.cocos2dx.lib.Cocos2dxVideoView.OnVideoEventListener;
+
+import java.lang.ref.WeakReference;
 
 public class Cocos2dxVideoHelper {
 
