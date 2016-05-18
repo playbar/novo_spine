@@ -1,4 +1,4 @@
-package com.seu.magiccamera.common.bean;
+package com.seu.magiccamera.activity;
 
 public class FilterInfo {
 	private boolean bSelected = false;

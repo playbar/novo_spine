@@ -1,10 +1,8 @@
-package com.seu.magiccamera.common.adapter;
+package com.seu.magiccamera.activity;
 
 import java.util.List;
 
 import com.novo.spine.R;
-import com.seu.magiccamera.common.bean.FilterInfo;
-import com.seu.magiccamera.common.utils.FilterTypeHelper;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

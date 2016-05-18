@@ -1,4 +1,4 @@
-package com.seu.magiccamera.common.view.edit.adjust;
+package com.seu.magiccamera.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,9 +12,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.novo.spine.R;
-import com.seu.magiccamera.common.view.edit.ImageEditFragment;
-import com.seu.magiccamera.widget.TwoLineSeekBar;
-import com.seu.magiccamera.widget.TwoLineSeekBar.OnSeekChangeListener;
+import com.seu.magiccamera.activity.TwoLineSeekBar.OnSeekChangeListener;
 import com.seu.magicfilter.display.MagicImageDisplay;
 import com.seu.magicfilter.filter.helper.MagicFilterType;
 

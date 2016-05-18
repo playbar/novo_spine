@@ -1,4 +1,4 @@
-package com.seu.magiccamera.widget;
+package com.seu.magiccamera.activity;
 
 import android.view.GestureDetector;
 import android.view.MotionEvent;

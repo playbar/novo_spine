@@ -1,4 +1,4 @@
-package com.seu.magiccamera.common.view.edit.beauty;
+package com.seu.magiccamera.activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,9 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
 import com.novo.spine.R;
-import com.seu.magiccamera.common.view.edit.ImageEditFragment;
-import com.seu.magiccamera.widget.BubbleSeekBar;
-import com.seu.magiccamera.widget.BubbleSeekBar.OnBubbleSeekBarChangeListener;
+import com.seu.magiccamera.activity.BubbleSeekBar.OnBubbleSeekBarChangeListener;
 import com.seu.magicfilter.display.MagicImageDisplay;
 import com.seu.magicfilter.utils.MagicSDK;
 import com.seu.magicfilter.utils.MagicSDK.MagicSDKListener;

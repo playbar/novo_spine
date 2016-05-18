@@ -1,4 +1,4 @@
-package com.seu.magiccamera.common.utils;
+package com.seu.magiccamera.activity;
 
 import com.novo.spine.R;
 import com.seu.magicfilter.filter.helper.MagicFilterType;

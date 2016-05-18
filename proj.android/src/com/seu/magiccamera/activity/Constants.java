@@ -1,4 +1,4 @@
-package com.seu.magiccamera.common.utils;
+package com.seu.magiccamera.activity;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

@@ -1,4 +1,4 @@
-package com.seu.magiccamera.common.view.edit;
+package com.seu.magiccamera.activity;
 
 import android.app.AlertDialog;
 import android.app.Fragment;

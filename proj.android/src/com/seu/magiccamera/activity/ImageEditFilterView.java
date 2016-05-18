@@ -1,4 +1,4 @@
-package com.seu.magiccamera.common.view.edit.filter;
+package com.seu.magiccamera.activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.novo.spine.R;
-import com.seu.magiccamera.common.view.FilterLayoutUtils;
-import com.seu.magiccamera.common.view.edit.ImageEditFragment;
 import com.seu.magicfilter.display.MagicImageDisplay;
 import com.seu.magicfilter.filter.helper.MagicFilterType;
 

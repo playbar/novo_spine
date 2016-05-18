@@ -17,7 +17,7 @@
            android:layout_height="25.0dip" 
            android:layout_marginLeft="20.0dip" 
            android:layout_marginRight="20.0dip" />
-       <com.seu.magiccamera.widget.TwoLineSeekBar
+       <com.seu.magiccamera.activity.TwoLineSeekBar
            android:id="@+id/item_seek_bar" 
            android:layout_width="0.0dip" 
            android:layout_height="fill_parent" 

@@ -17,8 +17,6 @@ import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.LinearLayout;
 
-import com.seu.magiccamera.common.utils.Constants;
-import com.seu.magiccamera.common.view.FilterLayoutUtils;
 import com.seu.magicfilter.display.MagicCameraDisplay;
 import com.novo.spine.R;
 

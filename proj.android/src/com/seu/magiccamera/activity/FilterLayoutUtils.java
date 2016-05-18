@@ -1,4 +1,4 @@
-package com.seu.magiccamera.common.view;
+package com.seu.magiccamera.activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +13,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import com.novo.spine.R;
-import com.seu.magiccamera.common.adapter.FilterAdapter;
-import com.seu.magiccamera.common.bean.FilterInfo;
 import com.seu.magicfilter.display.MagicDisplay;
 import com.seu.magicfilter.filter.helper.MagicFilterType;
 
