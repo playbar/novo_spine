@@ -104,12 +104,12 @@ public class Cocos2dxRenderer extends MagicDisplay {
         this.mLastTickInNanoSeconds = System.nanoTime();
         mNativeInitCompleted = true;
         
-//		GLES20.glDisable(GL10.GL_DITHER);
-//        GLES20.glClearColor(0,0,0,0);
-//        GLES20.glEnable(GL10.GL_CULL_FACE);
-//        GLES20.glEnable(GL10.GL_DEPTH_TEST);
-//        MagicFilterParam.initMagicFilterParam(gl);
-//        mCameraInputFilter.init();
+		GLES20.glDisable(GL10.GL_DITHER);
+        GLES20.glClearColor(0,0,0,0);
+        GLES20.glEnable(GL10.GL_CULL_FACE);
+        GLES20.glEnable(GL10.GL_DEPTH_TEST);
+        MagicFilterParam.initMagicFilterParam(gl);
+        mCameraInputFilter.init();
         
     }
 
@@ -117,10 +117,10 @@ public class Cocos2dxRenderer extends MagicDisplay {
     public void onSurfaceChanged(final GL10 GL10, final int width, final int height) {
         Cocos2dxRenderer.nativeOnSurfaceChanged(width, height);
         
-//		GLES20.glViewport(0, 0, width, height);
-//		mSurfaceWidth = width;
-//		mSurfaceHeight = height;
-//		onFilterChanged();
+		GLES20.glViewport(0, 0, width, height);
+		mSurfaceWidth = width;
+		mSurfaceHeight = height;
+		onFilterChanged();
 		
     }
 
@@ -130,6 +130,21 @@ public class Cocos2dxRenderer extends MagicDisplay {
          * No need to use algorithm in default(60 FPS) situation,
          * since onDrawFrame() was called by system 60 times per second by default.
          */
+    	GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+		GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
+		
+		mSurfaceTexture.updateTexImage();
+		float[] mtx = new float[16];
+		mSurfaceTexture.getTransformMatrix(mtx);
+		mCameraInputFilter.setTextureTransformMatrix(mtx);
+		if(mFilters == null){
+			mCameraInputFilter.onDrawFrame(mTextureId, mGLCubeBuffer, mGLTextureBuffer);
+		}else{
+			int textureID = mCameraInputFilter.onDrawToTexture(mTextureId);	
+			mFilters.onDrawFrame(textureID, mGLCubeBuffer, mGLTextureBuffer);
+		}
+	
+		
         if (sAnimationInterval <= 1.0 / 60 * Cocos2dxRenderer.NANOSECONDSPERSECOND) {
             Cocos2dxRenderer.nativeRender();
         } else {
@@ -149,18 +164,8 @@ public class Cocos2dxRenderer extends MagicDisplay {
             Cocos2dxRenderer.nativeRender();
         }
         /////////////////////////
-//		GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-//		GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);	
-//		mSurfaceTexture.updateTexImage();
-//		float[] mtx = new float[16];
-//		mSurfaceTexture.getTransformMatrix(mtx);
-//		mCameraInputFilter.setTextureTransformMatrix(mtx);
-//		if(mFilters == null){
-//			mCameraInputFilter.onDrawFrame(mTextureId, mGLCubeBuffer, mGLTextureBuffer);
-//		}else{
-//			int textureID = mCameraInputFilter.onDrawToTexture(mTextureId);	
-//			mFilters.onDrawFrame(textureID, mGLCubeBuffer, mGLTextureBuffer);
-//		}
+		
+		return;
     }
 
 	private OnFrameAvailableListener mOnFrameAvailableListener = new OnFrameAvailableListener() {

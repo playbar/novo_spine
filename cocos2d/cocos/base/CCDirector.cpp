@@ -261,15 +261,15 @@ void Director::setGLDefaultValues()
 // Draw the Scene
 void Director::drawScene()
 {
-    // calculate "global" dt
+    //// calculate "global" dt
     calculateDeltaTime();
-    
-    if (_openGLView)
-    {
-        _openGLView->pollEvents();
-    }
+    //
+	if (_openGLView)
+	{
+		_openGLView->pollEvents();
+	}
 
-    //tick before glClear: issue #533
+    ////tick before glClear: issue #533
     if (! _paused)
     {
         _eventDispatcher->dispatchEvent(_eventBeforeUpdate);
@@ -277,15 +277,15 @@ void Director::drawScene()
         _eventDispatcher->dispatchEvent(_eventAfterUpdate);
     }
 
-    _renderer->clear();
-    experimental::FrameBuffer::clearAllFBOs();
-    /* to avoid flickr, nextScene MUST be here: after tick and before draw.
-     * FIXME: Which bug is this one. It seems that it can't be reproduced with v0.9
-     */
-    if (_nextScene)
-    {
-        setNextScene();
-    }
+    ////_renderer->clear();
+    //experimental::FrameBuffer::clearAllFBOs();
+    ///* to avoid flickr, nextScene MUST be here: after tick and before draw.
+    // * FIXME: Which bug is this one. It seems that it can't be reproduced with v0.9
+    // */
+	if (_nextScene)
+	{
+		setNextScene();
+	}
 
     pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
     
@@ -313,7 +313,7 @@ void Director::drawScene()
     {
         showStats();
     }
-    _renderer->render();
+    //_renderer->render();
 
     _eventDispatcher->dispatchEvent(_eventAfterDraw);
 

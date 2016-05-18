@@ -127,16 +127,16 @@ void CameraBackgroundDepthBrush::drawBackground(Camera* camera)
     GLint oldDepthFunc;
     GLboolean oldDepthMask;
     {
-        glColorMask(_clearColor, _clearColor, _clearColor, _clearColor);
-        glStencilMask(0);
-        
-        oldDepthTest = glIsEnabled(GL_DEPTH_TEST);
-        glGetIntegerv(GL_DEPTH_FUNC, &oldDepthFunc);
-        glGetBooleanv(GL_DEPTH_WRITEMASK, &oldDepthMask);
-        
-        glDepthMask(GL_TRUE);
-        glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_ALWAYS);
+		glColorMask(_clearColor, _clearColor, _clearColor, _clearColor);
+		glStencilMask(0);
+
+		oldDepthTest = glIsEnabled(GL_DEPTH_TEST);
+		glGetIntegerv(GL_DEPTH_FUNC, &oldDepthFunc);
+		glGetBooleanv(GL_DEPTH_WRITEMASK, &oldDepthMask);
+
+		glDepthMask(GL_TRUE);
+		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_ALWAYS);
     }
     
     //draw
