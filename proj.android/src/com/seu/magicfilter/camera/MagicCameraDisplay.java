@@ -1,4 +1,4 @@
-package com.seu.magicfilter.display;
+package com.seu.magicfilter.camera;
 
 import java.io.File;
 
@@ -17,9 +17,8 @@ import android.hardware.Camera.Size;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 
-import com.seu.magicfilter.camera.CameraEngine;
 import com.seu.magicfilter.filter.base.MagicCameraInputFilter;
-import com.seu.magicfilter.filter.helper.MagicFilterParam;
+import com.seu.magicfilter.filter.base.MagicFilterParam;
 import com.seu.magicfilter.utils.OpenGLUtils;
 import com.seu.magicfilter.utils.Rotation;
 import com.seu.magicfilter.utils.SaveTask;

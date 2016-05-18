@@ -1,4 +1,4 @@
-package com.seu.magicfilter.filter.helper;
+package com.seu.magicfilter.filter.base;
 
 public class MagicFilterType {	
 	public static final int NONE = 0x00;

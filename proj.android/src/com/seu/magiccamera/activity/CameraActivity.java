@@ -17,8 +17,8 @@ import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.LinearLayout;
 
-import com.seu.magicfilter.display.MagicCameraDisplay;
 import com.novo.spine.R;
+import com.seu.magicfilter.camera.MagicCameraDisplay;
 
 public class CameraActivity extends Activity{
 	private MagicCameraDisplay mMagicCameraDisplay;

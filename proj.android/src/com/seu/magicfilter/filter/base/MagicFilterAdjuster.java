@@ -1,6 +1,6 @@
-package com.seu.magicfilter.filter.helper;
+package com.seu.magicfilter.filter.base;
 
-import com.seu.magicfilter.filter.advance.image.MagicImageAdjustFilter;
+import com.seu.magicfilter.camera.MagicImageAdjustFilter;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageBrightnessFilter;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageContrastFilter;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageExposureFilter;

@@ -1,4 +1,4 @@
-package com.seu.magicfilter.display;
+package com.seu.magicfilter.camera;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -11,10 +11,10 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLSurfaceView.Renderer;
 
+import com.seu.magicfilter.filter.base.MagicFilterAdjuster;
+import com.seu.magicfilter.filter.base.MagicFilterFactory;
+import com.seu.magicfilter.filter.base.MagicFilterType;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageFilter;
-import com.seu.magicfilter.filter.factory.MagicFilterFactory;
-import com.seu.magicfilter.filter.helper.MagicFilterAdjuster;
-import com.seu.magicfilter.filter.helper.MagicFilterType;
 import com.seu.magicfilter.utils.OpenGLUtils;
 import com.seu.magicfilter.utils.SaveTask;
 import com.seu.magicfilter.utils.TextureRotationUtil;

@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import com.novo.spine.R;
 import com.seu.magiccamera.activity.TwoLineSeekBar.OnSeekChangeListener;
-import com.seu.magicfilter.display.MagicImageDisplay;
-import com.seu.magicfilter.filter.helper.MagicFilterType;
+import com.seu.magicfilter.camera.MagicImageDisplay;
+import com.seu.magicfilter.filter.base.MagicFilterType;
 
 public class ImageEditAdjustView extends ImageEditFragment{
 	private TwoLineSeekBar mSeekBar;

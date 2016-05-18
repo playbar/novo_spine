@@ -1,9 +1,9 @@
 package com.seu.magiccamera.activity;
 
+import com.seu.magicfilter.camera.MagicImageDisplay;
+
 import android.content.Context;
 import android.content.DialogInterface;
-
-import com.seu.magicfilter.display.MagicImageDisplay;
 
 public class ImageEditFrameView extends ImageEditFragment{
 

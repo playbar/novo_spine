@@ -1,4 +1,4 @@
-package com.seu.magicfilter.display;
+package com.seu.magicfilter.camera;
 
 import java.io.File;
 
@@ -13,9 +13,9 @@ import android.opengl.GLSurfaceView;
 import android.os.Handler;
 import android.os.Message;
 
+import com.seu.magicfilter.filter.base.MagicFilterParam;
+import com.seu.magicfilter.filter.base.MagicFilterType;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageFilter;
-import com.seu.magicfilter.filter.helper.MagicFilterParam;
-import com.seu.magicfilter.filter.helper.MagicFilterType;
 import com.seu.magicfilter.utils.MagicSDK;
 import com.seu.magicfilter.utils.OpenGLUtils;
 import com.seu.magicfilter.utils.SaveTask;

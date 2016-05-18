@@ -1,4 +1,4 @@
-package com.seu.magicfilter.filter.advance.image;
+package com.seu.magicfilter.camera;
 
 import java.util.ArrayList;
 import java.util.List;

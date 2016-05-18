@@ -13,7 +13,7 @@ import android.widget.SeekBar;
 
 import com.novo.spine.R;
 import com.seu.magiccamera.activity.BubbleSeekBar.OnBubbleSeekBarChangeListener;
-import com.seu.magicfilter.display.MagicImageDisplay;
+import com.seu.magicfilter.camera.MagicImageDisplay;
 import com.seu.magicfilter.utils.MagicSDK;
 import com.seu.magicfilter.utils.MagicSDK.MagicSDKListener;
 

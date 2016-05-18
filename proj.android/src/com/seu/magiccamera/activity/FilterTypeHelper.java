@@ -1,7 +1,7 @@
 package com.seu.magiccamera.activity;
 
 import com.novo.spine.R;
-import com.seu.magicfilter.filter.helper.MagicFilterType;
+import com.seu.magicfilter.filter.base.MagicFilterType;
 
 
 public class FilterTypeHelper {

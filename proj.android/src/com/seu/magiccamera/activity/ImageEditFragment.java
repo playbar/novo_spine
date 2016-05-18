@@ -1,13 +1,13 @@
 package com.seu.magiccamera.activity;
 
+import com.seu.magicfilter.camera.MagicImageDisplay;
+
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-
-import com.seu.magicfilter.display.MagicImageDisplay;
 
 public abstract class ImageEditFragment extends Fragment{
 	protected MagicImageDisplay mMagicDisplay;

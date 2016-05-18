@@ -13,8 +13,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import com.novo.spine.R;
-import com.seu.magicfilter.display.MagicDisplay;
-import com.seu.magicfilter.filter.helper.MagicFilterType;
+import com.seu.magicfilter.camera.MagicDisplay;
+import com.seu.magicfilter.filter.base.MagicFilterType;
 
 public class FilterLayoutUtils{
 	private Context mContext;

@@ -1,10 +1,11 @@
-package com.seu.magicfilter.filter.factory;
+package com.seu.magicfilter.filter.base;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
 
+import com.seu.magicfilter.camera.MagicImageAdjustFilter;
 import com.seu.magicfilter.filter.advance.common.MagicAmaroFilter;
 import com.seu.magicfilter.filter.advance.common.MagicAntiqueFilter;
 import com.seu.magicfilter.filter.advance.common.MagicBeautyFilter;
@@ -47,9 +48,6 @@ import com.seu.magicfilter.filter.advance.common.MagicWaldenFilter;
 import com.seu.magicfilter.filter.advance.common.MagicWarmFilter;
 import com.seu.magicfilter.filter.advance.common.MagicWhiteCatFilter;
 import com.seu.magicfilter.filter.advance.common.MagicXproIIFilter;
-import com.seu.magicfilter.filter.advance.image.MagicImageAdjustFilter;
-import com.seu.magicfilter.filter.base.MagicBaseGroupFilter;
-import com.seu.magicfilter.filter.base.MagicBilateralFilter;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageBrightnessFilter;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageContrastFilter;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageExposureFilter;
@@ -57,7 +55,6 @@ import com.seu.magicfilter.filter.base.gpuimage.GPUImageFilter;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageHueFilter;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageSaturationFilter;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageSharpenFilter;
-import com.seu.magicfilter.filter.helper.MagicFilterType;
 
 public class MagicFilterFactory{
 	

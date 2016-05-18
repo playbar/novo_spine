@@ -1,4 +1,4 @@
-package com.seu.magicfilter.filter.helper;
+package com.seu.magicfilter.filter.base;
 
 import javax.microedition.khronos.opengles.GL10;
 

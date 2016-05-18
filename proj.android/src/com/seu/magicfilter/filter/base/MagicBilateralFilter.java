@@ -11,7 +11,6 @@ import android.opengl.GLES20;
 
 import com.novo.spine.R;
 import com.seu.magicfilter.filter.base.gpuimage.GPUImageFilter;
-import com.seu.magicfilter.filter.helper.MagicFilterParam;
 import com.seu.magicfilter.utils.OpenGLUtils;
 
 

@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.novo.spine.R;
-import com.seu.magicfilter.display.MagicImageDisplay;
-import com.seu.magicfilter.filter.helper.MagicFilterType;
+import com.seu.magicfilter.camera.MagicImageDisplay;
+import com.seu.magicfilter.filter.base.MagicFilterType;
 
 public class ImageEditFilterView extends ImageEditFragment{
 	
