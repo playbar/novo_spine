@@ -20,3 +20,4 @@ cocos2d/cocos/platform/android/java/bin/
 proj.android/libs/
 proj.android/.settings/org.eclipse.jdt.core.prefs
 proj.android/lint.xml
+proj.android/assets/
