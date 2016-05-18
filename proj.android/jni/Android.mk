@@ -15,7 +15,11 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/HelloWorldScene.cpp \
                    ../../Classes/DrawNode3D.cpp \
-                   ../../Classes/VisibleRect.cpp
+                   ../../Classes/VisibleRect.cpp \
+                   MagicSDK.cpp \
+				   bitmap/BitmapOperation.cpp \
+				   bitmap/Conversion.cpp \
+				   skinsmooth/MagicBeauty.cpp 
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
@@ -24,6 +28,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
 
 LOCAL_STATIC_LIBRARIES := cocos2dx_static
+LOCAL_LDFLAGS += -ljnigraphics
 
 # _COCOS_LIB_ANDROID_BEGIN
 # _COCOS_LIB_ANDROID_END
