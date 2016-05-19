@@ -43,6 +43,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
+import tv.danmaku.ijk.media.player.widget.IjkVideoView;
 
 import org.cocos2dx.lib.Cocos2dxHelper.Cocos2dxHelperListener;
 
@@ -63,6 +64,7 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
     // ===========================================================
     // Fields
     // ===========================================================
+    private IjkVideoView mIjkVideoView = null;
     private MagicCameraDisplay mMagicCameraDisplay;
     private Cocos2dxRenderer mRenderer;
     private Cocos2dxGLSurfaceView mGLSurfaceView = null;
@@ -317,6 +319,10 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
 		{
 			mMagicCameraDisplay.onResume();
 		}
+    	if( mIjkVideoView != null){
+    		mIjkVideoView.setVideoPath("rtmp://down.17ace.tv/live/9377");
+    		mIjkVideoView.start();
+    	}
     }
     
     @Override
@@ -422,11 +428,28 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
         mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         
         // Set framelayout as the content view
-        GLSurfaceView glSurfaceView = new GLSurfaceView(this);
-        mFrameLayout.addView(glSurfaceView);
-        setContentView(mFrameLayout);
         
-        mMagicCameraDisplay = new MagicCameraDisplay(this, glSurfaceView);
+        if( true )
+        {
+        	mIjkVideoView = new IjkVideoView(this);
+        	ViewGroup.LayoutParams layout_params =
+        		new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                 ViewGroup.LayoutParams.WRAP_CONTENT);
+        	mIjkVideoView.setLayoutParams(layout_params);
+        	mFrameLayout.addView(mIjkVideoView);
+        }
+        else{
+            GLSurfaceView glSurfaceView = new GLSurfaceView(this);
+        	mFrameLayout.addView(glSurfaceView);
+        	mMagicCameraDisplay = new MagicCameraDisplay(this, glSurfaceView);
+        }
+        
+ 
+        setContentView(mFrameLayout);
+       
+    	
+        
+        
 		return;
     }
 
