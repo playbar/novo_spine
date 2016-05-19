@@ -87,6 +87,8 @@ bool HelloWorld::init()
     this->addChild(label, 1);
 
 	InitSkeleton();
+	InitShapSkeleton();
+	TestParticle();
 
 	//initSprite3D();
 
@@ -151,6 +153,66 @@ void HelloWorld::InitSkeleton()
 	};
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
+}
+
+
+void HelloWorld::InitShapSkeleton()
+{
+	skeletonShip = SkeletonAnimation::createWithFile("spine/powerup.json", "spine/powerup.atlas", 0.6f);
+	//skeletonShip = SkeletonAnimation::createWithFile("D:/test/spine/ship.json", "D:/test/spine/ship.atlas", 0.6f);
+	skeletonShip->setScale(1);
+
+	skeletonShip->setStartListener([this](int trackIndex) {
+		spTrackEntry* entry = spAnimationState_getCurrent(skeletonShip->getState(), trackIndex);
+		const char* animationName = (entry && entry->animation) ? entry->animation->name : 0;
+		log("%d start: %s", trackIndex, animationName);
+	});
+	skeletonShip->setEndListener([](int trackIndex) {
+		log("%d end", trackIndex);
+	});
+	skeletonShip->setCompleteListener([](int trackIndex, int loopCount) {
+		log("%d complete: %d", trackIndex, loopCount);
+	});
+	skeletonShip->setEventListener([](int trackIndex, spEvent* event) {
+		log("%d event: %s, %d, %f, %s", trackIndex, event->data->name, event->intValue, event->floatValue, event->stringValue);
+	});
+
+	skeletonShip->setMix("walk", "jump", 0.2f);
+	skeletonShip->setMix("jump", "run", 0.2f);
+	skeletonShip->setAnimation(0, "animation", true);
+	spTrackEntry* jumpEntry = skeletonShip->addAnimation(0, "jump", false, 3);
+	skeletonShip->addAnimation(0, "run", true);
+
+	Size windowSize = Director::getInstance()->getWinSize();
+	skeletonShip->setPosition(Vec2(windowSize.width / 2, 40));
+
+	addChild(skeletonShip, 2);
+	scheduleUpdate();
+
+	EventListenerTouchOneByOne* listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = [this](Touch* touch, Event* event) -> bool {
+		if (!skeletonShip->getDebugBonesEnabled())
+			skeletonShip->setDebugBonesEnabled(true);
+		else if (skeletonShip->getTimeScale() == 1)
+			skeletonShip->setTimeScale(0.3f);
+		else
+		{
+			skeletonShip->setTimeScale(1);
+			skeletonShip->setDebugBonesEnabled(false);
+		}
+
+		return true;
+	};
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+}
+
+void HelloWorld::TestParticle()
+{
+	_emitter = ParticleSystemQuad::create("Particles/SmallSun.plist");
+	_emitter->setPosition(400, 200);
+	_emitter->retain();
+	addChild(_emitter, 10);
 }
 
 void HelloWorld::initSprite3D()

@@ -23,3 +23,4 @@ proj.android/lint.xml
 proj.android/assets/
 proj.android/.externalToolBuilders/
 proj.android/gen/
+*.prefs

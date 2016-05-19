@@ -9,8 +9,13 @@ class HelloWorld : public cocos2d::Layer
 
 private:
 	spine::SkeletonAnimation* skeletonNode;
+	spine::SkeletonAnimation* skeletonShip;
 
 	void InitSkeleton();
+	void InitShapSkeleton();
+
+	cocos2d::ParticleSystemQuad* _emitter;
+	void TestParticle();
 
 private:
 	void initSprite3D();
