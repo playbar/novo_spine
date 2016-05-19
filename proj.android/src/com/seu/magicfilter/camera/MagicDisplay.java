@@ -21,44 +21,44 @@ import com.seu.magicfilter.utils.TextureRotationUtil;
 
 public abstract class MagicDisplay implements Renderer{
 	/**
-	 * ËùÑ¡ÔñµÄÂË¾µ£¬ÀàÐÍÎªMagicBaseGroupFilter
-	 * 1.mCameraInputFilter½«SurfaceTextureÖÐYUVÊý¾Ý»æÖÆµ½FrameBuffer
-	 * 2.mFilters½«FrameBufferÖÐµÄÎÆÀí»æÖÆµ½ÆÁÄ»ÖÐ
+	 * ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªMagicBaseGroupFilter
+	 * 1.mCameraInputFilterï¿½ï¿½SurfaceTextureï¿½ï¿½YUVï¿½ï¿½ï¿½Ý»ï¿½ï¿½Æµï¿½FrameBuffer
+	 * 2.mFiltersï¿½ï¿½FrameBufferï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ä»ï¿½ï¿½
 	 */
 	protected GPUImageFilter mFilters;
 	
 	/**
-	 * ËùÓÐÔ¤ÀÀÊý¾Ý»æÖÆ»­Ãæ
+	 * ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½Ý»ï¿½ï¿½Æ»ï¿½ï¿½ï¿½
 	 */
 	protected final GLSurfaceView mGLSurfaceView;
 	
 	/**
-	 * SurfaceTexureÎÆÀíid
+	 * SurfaceTexureï¿½ï¿½ï¿½ï¿½id
 	 */
 	protected int mTextureId = OpenGLUtils.NO_TEXTURE;
 	
 	/**
-	 * ¶¥µã×ø±ê
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	protected final FloatBuffer mGLCubeBuffer;
 	
 	/**
-	 * ÎÆÀí×ø±ê
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	protected final FloatBuffer mGLTextureBuffer;
 	
 	/**
-	 * ÅÄÕÕ±£´æ
+	 * ï¿½ï¿½ï¿½Õ±ï¿½ï¿½ï¿½
 	 */
 	protected SaveTask mSaveTask;
 	
 	/**
-	 * GLSurfaceViewµÄ¿í¸ß
+	 * GLSurfaceViewï¿½Ä¿ï¿½ï¿½
 	 */
 	protected int mSurfaceWidth, mSurfaceHeight;
 	
 	/**
-	 * Í¼Ïñ¿í¸ß
+	 * Í¼ï¿½ï¿½ï¿½ï¿½
 	 */
 	protected int mImageWidth, mImageHeight;
 	
@@ -83,14 +83,14 @@ public abstract class MagicDisplay implements Renderer{
                 .asFloatBuffer();
         mGLTextureBuffer.put(TextureRotationUtil.TEXTURE_NO_ROTATION).position(0);
 
-		//mGLSurfaceView.setEGLContextClientVersion(2);
-		//mGLSurfaceView.setRenderer(this);
-		//mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+		mGLSurfaceView.setEGLContextClientVersion(2);
+		mGLSurfaceView.setRenderer(this);
+		mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 	}
 	
 	/**
-	 * ÉèÖÃÂË¾µ
-	 * @param ²ÎÊýÀàÐÍ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ë¾ï¿½
+	 * @param ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void setFilter(final int filterType) {
 		mGLSurfaceView.queueEvent(new Runnable() {

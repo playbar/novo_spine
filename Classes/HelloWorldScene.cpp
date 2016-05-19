@@ -87,8 +87,8 @@ bool HelloWorld::init()
     this->addChild(label, 1);
 
 	InitSkeleton();
-	InitShapSkeleton();
-	TestParticle();
+	//InitShapSkeleton();
+	//TestParticle();
 
 	//initSprite3D();
 

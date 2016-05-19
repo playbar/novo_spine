@@ -63,7 +63,8 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
     // ===========================================================
     // Fields
     // ===========================================================
-    private Cocos2dxRenderer mMagicCameraDisplay;
+    private MagicCameraDisplay mMagicCameraDisplay;
+    private Cocos2dxRenderer mRenderer;
     private Cocos2dxGLSurfaceView mGLSurfaceView = null;
     private int[] mGLContextAttrs = null;
     private Cocos2dxHandler mHandler = null;   
@@ -402,6 +403,10 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
 
         // Cocos2dxGLSurfaceView
         this.mGLSurfaceView = this.onCreateView();
+        mGLSurfaceView.setZOrderOnTop(true);
+        mGLSurfaceView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
+        mGLSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+        
         //FrameLayout.LayoutParams params = new LayoutParams(Constants.mScreenWidth, Constants.mScreenHeight);
         //mGLSurfaceView.setLayoutParams(params);	
 
@@ -412,18 +417,16 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
         if (isAndroidEmulator())
            this.mGLSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
 
-        //mGLSurfaceView.setEGLContextClientVersion(2);
-        
-        //this.mGLSurfaceView.setCocos2dxRenderer(mMagicCameraDisplay);
+        this.mGLSurfaceView.setCocos2dxRenderer(new Cocos2dxRenderer());
         //this.mGLSurfaceView.setCocos2dxEditText(edittext);
-        //mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+        mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         
         // Set framelayout as the content view
+        GLSurfaceView glSurfaceView = new GLSurfaceView(this);
+        mFrameLayout.addView(glSurfaceView);
         setContentView(mFrameLayout);
-        mMagicCameraDisplay = new Cocos2dxRenderer(this, mGLSurfaceView);
-        mGLSurfaceView.setEGLContextClientVersion(2);
-		mGLSurfaceView.setCocos2dxRenderer(mMagicCameraDisplay);
-		mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+        
+        mMagicCameraDisplay = new MagicCameraDisplay(this, glSurfaceView);
 		return;
     }
 

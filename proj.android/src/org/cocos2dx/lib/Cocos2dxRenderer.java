@@ -51,7 +51,7 @@ import com.seu.magicfilter.utils.SaveTask;
 import com.seu.magicfilter.utils.TextureRotationUtil;
 import com.seu.magicfilter.utils.SaveTask.onPictureSaveListener;
 
-public class Cocos2dxRenderer extends MagicDisplay {
+public class Cocos2dxRenderer implements Renderer  {
     // ===========================================================
     // Constants
     // ===========================================================
@@ -61,8 +61,6 @@ public class Cocos2dxRenderer extends MagicDisplay {
 
     private static long sAnimationInterval = (long) (1.0 / 60 * Cocos2dxRenderer.NANOSECONDSPERSECOND);
     
-    private final MagicCameraInputFilter mCameraInputFilter;
-    private SurfaceTexture mSurfaceTexture;
 
     // ===========================================================
     // Fields
@@ -76,10 +74,6 @@ public class Cocos2dxRenderer extends MagicDisplay {
     // ===========================================================
     // Constructors
     // ===========================================================
-	public Cocos2dxRenderer(Context context, GLSurfaceView glSurfaceView){
-		super(context, glSurfaceView);
-		mCameraInputFilter = new MagicCameraInputFilter();
-	}
 
     // ===========================================================
     // Getter & Setter
@@ -103,24 +97,13 @@ public class Cocos2dxRenderer extends MagicDisplay {
         Cocos2dxRenderer.nativeInit(this.mScreenWidth, this.mScreenHeight);
         this.mLastTickInNanoSeconds = System.nanoTime();
         mNativeInitCompleted = true;
-        
-		GLES20.glDisable(GL10.GL_DITHER);
-        GLES20.glClearColor(0,0,0,0);
-        GLES20.glEnable(GL10.GL_CULL_FACE);
-        GLES20.glEnable(GL10.GL_DEPTH_TEST);
-        MagicFilterParam.initMagicFilterParam(gl);
-        mCameraInputFilter.init();
-        
+           
     }
 
     @Override
     public void onSurfaceChanged(final GL10 GL10, final int width, final int height) {
         Cocos2dxRenderer.nativeOnSurfaceChanged(width, height);
-        
-		GLES20.glViewport(0, 0, width, height);
-		mSurfaceWidth = width;
-		mSurfaceHeight = height;
-		onFilterChanged();
+       
 		
     }
 
@@ -133,17 +116,6 @@ public class Cocos2dxRenderer extends MagicDisplay {
     	GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
 		
-		mSurfaceTexture.updateTexImage();
-		float[] mtx = new float[16];
-		mSurfaceTexture.getTransformMatrix(mtx);
-		mCameraInputFilter.setTextureTransformMatrix(mtx);
-		if(mFilters == null){
-			mCameraInputFilter.onDrawFrame(mTextureId, mGLCubeBuffer, mGLTextureBuffer);
-		}else{
-			int textureID = mCameraInputFilter.onDrawToTexture(mTextureId);	
-			mFilters.onDrawFrame(textureID, mGLCubeBuffer, mGLTextureBuffer);
-		}
-	
 		
         if (sAnimationInterval <= 1.0 / 60 * Cocos2dxRenderer.NANOSECONDSPERSECOND) {
             Cocos2dxRenderer.nativeRender();
@@ -168,99 +140,6 @@ public class Cocos2dxRenderer extends MagicDisplay {
 		return;
     }
 
-	private OnFrameAvailableListener mOnFrameAvailableListener = new OnFrameAvailableListener() {
-		
-		@Override
-		public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-			// TODO Auto-generated method stub
-			mGLSurfaceView.requestRender();
-		}
-	};
-	
-	private void setUpCamera(){
-		mGLSurfaceView.queueEvent(new Runnable() {
-       		
-            @Override
-            public void run() {
-            	if(mTextureId == OpenGLUtils.NO_TEXTURE){
-        			mTextureId = OpenGLUtils.getExternalOESTextureID();	
-        			mSurfaceTexture = new SurfaceTexture(mTextureId);
-    				mSurfaceTexture.setOnFrameAvailableListener(mOnFrameAvailableListener);   
-            	}
-            	Size size = CameraEngine.getPreviewSize();
-    			int orientation = CameraEngine.getOrientation();
-    			if(orientation == 90 || orientation == 270){
-    				mImageWidth = size.height;
-    				mImageHeight = size.width;
-    			}else{
-    				mImageWidth = size.width;
-    				mImageHeight = size.height;
-    			} 
-    			mCameraInputFilter.onOutputSizeChanged(mImageWidth, mImageHeight);
-            	CameraEngine.startPreview(mSurfaceTexture);
-            }
-        });
-    }
-	
-	protected void onFilterChanged(){
-		super.onFilterChanged();
-		mCameraInputFilter.onDisplaySizeChanged(mSurfaceWidth, mSurfaceHeight);
-		if(mFilters != null)
-			mCameraInputFilter.initCameraFrameBuffer(mImageWidth, mImageHeight);
-		else
-			mCameraInputFilter.destroyFramebuffers();
-	}
-	
-	public void onResume(){
-		super.onResume();
-		if(CameraEngine.getCamera() == null)
-        	CameraEngine.openCamera();
-		if(CameraEngine.getCamera() != null){
-			boolean flipHorizontal = CameraEngine.isFlipHorizontal();
-			adjustPosition(CameraEngine.getOrientation(),flipHorizontal,!flipHorizontal);
-		}
-		setUpCamera();
-	}
-	
-	public void onPause(){
-		super.onPause();
-		CameraEngine.releaseCamera();
-	}
-
-	public void onDestroy(){
-		super.onDestroy();
-	}
-
-	public void onTakePicture(File file, onPictureSaveListener listener,ShutterCallback shutterCallback){
-		CameraEngine.setRotation(90);
-		mSaveTask = new SaveTask(mContext, file, listener);
-		CameraEngine.takePicture(shutterCallback, null, mPictureCallback);
-	}
-	
-	private PictureCallback mPictureCallback = new PictureCallback() {
-		
-		@Override
-		public void onPictureTaken(final byte[] data,Camera camera) {
-			Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
-			if(mFilters != null){
-				getBitmapFromGL(bitmap, true);
-			}else{
-				mSaveTask.execute(bitmap);   
-			}
-		}
-	};
-	
-	protected void onGetBitmapFromGL(Bitmap bitmap){
-		mSaveTask.execute(bitmap);
-	}
-	
-	private void adjustPosition(int orientation, boolean flipHorizontal,boolean flipVertical) {
-        Rotation mRotation = Rotation.fromInt(orientation);
-        float[] textureCords = TextureRotationUtil.getRotation(mRotation, flipHorizontal, flipVertical);
-        mGLTextureBuffer.clear();
-        mGLTextureBuffer.put(textureCords).position(0);
-    }			
-    
     
     // ===========================================================
     // Methods
