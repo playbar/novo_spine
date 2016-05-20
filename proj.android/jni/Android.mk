@@ -9,7 +9,7 @@ $(call import-add-path,$(LOCAL_PATH)/../../cocos2d/cocos/audio/include)
 
 LOCAL_MODULE := MyGame_shared
 
-LOCAL_MODULE_FILENAME := libMyGame
+LOCAL_MODULE_FILENAME := libnovo
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
