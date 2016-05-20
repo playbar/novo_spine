@@ -320,7 +320,7 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
 			mMagicCameraDisplay.onResume();
 		}
     	if( mIjkVideoView != null){
-    		mIjkVideoView.setVideoPath("rtmp://down.17ace.tv/live/7003");
+    		mIjkVideoView.setVideoPath("rtmp://down.17ace.tv/live/9377");
     		mIjkVideoView.start();
     	}
     }

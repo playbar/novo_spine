@@ -351,6 +351,8 @@ public:
      */
     virtual void startAnimation() = 0;
 
+	void Clear();
+
     /** Draw the scene.
      * This method is called every frame. Don't call it manually.
      */

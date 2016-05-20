@@ -89,7 +89,7 @@ int Application::run()
         if (nNow.QuadPart - nLast.QuadPart > _animationInterval.QuadPart)
         {
             nLast.QuadPart = nNow.QuadPart - (nNow.QuadPart % _animationInterval.QuadPart);
-            
+			director->Clear();
             director->mainLoop();
             glview->pollEvents();
         }

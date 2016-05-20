@@ -13,7 +13,7 @@ LOCAL_MODULE_FILENAME := libnovo
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp \
+                   ../../Classes/NovoScene.cpp \
                    ../../Classes/DrawNode3D.cpp \
                    ../../Classes/VisibleRect.cpp \
                    MagicSDK.cpp \
