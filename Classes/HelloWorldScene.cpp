@@ -132,7 +132,7 @@ void HelloWorld::InitSkeleton()
 	skeletonNode->addAnimation(0, "run", true);
 
 	Size windowSize = Director::getInstance()->getWinSize();
-	skeletonNode->setPosition(Vec2(windowSize.width / 2, 400));
+	skeletonNode->setPosition(Vec2(windowSize.width / 2, 200));
 
 	addChild(skeletonNode, 2);
 	scheduleUpdate();
