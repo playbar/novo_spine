@@ -3,8 +3,8 @@
 #include "VisibleRect.h"
 #include "spine/spine.h"
 #include "base/ccMacros.h"
-#include "des_lib.h"
-#include "aes.h"
+//#include "des_lib.h"
+//#include "aes.h"
 #include "PlayInfo.h"
 
 USING_NS_CC;
@@ -70,24 +70,24 @@ void NovoLayer::TestCryption(){
     
     //DecryptionFile( fullpath.c_str(), "novo", decryPath.c_str() );
     
-    FILE *file;
-    file = fopen(fullpath.c_str(), "rb");
-    fseek( file, 0, SEEK_END);
-    uint32_t ilen = ftell(file);
-    rewind( file);
-    CSimpleBuffer inbuffer;
-    CSimpleBuffer outbuffer;
-    inbuffer.Extend(ilen);
-    char temp[1000] = {0};
-    fread( temp, ilen, 1, file);
-    inbuffer.Write(temp, ilen);
-    inbuffer.SetDatalen( ilen );
-    //inbuffer.IncWriteOffset(ilen);
-    fclose(file);
-    CSimpleBuffer enBuffer;
-    //Encryption( &inbuffer, "novo", &enBuffer);
-    
-    Decryption( &inbuffer, "novo", &outbuffer );
+//    FILE *file;
+//    file = fopen(fullpath.c_str(), "rb");
+//    fseek( file, 0, SEEK_END);
+//    uint32_t ilen = ftell(file);
+//    rewind( file);
+//    CSimpleBuffer inbuffer;
+//    CSimpleBuffer outbuffer;
+//    inbuffer.Extend(ilen);
+//    char temp[1000] = {0};
+//    fread( temp, ilen, 1, file);
+//    inbuffer.Write(temp, ilen);
+//    inbuffer.SetDatalen( ilen );
+//    //inbuffer.IncWriteOffset(ilen);
+//    fclose(file);
+//    CSimpleBuffer enBuffer;
+//    //Encryption( &inbuffer, "novo", &enBuffer);
+//    
+//    Decryption( &inbuffer, "novo", &outbuffer );
     
     
     
@@ -97,20 +97,24 @@ void NovoLayer::TestCryption(){
 
 void NovoLayer::TestAES(){
     
-    char temp[] = "test";
-    char out1[20] = {0};
-    char out2[20] ={0};
-    char key[] = "novo";
-    AES_KEY aes;
-    if(AES_set_encrypt_key((unsigned char*)key, 128, &aes) < 0)
-    {
-        return;
-    }
+//    char temp[] = "test";
+//    char out1[20] = {0};
+//    char out2[20] ={0};
+//    char key[] = "novo";
+//    AES_KEY aes;
+//    if(AES_set_encrypt_key((unsigned char*)key, 128, &aes) < 0)
+//    {
+//        return;
+//    }
+//    
+//    AES_encrypt((unsigned char*)temp, (unsigned char*)out1, &aes);
+//    
+//    AES_decrypt( (unsigned char*)out1, (unsigned char*)out2, &aes );
+//    return;
     
-    AES_encrypt((unsigned char*)temp, (unsigned char*)out1, &aes);
-    
-    AES_decrypt( (unsigned char*)out1, (unsigned char*)out2, &aes );
-    return;
+}
+
+void NovoLayer::LoadSkeleton(){
     
 }
 

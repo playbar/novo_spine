@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04C144F11CF290D800E02CEA /* des_lib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C144EF1CF290D800E02CEA /* des_lib.cpp */; };
-		04C144F61CF2914E00E02CEA /* UtilPdu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C144F41CF2914E00E02CEA /* UtilPdu.cpp */; };
-		04C144FA1CF2BC3100E02CEA /* aes_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C144F71CF2BC3100E02CEA /* aes_core.cpp */; };
 		04C749641CEEA91B00FFF14C /* DrawNode3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C749601CEEA91B00FFF14C /* DrawNode3D.cpp */; };
 		04C749651CEEA91B00FFF14C /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C749621CEEA91B00FFF14C /* VisibleRect.cpp */; };
 		04C749691CEEAA1200FFF14C /* Particles in Resources */ = {isa = PBXBuildFile; fileRef = 04C749661CEEAA1200FFF14C /* Particles */; };
@@ -28,6 +25,8 @@
 		04C7498A1CEEB02300FFF14C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04C7497F1CEEB02300FFF14C /* Default@2x.png */; };
 		04C7498B1CEEB02300FFF14C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04C7497F1CEEB02300FFF14C /* Default@2x.png */; };
 		04CD0A591CF2D494004D01A3 /* PlayInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD0A571CF2D494004D01A3 /* PlayInfo.cpp */; };
+		04CD0A5D1CF2EBC7004D01A3 /* SkeletonAbstract.h in Sources */ = {isa = PBXBuildFile; fileRef = 04CD0A5B1CF2EBC7004D01A3 /* SkeletonAbstract.h */; };
+		04CD0A601CF2F342004D01A3 /* SkeletonInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD0A5E1CF2F342004D01A3 /* SkeletonInfo.cpp */; };
 		04D360A31CEFCEA7000A0582 /* NovoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D360A11CEFCEA7000A0582 /* NovoScene.cpp */; };
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
@@ -123,14 +122,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04C144EF1CF290D800E02CEA /* des_lib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = des_lib.cpp; sourceTree = "<group>"; };
-		04C144F01CF290D800E02CEA /* des_lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des_lib.h; sourceTree = "<group>"; };
-		04C144F31CF2910C00E02CEA /* ostype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ostype.h; sourceTree = "<group>"; };
-		04C144F41CF2914E00E02CEA /* UtilPdu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UtilPdu.cpp; sourceTree = "<group>"; };
-		04C144F51CF2914E00E02CEA /* UtilPdu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilPdu.h; sourceTree = "<group>"; };
-		04C144F71CF2BC3100E02CEA /* aes_core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = aes_core.cpp; sourceTree = "<group>"; };
-		04C144F81CF2BC3100E02CEA /* aes_locl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes_locl.h; sourceTree = "<group>"; };
-		04C144F91CF2BC3100E02CEA /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
 		04C749601CEEA91B00FFF14C /* DrawNode3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawNode3D.cpp; sourceTree = "<group>"; };
 		04C749611CEEA91B00FFF14C /* DrawNode3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawNode3D.h; sourceTree = "<group>"; };
 		04C749621CEEA91B00FFF14C /* VisibleRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisibleRect.cpp; sourceTree = "<group>"; };
@@ -146,6 +137,10 @@
 		04C7497F1CEEB02300FFF14C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		04CD0A571CF2D494004D01A3 /* PlayInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayInfo.cpp; sourceTree = "<group>"; };
 		04CD0A581CF2D494004D01A3 /* PlayInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayInfo.h; sourceTree = "<group>"; };
+		04CD0A5B1CF2EBC7004D01A3 /* SkeletonAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonAbstract.h; sourceTree = "<group>"; };
+		04CD0A5C1CF2EBC7004D01A3 /* SkeletonInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonInterface.h; sourceTree = "<group>"; };
+		04CD0A5E1CF2F342004D01A3 /* SkeletonInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonInfo.cpp; sourceTree = "<group>"; };
+		04CD0A5F1CF2F342004D01A3 /* SkeletonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonInfo.h; sourceTree = "<group>"; };
 		04D360A11CEFCEA7000A0582 /* NovoScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovoScene.cpp; sourceTree = "<group>"; };
 		04D360A21CEFCEA7000A0582 /* NovoScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovoScene.h; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
@@ -337,22 +332,18 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				04CD0A5E1CF2F342004D01A3 /* SkeletonInfo.cpp */,
+				04CD0A5F1CF2F342004D01A3 /* SkeletonInfo.h */,
+				04CD0A5B1CF2EBC7004D01A3 /* SkeletonAbstract.h */,
+				04CD0A5C1CF2EBC7004D01A3 /* SkeletonInterface.h */,
 				04CD0A571CF2D494004D01A3 /* PlayInfo.cpp */,
 				04CD0A581CF2D494004D01A3 /* PlayInfo.h */,
-				04C144F71CF2BC3100E02CEA /* aes_core.cpp */,
-				04C144F81CF2BC3100E02CEA /* aes_locl.h */,
-				04C144F91CF2BC3100E02CEA /* aes.h */,
-				04C144EF1CF290D800E02CEA /* des_lib.cpp */,
-				04C144F01CF290D800E02CEA /* des_lib.h */,
-				04C144F31CF2910C00E02CEA /* ostype.h */,
 				04D360A11CEFCEA7000A0582 /* NovoScene.cpp */,
 				04D360A21CEFCEA7000A0582 /* NovoScene.h */,
 				04C749601CEEA91B00FFF14C /* DrawNode3D.cpp */,
 				04C749611CEEA91B00FFF14C /* DrawNode3D.h */,
 				04C749621CEEA91B00FFF14C /* VisibleRect.cpp */,
 				04C749631CEEA91B00FFF14C /* VisibleRect.h */,
-				04C144F41CF2914E00E02CEA /* UtilPdu.cpp */,
-				04C144F51CF2914E00E02CEA /* UtilPdu.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 			);
@@ -565,15 +556,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C749641CEEA91B00FFF14C /* DrawNode3D.cpp in Sources */,
-				04C144F61CF2914E00E02CEA /* UtilPdu.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				04D360A31CEFCEA7000A0582 /* NovoScene.cpp in Sources */,
-				04C144FA1CF2BC3100E02CEA /* aes_core.cpp in Sources */,
 				04C749651CEEA91B00FFF14C /* VisibleRect.cpp in Sources */,
-				04C144F11CF290D800E02CEA /* des_lib.cpp in Sources */,
+				04CD0A601CF2F342004D01A3 /* SkeletonInfo.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				04CD0A5D1CF2EBC7004D01A3 /* SkeletonAbstract.h in Sources */,
 				04CD0A591CF2D494004D01A3 /* PlayInfo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

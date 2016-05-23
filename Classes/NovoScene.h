@@ -10,6 +10,8 @@ class NovoLayer : public cocos2d::Layer
 private:
 	spine::SkeletonAnimation* skeletonNode;
 	spine::SkeletonAnimation* skeletonShip;
+    
+    void LoadSkeleton();
 
 	void InitSkeleton(const std::string& skeletonDataFile, const std::string& atlasFile, float scale);
 	void InitShapSkeleton();
