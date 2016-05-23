@@ -4,7 +4,7 @@
 
 class SkeletonInterface{
 public:
-    virtual void excecute() = 0;
+    virtual void loadSkeletonFile() = 0;
 };
 
 

@@ -1,6 +1,19 @@
 #ifndef __PLAYINFO_H__
 #define __PALYINFO_H__
 
+#include "set"
+#include "string"
+
+struct SkeletonNode{
+    std::string mSkeletonDataFile;
+    std::string mAtlasFile;
+    
+    float mposx;
+    float mposy;
+    std::set<std::string, bool> mAnimation;
+    std::set<std::string, std::string>mMix;
+    
+};
 
 class PlayInfo{
 public:
@@ -21,6 +34,8 @@ private:
     static PlayInfo *m_sInit;
     PlayInfo(){};
     bool Init();
+    
+    //std::vector<SkeletonNode> mSkeletonNode;
     
     std::string mSkeletonDataFile;
     std::string mAtlasFile;
