@@ -3,6 +3,9 @@
 #include "VisibleRect.h"
 #include "spine/spine.h"
 #include "base/ccMacros.h"
+#include "des_lib.h"
+#include "aes.h"
+#include "PlayInfo.h"
 
 USING_NS_CC;
 using namespace spine;
@@ -26,11 +29,7 @@ Scene* NovoLayer::createScene()
 bool NovoLayer::init()
 {
     //////////////////////////////
-    // 1. super init first
-    //if ( !LayerColor::initWithColor(ccc4(255,255,255,255)))
-    //{
-    //    return false;
-    //}
+ 
 	if (!Layer::init()){
 		return false;
 	}
@@ -38,44 +37,6 @@ bool NovoLayer::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(NovoLayer::menuCloseCallback, this));
-
-    std::string filePath =  FileUtils::getInstance()->getWritablePath();
-    log("writeablePath:%s", filePath.c_str());
-    
-    FILE *pfile = fopen("/data/data/com.novo.spine/files/test.txt", "r");
-    if( pfile ){
-    	char temp[10] = {0};
-    	fread( temp, 4, 1, pfile);
-    	//fwrite("test", 4, 1, pfile);
-    	fclose(pfile);
-    	log("ok  %s*************", temp );
-    }
-    else{
-    	log("fail *************");
-    }
-
-    closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                                origin.y + closeItem->getContentSize().height/2));
-
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
-
-    /////////////////////////////
-    // 3. add your codes below...
-
-    // add a label shows "Hello World"
-    // create and initialize a label
     
     auto label = Label::createWithTTF("spine test", "fonts/Marker Felt.ttf", 24);
     
@@ -85,18 +46,16 @@ bool NovoLayer::init()
 
     // add the label as a child to this layer
     this->addChild(label, 1);
+    
+    PlayInfo *pInfo = PlayInfo::getInstance();
 
-	InitSkeleton();
+	InitSkeleton(pInfo->getSkeletonDataFile(), pInfo->getAtlasFile(), 1.0f);
+    //TestAES();
+    //TestCryption();
 	//InitShapSkeleton();
 	//TestParticle();
 
 	//initSprite3D();
-
-    // add "HelloWorld" splash screen"
-    //Sprite* sprite = Sprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    //sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
     // add the sprite as a child to this layer
     //this->addChild(sprite, 0);
@@ -104,11 +63,62 @@ bool NovoLayer::init()
     return true;
 }
 
-void NovoLayer::InitSkeleton()
+void NovoLayer::TestCryption(){
+    std::string fullpath = FileUtils::getInstance()->fullPathForFilename("spine/bei-des");
+    //std::string decryPath = FileUtils::getInstance()->fullPathForFilename("spine/test.test");
+//    std::string decryPath ="/Users/mac/Library/Developer/CoreSimulator/Devices/947A04EA-C7E5-454B-97CD-262848B70D87/data/Containers/Bundle/Application/D0C71562-6F40-4F8A-861F-9D2D81BBDDFC/novo_spine-mobile.app/spine/test.test";
+    
+    //DecryptionFile( fullpath.c_str(), "novo", decryPath.c_str() );
+    
+    FILE *file;
+    file = fopen(fullpath.c_str(), "rb");
+    fseek( file, 0, SEEK_END);
+    uint32_t ilen = ftell(file);
+    rewind( file);
+    CSimpleBuffer inbuffer;
+    CSimpleBuffer outbuffer;
+    inbuffer.Extend(ilen);
+    char temp[1000] = {0};
+    fread( temp, ilen, 1, file);
+    inbuffer.Write(temp, ilen);
+    inbuffer.SetDatalen( ilen );
+    //inbuffer.IncWriteOffset(ilen);
+    fclose(file);
+    CSimpleBuffer enBuffer;
+    //Encryption( &inbuffer, "novo", &enBuffer);
+    
+    Decryption( &inbuffer, "novo", &outbuffer );
+    
+    
+    
+    return;
+
+}
+
+void NovoLayer::TestAES(){
+    
+    char temp[] = "test";
+    char out1[20] = {0};
+    char out2[20] ={0};
+    char key[] = "novo";
+    AES_KEY aes;
+    if(AES_set_encrypt_key((unsigned char*)key, 128, &aes) < 0)
+    {
+        return;
+    }
+    
+    AES_encrypt((unsigned char*)temp, (unsigned char*)out1, &aes);
+    
+    AES_decrypt( (unsigned char*)out1, (unsigned char*)out2, &aes );
+    return;
+    
+}
+
+void NovoLayer::InitSkeleton(const std::string& skeletonDataFile, const std::string& atlasFile, float scale)
 {
-	skeletonNode = SkeletonAnimation::createWithFile("spine/ship.json", "spine/ship.atlas", 0.6f);
-	//skeletonNode = SkeletonAnimation::createWithFile("D:/test/spine/ship.json", "D:/test/spine/ship.atlas", 0.6f);
-	skeletonNode->setScale(1);
+	//skeletonNode = SkeletonAnimation::createWithFile("spine/ship.json", "spine/ship.atlas", 1.0f);
+	skeletonNode = SkeletonAnimation::createWithFile(skeletonDataFile, atlasFile, scale);
+	skeletonNode->setScale(0.5f);
 
 	skeletonNode->setStartListener([this](int trackIndex) {
 		spTrackEntry* entry = spAnimationState_getCurrent(skeletonNode->getState(), trackIndex);

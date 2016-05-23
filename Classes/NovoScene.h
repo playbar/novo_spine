@@ -11,11 +11,14 @@ private:
 	spine::SkeletonAnimation* skeletonNode;
 	spine::SkeletonAnimation* skeletonShip;
 
-	void InitSkeleton();
+	void InitSkeleton(const std::string& skeletonDataFile, const std::string& atlasFile, float scale);
 	void InitShapSkeleton();
 
 	cocos2d::ParticleSystemQuad* _emitter;
 	void TestParticle();
+    
+    void TestCryption();
+    void TestAES();
 
 private:
 	void initSprite3D();
