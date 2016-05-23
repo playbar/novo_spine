@@ -29,6 +29,7 @@
 #import "RootViewController.h"
 #include "PlayInfo.h"
 
+
 @implementation AppController
 
 #pragma mark -
@@ -87,6 +88,10 @@ static AppDelegate s_sharedApplication;
     PlayInfo *pinfo = PlayInfo::getInstance();
     pinfo->setKeletonDataFile("spine/ship.json");
     pinfo->setAtlasFile("spine/ship.atlas");
+    
+    pinfo->setposx( 400);
+    pinfo->setposy(300 );
+    
 
     app->run();
 

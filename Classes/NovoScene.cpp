@@ -141,8 +141,8 @@ void NovoLayer::InitSkeleton(const std::string& skeletonDataFile, const std::str
 	spTrackEntry* jumpEntry = skeletonNode->addAnimation(0, "jump", false, 3);
 	skeletonNode->addAnimation(0, "run", true);
 
-	Size windowSize = Director::getInstance()->getWinSize();
-	skeletonNode->setPosition(Vec2(windowSize.width / 2, 200));
+    PlayInfo *pInfo = PlayInfo::getInstance();
+	skeletonNode->setPosition(Vec2(pInfo->getposx(), pInfo->getposy()));
 
 	addChild(skeletonNode, 2);
 	scheduleUpdate();
