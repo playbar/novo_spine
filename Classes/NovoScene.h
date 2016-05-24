@@ -7,13 +7,11 @@
 class NovoScene : public cocos2d::Scene
 {
 private:
-    NovoScene(){}
+    NovoScene();
+    virtual bool init();
     
 public:
     static cocos2d::Scene* createScene();
-
-    virtual bool init();
-    
     
     // implement the "static create()" method manually
     CREATE_FUNC(NovoScene);

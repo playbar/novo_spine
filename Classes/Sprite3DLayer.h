@@ -1,26 +1,12 @@
-#ifndef __NOVOLAYER_H__
-#define __NOVOLAYER_H__
+#ifndef __SPRITE3DLAYER_H__
+#define __SPRITE3DLAYER_H__
 
 #include "cocos2d.h"
 #include "spine/spine-cocos2dx.h"
 
-class NovoLayer : public cocos2d::Layer
+class Sprite3DLayer : public cocos2d::Layer
 {
 
-private:
-	spine::SkeletonAnimation* skeletonNode;
-	spine::SkeletonAnimation* skeletonShip;
-    
-    void LoadSkeleton();
-
-	void InitSkeleton(const std::string& skeletonDataFile, const std::string& atlasFile, float scale);
-	void InitShapSkeleton();
-
-	cocos2d::ParticleSystemQuad* _emitter;
-	void TestParticle();
-    
-    void TestCryption();
-    void TestAES();
 
 private:
 	void initSprite3D();
@@ -52,8 +38,7 @@ public:
     void menuCloseCallback(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
-    CREATE_FUNC(NovoLayer);
+    CREATE_FUNC(Sprite3DLayer);
 };
 
-#endif // __HELLOWORLD_SCENE_H__
-
+#endif //

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		04193E4E1CF3F0C20059A9D1 /* NovoLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04193E4C1CF3F0C20059A9D1 /* NovoLayer.cpp */; };
+		04796A641CF3F8D600869D77 /* ParticleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A621CF3F8D600869D77 /* ParticleLayer.cpp */; };
+		04796A681CF3FB9100869D77 /* Sprite3DLaye.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A661CF3FB9100869D77 /* Sprite3DLaye.cpp */; };
+		04796A6B1CF3FE7D00869D77 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A691CF3FE7D00869D77 /* VisibleRect.cpp */; };
 		04C749691CEEAA1200FFF14C /* Particles in Resources */ = {isa = PBXBuildFile; fileRef = 04C749661CEEAA1200FFF14C /* Particles */; };
 		04C7496A1CEEAA1200FFF14C /* spine in Resources */ = {isa = PBXBuildFile; fileRef = 04C749671CEEAA1200FFF14C /* spine */; };
 		04C7496B1CEEAA1200FFF14C /* Sprite3DTest in Resources */ = {isa = PBXBuildFile; fileRef = 04C749681CEEAA1200FFF14C /* Sprite3DTest */; };
@@ -121,6 +124,12 @@
 /* Begin PBXFileReference section */
 		04193E4C1CF3F0C20059A9D1 /* NovoLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovoLayer.cpp; sourceTree = "<group>"; };
 		04193E4D1CF3F0C20059A9D1 /* NovoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovoLayer.h; sourceTree = "<group>"; };
+		04796A621CF3F8D600869D77 /* ParticleLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleLayer.cpp; sourceTree = "<group>"; };
+		04796A631CF3F8D600869D77 /* ParticleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleLayer.h; sourceTree = "<group>"; };
+		04796A661CF3FB9100869D77 /* Sprite3DLaye.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite3DLaye.cpp; sourceTree = "<group>"; };
+		04796A671CF3FB9100869D77 /* Sprite3DLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite3DLayer.h; sourceTree = "<group>"; };
+		04796A691CF3FE7D00869D77 /* VisibleRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisibleRect.cpp; sourceTree = "<group>"; };
+		04796A6A1CF3FE7D00869D77 /* VisibleRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisibleRect.h; sourceTree = "<group>"; };
 		04C749661CEEAA1200FFF14C /* Particles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Particles; sourceTree = "<group>"; };
 		04C749671CEEAA1200FFF14C /* spine */ = {isa = PBXFileReference; lastKnownFileType = folder; path = spine; sourceTree = "<group>"; };
 		04C749681CEEAA1200FFF14C /* Sprite3DTest */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sprite3DTest; sourceTree = "<group>"; };
@@ -323,6 +332,12 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				04796A691CF3FE7D00869D77 /* VisibleRect.cpp */,
+				04796A6A1CF3FE7D00869D77 /* VisibleRect.h */,
+				04796A661CF3FB9100869D77 /* Sprite3DLaye.cpp */,
+				04796A671CF3FB9100869D77 /* Sprite3DLayer.h */,
+				04796A621CF3F8D600869D77 /* ParticleLayer.cpp */,
+				04796A631CF3F8D600869D77 /* ParticleLayer.h */,
 				04193E4C1CF3F0C20059A9D1 /* NovoLayer.cpp */,
 				04193E4D1CF3F0C20059A9D1 /* NovoLayer.h */,
 				04CD0A571CF2D494004D01A3 /* PlayInfo.cpp */,
@@ -543,8 +558,11 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				04796A641CF3F8D600869D77 /* ParticleLayer.cpp in Sources */,
+				04796A6B1CF3FE7D00869D77 /* VisibleRect.cpp in Sources */,
 				04D360A31CEFCEA7000A0582 /* NovoScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				04796A681CF3FB9100869D77 /* Sprite3DLaye.cpp in Sources */,
 				04193E4E1CF3F0C20059A9D1 /* NovoLayer.cpp in Sources */,
 				04CD0A591CF2D494004D01A3 /* PlayInfo.cpp in Sources */,
 			);

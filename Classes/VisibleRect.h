@@ -22,4 +22,5 @@ private:
     static cocos2d::Rect s_visibleRect;
 };
 
-#endif /* __VISIBLERECT_H__ */
+#endif 
+
