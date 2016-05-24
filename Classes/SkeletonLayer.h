@@ -9,13 +9,16 @@ class SkeletonLayer : public cocos2d::Layer
     
 public:
     void InitSkeleton(const std::string& skeletonDataFile, const std::string& atlasFile, float scale);
+    
+    virtual void update(float delta);
 
 private:
 	spine::SkeletonAnimation* skeletonNode;
     
 public:
-
+    SkeletonLayer();
     virtual bool init();
+    bool mbUpdatepos;
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);

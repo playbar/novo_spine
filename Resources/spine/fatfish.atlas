@@ -1,0 +1,34 @@
+
+fatfish.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/fatFash/back
+  rotate: false
+  xy: 172, 210
+  size: 23, 31
+  orig: 23, 31
+  offset: 0, 0
+  index: -1
+image/fatFash/body
+  rotate: false
+  xy: 2, 73
+  size: 168, 168
+  orig: 168, 168
+  offset: 0, 0
+  index: -1
+image/fatFash/front
+  rotate: true
+  xy: 2, 2
+  size: 33, 21
+  orig: 33, 21
+  offset: 0, 0
+  index: -1
+image/fatFash/tail
+  rotate: false
+  xy: 2, 37
+  size: 25, 34
+  orig: 25, 34
+  offset: 0, 0
+  index: -1

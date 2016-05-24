@@ -9,6 +9,12 @@ using namespace spine;
 
 
 // on "init" you need to initialize your instance
+
+SkeletonLayer::SkeletonLayer(){
+    mbUpdatepos = false;
+}
+
+
 bool SkeletonLayer::init()
 {
     //////////////////////////////
@@ -32,19 +38,31 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 		const char* animationName = (entry && entry->animation) ? entry->animation->name : 0;
 		log("%d start: %s", trackIndex, animationName);
 	});
-	skeletonNode->setEndListener([](int trackIndex) {
-		log("%d end", trackIndex);
-	});
-	skeletonNode->setCompleteListener([](int trackIndex, int loopCount) {
-		log("%d complete: %d", trackIndex, loopCount);
-	});
+    
+    skeletonNode->setEndListener([this](int trackIndex){
+        int nHandle = 0;
+        nHandle++;
+        skeletonNode->stopAllActions();
+        Director::getInstance()->pushDelLayer(this);
+        
+    });
+    
+    skeletonNode->setCompleteListener([this](int trackInex, int loopCount){
+        int nHandle = trackInex;
+        nHandle++;
+//        if( loopCount == 5 ){
+//            skeletonNode->stopAllActions();
+//            Director::getInstance()->pushDelLayer(this);
+//        }
+    });
+    
 	skeletonNode->setEventListener([](int trackIndex, spEvent* event) {
 		log("%d event: %s, %d, %f, %s", trackIndex, event->data->name, event->intValue, event->floatValue, event->stringValue);
 	});
 
 	skeletonNode->setMix("walk", "jump", 0.2f);
 	skeletonNode->setMix("jump", "run", 0.2f);
-	skeletonNode->setAnimation(0, "animation", false );
+	skeletonNode->setAnimation(0, "animation", true );
 	skeletonNode->addAnimation(0, "jump", false, 3);
 	skeletonNode->addAnimation(0, "run", false);
 
@@ -54,23 +72,6 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 	addChild(skeletonNode, 2);
 	scheduleUpdate();
     
-
-    skeletonNode->setEndListener([this](int trackIndex){
-        int nHandle = 0;
-        nHandle++;
-        //Director::getInstance()->end();
-        //unscheduleUpdate();
-        skeletonNode->stopAllActions();
-        Director::getInstance()->pushDelLayer(this);
-        //Director::getInstance()->removeLayer(this);
-        //skeletonNode->removeAllChildren();
-        
-    });
-    
-    skeletonNode->setCompleteListener([this](int trackInex, int loopCount){
-        int nHandle = trackInex;
-        nHandle++;
-    });
     
 	EventListenerTouchOneByOne* listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = [this](Touch* touch, Event* event) -> bool {
@@ -90,57 +91,18 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 
 }
 
-//
-//void NovoLayer::InitShapSkeleton()
-//{
-//	skeletonShip = SkeletonAnimation::createWithFile("spine/powerup.json", "spine/powerup.atlas", 0.6f);
-//	//skeletonShip = SkeletonAnimation::createWithFile("D:/test/spine/ship.json", "D:/test/spine/ship.atlas", 0.6f);
-//	skeletonShip->setScale(1);
-//
-//	skeletonShip->setStartListener([this](int trackIndex) {
-//		spTrackEntry* entry = spAnimationState_getCurrent(skeletonShip->getState(), trackIndex);
-//		const char* animationName = (entry && entry->animation) ? entry->animation->name : 0;
-//		log("%d start: %s", trackIndex, animationName);
-//	});
-//	skeletonShip->setEndListener([](int trackIndex) {
-//		log("%d end", trackIndex);
-//	});
-//	skeletonShip->setCompleteListener([](int trackIndex, int loopCount) {
-//		log("%d complete: %d", trackIndex, loopCount);
-//	});
-//	skeletonShip->setEventListener([](int trackIndex, spEvent* event) {
-//		log("%d event: %s, %d, %f, %s", trackIndex, event->data->name, event->intValue, event->floatValue, event->stringValue);
-//	});
-//
-//	skeletonShip->setMix("walk", "jump", 0.2f);
-//	skeletonShip->setMix("jump", "run", 0.2f);
-//	skeletonShip->setAnimation(0, "animation", true);
-//	spTrackEntry* jumpEntry = skeletonShip->addAnimation(0, "jump", false, 3);
-//	skeletonShip->addAnimation(0, "run", true);
-//
-//	Size windowSize = Director::getInstance()->getWinSize();
-//	skeletonShip->setPosition(Vec2(windowSize.width / 2, 40));
-//
-//	addChild(skeletonShip, 2);
-//	scheduleUpdate();
-//
-//	EventListenerTouchOneByOne* listener = EventListenerTouchOneByOne::create();
-//	listener->onTouchBegan = [this](Touch* touch, Event* event) -> bool {
-//		if (!skeletonShip->getDebugBonesEnabled())
-//			skeletonShip->setDebugBonesEnabled(true);
-//		else if (skeletonShip->getTimeScale() == 1)
-//			skeletonShip->setTimeScale(0.3f);
-//		else
-//		{
-//			skeletonShip->setTimeScale(1);
-//			skeletonShip->setDebugBonesEnabled(false);
-//		}
-//
-//		return true;
-//	};
-//	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-//
-//}
+void SkeletonLayer::update(float delta){
+    Layer::update(delta);
+    //log("delta: %f", delta );
+    if( mbUpdatepos){
+        static float posx = -200;
+        posx += delta * 100;
+        if( posx > 200 )
+            posx = -200;
+        skeletonNode->setPosition( posx, 0);
+    }
+
+}
 
 void SkeletonLayer::menuCloseCallback(Ref* pSender)
 {

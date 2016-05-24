@@ -4,100 +4,107 @@ size: 2048,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+image/1111111
+  rotate: true
+  xy: 2, 2
+  size: 13, 55
+  orig: 13, 55
+  offset: 0, 0
+  index: -1
 image/back
   rotate: true
-  xy: 331, 197
+  xy: 331, 212
   size: 63, 352
   orig: 63, 352
   offset: 0, 0
   index: -1
 image/front/back
   rotate: true
-  xy: 2, 2
+  xy: 2, 17
   size: 258, 327
   orig: 258, 327
   offset: 0, 0
   index: -1
 image/front/front
   rotate: false
-  xy: 1750, 660
+  xy: 1750, 675
   size: 258, 327
   orig: 258, 327
   offset: 0, 0
   index: -1
 image/island
   rotate: true
-  xy: 1338, 216
+  xy: 1338, 231
   size: 771, 410
   orig: 771, 410
   offset: 0, 0
   index: -1
 image/sun
   rotate: true
-  xy: 2, 262
+  xy: 2, 277
   size: 725, 1334
   orig: 725, 1334
   offset: 0, 0
   index: -1
 image/tree/1
   rotate: false
-  xy: 331, 4
+  xy: 331, 19
   size: 82, 80
   orig: 82, 80
   offset: 0, 0
   index: -1
 image/tree/2
   rotate: true
-  xy: 464, 127
+  xy: 464, 142
   size: 68, 156
   orig: 68, 156
   offset: 0, 0
   index: -1
 image/tree/3
   rotate: false
-  xy: 1750, 309
+  xy: 1750, 324
   size: 132, 94
   orig: 132, 94
   offset: 0, 0
   index: -1
 image/tree/4
   rotate: true
-  xy: 1910, 507
+  xy: 1910, 522
   size: 151, 136
   orig: 151, 136
   offset: 0, 0
   index: -1
 image/tree/5
   rotate: true
-  xy: 1910, 412
+  xy: 1910, 427
   size: 93, 106
   orig: 93, 106
   offset: 0, 0
   index: -1
 image/tree/6
   rotate: false
-  xy: 331, 86
+  xy: 331, 101
   size: 131, 109
   orig: 131, 109
   offset: 0, 0
   index: -1
 image/tree/7
   rotate: false
-  xy: 685, 213
+  xy: 685, 228
   size: 165, 47
   orig: 165, 47
   offset: 0, 0
   index: -1
 image/tree/8-stem
   rotate: false
-  xy: 1750, 405
+  xy: 1750, 420
   size: 158, 253
   orig: 158, 253
   offset: 0, 0
   index: -1
 image/tree/9
   rotate: true
-  xy: 1750, 216
+  xy: 1750, 231
   size: 91, 99
   orig: 91, 99
   offset: 0, 0
