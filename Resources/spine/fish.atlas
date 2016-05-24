@@ -1,0 +1,20 @@
+
+fish.png
+size: 128,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/fish/body
+  rotate: false
+  xy: 2, 15
+  size: 118, 29
+  orig: 118, 29
+  offset: 0, 0
+  index: -1
+image/fish/front
+  rotate: false
+  xy: 2, 2
+  size: 10, 11
+  orig: 10, 11
+  offset: 0, 0
+  index: -1

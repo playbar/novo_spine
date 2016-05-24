@@ -2,7 +2,7 @@
 #include "spine/spine.h"
 #include "base/ccMacros.h"
 #include "PlayInfo.h"
-#include "NovoLayer.h"
+#include "SkeletonLayer.h"
 #include "ParticleLayer.h"
 #include "Sprite3DLayer.h"
 
@@ -15,14 +15,22 @@ Scene* NovoScene::createScene()
     auto scene = NovoScene::create();
     
     // 'layer' is an autorelease object
-    auto layer = NovoLayer::create();
+    auto layerfish = SkeletonLayer::create();
+    layerfish->InitSkeleton("spine/fish.json", "spine/fish.atlas", 1.0f);
     
-    auto parLayer = ParticleLayer::create();
-    auto sprintLayer = Sprite3DLayer::create();
+    auto layerIsland = SkeletonLayer::create();
+    layerIsland->InitSkeleton("spine/island.json", "spine/island.atlas", 1.0f);
+
+    
+    //auto parLayer = ParticleLayer::create();
+    //auto sprintLayer = Sprite3DLayer::create();
     // add layer as a child to scene
-    scene->addChild(layer);
-    scene->addChild(parLayer);
-    scene->addChild(sprintLayer);
+    scene->addChild(layerfish);
+    scene->addChild(layerIsland);
+    layerIsland->setPosition(400, 300);
+    layerfish->setPosition(400, 200);
+    //scene->addChild(parLayer);
+    //scene->addChild(sprintLayer);
     
     
     // return the scene
