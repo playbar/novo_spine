@@ -26,7 +26,7 @@ bool Sprite3DLayer::init()
 void Sprite3DLayer::initSprite3D()
 {
 	auto s = Director::getInstance()->getWinSize();
-	addNewSpriteWithCoords(Vec2(s.width / 2, s.height / 2));
+	addNewSpriteWithCoords(Vec2(s.width / 2, 200));
 
 	auto listener = EventListenerTouchAllAtOnce::create();
 	listener->onTouchesEnded = CC_CALLBACK_2(Sprite3DLayer::onTouchesEnded, this);

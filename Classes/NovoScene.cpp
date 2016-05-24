@@ -23,15 +23,14 @@ Scene* NovoScene::createScene()
 
     
     //auto parLayer = ParticleLayer::create();
-    //auto sprintLayer = Sprite3DLayer::create();
+    auto sprintLayer = Sprite3DLayer::create();
     // add layer as a child to scene
+    scene->addChild(sprintLayer);
     scene->addChild(layerfish);
     scene->addChild(layerIsland);
     layerIsland->setPosition(400, 300);
     layerfish->setPosition(400, 200);
     //scene->addChild(parLayer);
-    //scene->addChild(sprintLayer);
-    
     
     // return the scene
     return scene;

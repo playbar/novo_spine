@@ -44,7 +44,7 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 
 	skeletonNode->setMix("walk", "jump", 0.2f);
 	skeletonNode->setMix("jump", "run", 0.2f);
-	skeletonNode->setAnimation(0, "animation", true);
+	skeletonNode->setAnimation(0, "animation", false );
 	skeletonNode->addAnimation(0, "jump", false, 3);
 	skeletonNode->addAnimation(0, "run", false);
 
@@ -61,6 +61,8 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
         //Director::getInstance()->end();
         //unscheduleUpdate();
         skeletonNode->stopAllActions();
+        Director::getInstance()->pushDelLayer(this);
+        //Director::getInstance()->removeLayer(this);
         //skeletonNode->removeAllChildren();
         
     });

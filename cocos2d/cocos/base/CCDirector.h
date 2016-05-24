@@ -296,6 +296,9 @@ public:
      * ONLY call it if there is a running scene.
      */
     void popScene();
+    
+    void pushDelLayer(Node *layer);
+    
 
     /** 
      * Pops out all scenes from the stack until the root scene in the queue.
@@ -390,6 +393,11 @@ public:
     void setDepthTest(bool on);
 
     virtual void mainLoop() = 0;
+    
+    virtual void addLayer(Node *node);
+    virtual void addLayer(Node *node, int zOrder);
+    virtual void addLayer(Node *node, int zOrder, const std::string &name);
+    
 
     /** The size in pixels of the surface. It could be different than the screen size.
      * High-res devices might have a higher surface size than the screen size.
@@ -504,6 +512,7 @@ public:
 protected:
     void reset();
     
+    void removeLayer(Node *node, bool cleanup = true);
     void purgeDirector();
     bool _purgeDirectorInNextLoop; // this flag will be set to true in end()
     
@@ -589,6 +598,9 @@ protected:
 
     /* scheduled scenes */
     Vector<Scene*> _scenesStack;
+    
+    Vector<Node*> _deleteLayer;
+    bool mbNeeddellayer;
     
     /* last time the main loop was updated */
     struct timeval *_lastUpdate;

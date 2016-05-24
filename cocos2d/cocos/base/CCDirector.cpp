@@ -107,6 +107,7 @@ Director* Director::getInstance()
 
 Director::Director()
 : _isStatusLabelUpdated(true)
+,mbNeeddellayer( false )
 {
 }
 
@@ -863,6 +864,12 @@ void Director::pushScene(Scene *scene)
     _nextScene = scene;
 }
 
+void Director::pushDelLayer(Node *layer){
+    _deleteLayer.pushBack(layer);
+    mbNeeddellayer = true;
+    return;
+}
+
 void Director::popScene(void)
 {
     CCASSERT(_runningScene != nullptr, "running scene should not null");
@@ -1313,6 +1320,32 @@ void Director::createStatsLabel()
     _FPSLabel->setPosition(Vec2(0, height_spacing*0)+CC_DIRECTOR_STATS_POSITION);
 }
 
+void Director::addLayer(Node *node){
+    if( _runningScene != nullptr ){
+        _runningScene->addChild(node);
+    }
+}
+
+void Director::addLayer(Node *node, int zOrder){
+    if( _runningScene != nullptr){
+        _runningScene->addChild(node, zOrder);
+    }
+}
+
+void Director::addLayer(Node *node, int zOrder, const std::string &name)
+{
+    if( _runningScene != nullptr ){
+        _runningScene->addChild(node, zOrder, name );
+    }
+}
+
+void Director::removeLayer(Node *node, bool cleanup){
+    if( _runningScene != nullptr ){
+        _runningScene->removeChild(node, cleanup);
+    }
+}
+
+
 void Director::setContentScaleFactor(float scaleFactor)
 {
     if (scaleFactor != _contentScaleFactor)
@@ -1395,6 +1428,15 @@ void DisplayLinkDirector::startAnimation()
 
 void DisplayLinkDirector::mainLoop()
 {
+    if( mbNeeddellayer ){
+        Vector<Node*>::iterator iter = _deleteLayer.begin();
+        for( ; iter != _deleteLayer.end(); ++iter ){
+            removeLayer(*iter, true );
+        }
+        _deleteLayer.clear();
+        mbNeeddellayer = false;
+    }
+    
     if (_purgeDirectorInNextLoop)
     {
         _purgeDirectorInNextLoop = false;
