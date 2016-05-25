@@ -320,7 +320,7 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
 			mMagicCameraDisplay.onResume();
 		}
     	if( mIjkVideoView != null){
-    		mIjkVideoView.setVideoPath("rtmp://down.17ace.tv/live/9377");
+    		mIjkVideoView.setVideoPath("rtmp://down.17ace.tv/live/9492");
     		mIjkVideoView.start();
     	}
     }
@@ -429,7 +429,7 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
         
         // Set framelayout as the content view
         
-        if( true )
+        if( false )
         {
         	mIjkVideoView = new IjkVideoView(this);
         	ViewGroup.LayoutParams layout_params =

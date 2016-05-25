@@ -14,7 +14,9 @@ LOCAL_MODULE_FILENAME := libnovo
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/NovoScene.cpp \
-                   ../../Classes/DrawNode3D.cpp \
+                   ../../Classes/ParticleLayer.cpp \
+                   ../../Classes/SkeletonLayer.cpp \
+                   ../../Classes/Sprite3DLayer.cpp \
                    ../../Classes/VisibleRect.cpp \
                    ../../Classes/PlayInfo.cpp \
                    MagicSDK.cpp \

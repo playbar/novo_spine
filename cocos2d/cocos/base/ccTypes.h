@@ -163,6 +163,7 @@ struct CC_DLL Color4F
     static const Color4F BLACK;
     static const Color4F ORANGE;
     static const Color4F GRAY;
+    static const Color4F OPAQUE;
 };
 
 /** A vertex composed of 2 floats: x, y

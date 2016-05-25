@@ -219,6 +219,7 @@ Renderer::Renderer()
 
     // default clear color
     _clearColor = Color4F::BLACK;
+    
 
     // for the batched TriangleCommand
     _triBatchesToDrawCapacity = 500;
