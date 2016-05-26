@@ -21,10 +21,6 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/PlayInfo.cpp \
                    ../../Classes/LayerManager.cpp \
                    ../../Classes/Java_org_cocos2dx_lib_ManagerLayer.cpp \
-                   MagicSDK.cpp \
-				   bitmap/BitmapOperation.cpp \
-				   bitmap/Conversion.cpp \
-				   skinsmooth/MagicBeauty.cpp
 				   
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
