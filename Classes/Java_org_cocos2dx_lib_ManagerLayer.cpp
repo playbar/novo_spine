@@ -19,9 +19,10 @@ using namespace std;
 
 extern "C" {
 
-    JNIEXPORT void JNICALL Java_org_cocos2dx_lib_Cocos2dxLayer_nativeAddLayer(JNIEnv*  env, jobject thiz, jstring jstrName) {
+    JNIEXPORT void JNICALL Java_org_cocos2dx_lib_Cocos2dxLayer_nativeAddLayer(JNIEnv*  env, jobject thiz,
+    		jstring jstrName, jint type) {
         string strName = JniHelper::jstring2string(jstrName);
-        LayerManager::getInstance()->addLayer( strName, LayerManager::LAYER_TYPE_SKELETON );
+        LayerManager::getInstance()->addLayer( strName, (LayerManager::EnLayerType)type );
         return;
     }
 

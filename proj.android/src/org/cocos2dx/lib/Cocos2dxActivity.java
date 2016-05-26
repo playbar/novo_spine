@@ -431,17 +431,17 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
         
         if( false )
         {
-        	mIjkVideoView = new IjkVideoView(this);
-        	ViewGroup.LayoutParams layout_params =
-        		new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+        		mIjkVideoView = new IjkVideoView(this);
+        		ViewGroup.LayoutParams layout_params =
+        				new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                  ViewGroup.LayoutParams.WRAP_CONTENT);
-        	mIjkVideoView.setLayoutParams(layout_params);
-        	mFrameLayout.addView(mIjkVideoView);
+        		mIjkVideoView.setLayoutParams(layout_params);
+        		mFrameLayout.addView(mIjkVideoView);
         }
         else{
             GLSurfaceView glSurfaceView = new GLSurfaceView(this);
-        	mFrameLayout.addView(glSurfaceView);
-        	mMagicCameraDisplay = new MagicCameraDisplay(this, glSurfaceView);
+            mFrameLayout.addView(glSurfaceView);
+            mMagicCameraDisplay = new MagicCameraDisplay(this, glSurfaceView);
         }
         
  

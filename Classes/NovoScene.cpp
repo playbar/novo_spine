@@ -13,24 +13,25 @@ Scene* NovoScene::createScene()
 {
     // 'scene' is an autorelease object
     auto scene = NovoScene::create();
+    log("NovoScene::createScene");
     
     // 'layer' is an autorelease object
-    auto layerfish = SkeletonLayer::create();
-    layerfish->InitSkeleton("spine/fatfish.json", "spine/fatfish.atlas", 1.0f);
+    //auto layerfish = SkeletonLayer::create();
+    //layerfish->InitSkeleton("spine/fatfish.json", "spine/fatfish.atlas", 1.0f);
     
-    auto layerIsland = SkeletonLayer::create();
-    layerIsland->InitSkeleton("spine/island.json", "spine/island.atlas", 1.0f);
+    //auto layerIsland = SkeletonLayer::create();
+    //layerIsland->InitSkeleton("spine/island.json", "spine/island.atlas", 1.0f);
 
     
-    auto parLayer = ParticleLayer::create();
-    auto sprintLayer = Sprite3DLayer::create();
+    //auto parLayer = ParticleLayer::create();
+    //auto sprintLayer = Sprite3DLayer::create();
     // add layer as a child to scene
-    scene->addChild(sprintLayer);
-    scene->addChild(layerfish, 4);
-    layerfish->mbUpdatepos = true;
-    scene->addChild(layerIsland, 3);
-    layerIsland->setPosition(400, 0);
-    layerfish->setPosition(400, 100);
+    //scene->addChild(sprintLayer);
+    //scene->addChild(layerfish, 4);
+    //layerfish->mbUpdatepos = true;
+    //scene->addChild(layerIsland, 3);
+    //layerIsland->setPosition(400, 0);
+    //layerfish->setPosition(400, 100);
     //scene->addChild(parLayer);
     
     // return the scene
