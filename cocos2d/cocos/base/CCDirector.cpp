@@ -864,10 +864,19 @@ void Director::pushScene(Scene *scene)
     _nextScene = scene;
 }
 
-void Director::deleteLayer(Node *layer){
+void Director::delLayer(Node *layer){
     _deleteLayer.pushBack(layer);
     mbNeeddellayer = true;
     return;
+}
+
+void Director::delLayer(const std::string &name){
+	Node *node = findChildByName( name );
+	if( node != nullptr ){
+		_deleteLayer.pushBack(node);
+		mbNeeddellayer = true;
+	}
+	return;
 }
 
 void Director::popScene(void)

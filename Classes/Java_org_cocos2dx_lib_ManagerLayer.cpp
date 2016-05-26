@@ -6,7 +6,8 @@
 #include "platform/android/CCFileUtils-android.h"
 #include "android/asset_manager_jni.h"
 #include "deprecated/CCString.h"
-#include "platform/android/jni/Java_org_cocos2dx_lib_ManagerLayer.h"
+#include "Java_org_cocos2dx_lib_ManagerLayer.h"
+#include "LayerManager.h"
 #include "base/ccUTF8.h"
 #define  LOG_TAG    "Java_org_cocos2dx_lib_ManagerLayer.cpp"
 
@@ -20,10 +21,14 @@ extern "C" {
 
     JNIEXPORT void JNICALL Java_org_cocos2dx_lib_Cocos2dxLayer_nativeAddLayer(JNIEnv*  env, jobject thiz, jstring jstrName) {
         string strName = JniHelper::jstring2string(jstrName);
+        LayerManager::getInstance()->addLayer( strName, LayerManager::LAYER_TYPE_SKELETON );
+        return;
     }
 
     JNIEXPORT void JNICALL Java_org_cocos2dx_lib_Cocos2dxLayer_nativeDelLayer(JNIEnv*  env, jobject thiz, jstring jstrName) {
     		string strName = JniHelper::jstring2string(jstrName);
+    		LayerManager::getInstance()->delLayer( strName );
+    		return;
     }
 
 

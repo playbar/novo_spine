@@ -1060,6 +1060,17 @@ void Node::removeChildByName(const std::string &name, bool cleanup)
     }
 }
 
+Node *Node::findChildByName( const std::string &name)
+{
+	CCASSERT(!name.empty(), "Invalid name");
+	Node *child = this->getChildByName(name);
+    if (child == nullptr)
+    {
+        CCLOG("cocos2d: removeChildByName(name = %s): child not found!", name.c_str());
+    }
+    return child;
+}
+
 void Node::removeAllChildren()
 {
     this->removeAllChildrenWithCleanup(true);

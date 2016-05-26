@@ -1,9 +1,9 @@
-
-
 #include "LayerManager.h"
 #include "SkeletonLayer.h"
 #include "ParticleLayer.h"
 #include "Sprite3DLayer.h"
+
+USING_NS_CC;
 
 static LayerManager *g_LayerManager = nullptr;
 
@@ -23,16 +23,17 @@ LayerManager *LayerManager::getInstance(){
 
 bool LayerManager::addLayer(std::string strName, EnLayerType type )
 {
-	auto layer = null;
+	Layer *layer = nullptr;
 	if( LAYER_TYPE_SKELETON == type ){
-	    layer= SkeletonLayer::create();
-	    layer->InitSkeleton("spine/fatfish.json", "spine/fatfish.atlas", 1.0f);
+	    auto layerSk= SkeletonLayer::create();
+	    layerSk->InitSkeleton("spine/fatfish.json", "spine/fatfish.atlas", 1.0f);
+	    layer = layerSk;
 	}else if( LAYER_TYPE_PARTICLE == type ){
 		  layer = ParticleLayer::create();
-	}else if( LAYER_TYPE_SPRITE3D == tpye ){
+	}else if( LAYER_TYPE_SPRITE3D == type ){
 		layer = Sprite3DLayer::create();
 	}
-	if( null != layer ){
+	if( nullptr != layer ){
 		++mzOrder;
 		 Director::getInstance()->addLayer( layer, mzOrder, strName);
 		 return true;

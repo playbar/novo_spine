@@ -43,7 +43,7 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
         int nHandle = 0;
         nHandle++;
         skeletonNode->stopAllActions();
-        Director::getInstance()->deleteLayer(this);
+        Director::getInstance()->delLayer(this);
         
     });
     

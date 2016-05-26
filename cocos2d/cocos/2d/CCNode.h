@@ -904,6 +904,8 @@ public:
      * @param cleanup   True if all running actions and callbacks on the child node will be cleanup, false otherwise.
      */
     virtual void removeChildByName(const std::string &name, bool cleanup = true);
+
+    virtual Node *findChildByName( const std::string &name);
     /**
      * Removes all children from the container with a cleanup.
      *

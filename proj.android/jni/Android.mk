@@ -19,6 +19,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Sprite3DLayer.cpp \
                    ../../Classes/VisibleRect.cpp \
                    ../../Classes/PlayInfo.cpp \
+                   ../../Classes/LayerManager.cpp \
+                   ../../Classes/Java_org_cocos2dx_lib_ManagerLayer.cpp \
                    MagicSDK.cpp \
 				   bitmap/BitmapOperation.cpp \
 				   bitmap/Conversion.cpp \

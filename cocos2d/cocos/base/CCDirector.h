@@ -394,7 +394,8 @@ public:
     virtual void addLayer(Node *node);
     virtual void addLayer(Node *node, int zOrder);
     virtual void addLayer(Node *node, int zOrder, const std::string &name);
-    virtual void deleteLayer(Node *layer);
+    virtual void delLayer(Node *layer);
+    virtual void delLayer(const std::string &name);
     
 
     /** The size in pixels of the surface. It could be different than the screen size.

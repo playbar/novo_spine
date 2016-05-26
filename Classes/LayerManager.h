@@ -14,7 +14,7 @@ public:
 	};
 	static int mzOrder;
 
-	LayerManager *getInstance();
+	static LayerManager *getInstance();
 	virtual void init();
 
 public:
