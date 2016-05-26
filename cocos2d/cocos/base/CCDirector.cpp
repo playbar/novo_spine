@@ -864,7 +864,7 @@ void Director::pushScene(Scene *scene)
     _nextScene = scene;
 }
 
-void Director::pushDelLayer(Node *layer){
+void Director::deleteLayer(Node *layer){
     _deleteLayer.pushBack(layer);
     mbNeeddellayer = true;
     return;

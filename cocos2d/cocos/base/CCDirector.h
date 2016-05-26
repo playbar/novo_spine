@@ -296,9 +296,6 @@ public:
      * ONLY call it if there is a running scene.
      */
     void popScene();
-    
-    void pushDelLayer(Node *layer);
-    
 
     /** 
      * Pops out all scenes from the stack until the root scene in the queue.
@@ -397,6 +394,7 @@ public:
     virtual void addLayer(Node *node);
     virtual void addLayer(Node *node, int zOrder);
     virtual void addLayer(Node *node, int zOrder, const std::string &name);
+    virtual void deleteLayer(Node *layer);
     
 
     /** The size in pixels of the surface. It could be different than the screen size.
