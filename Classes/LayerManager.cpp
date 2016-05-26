@@ -35,7 +35,10 @@ bool LayerManager::addLayer(std::string strName, EnLayerType type )
 	if( LAYER_TYPE_SKELETON == type ){
 	    auto layerSk= SkeletonLayer::create();
 	    layerSk->InitSkeleton("spine/fatfish.json", "spine/fatfish.atlas", 1.0f);
+	    layerSk->mbUpdatepos = true;
+	    layerSk->setPosition(400, 100);
 	    layer = layerSk;
+	    log("LayerManager::addLayer");
 	}else if( LAYER_TYPE_PARTICLE == type ){
 		  layer = ParticleLayer::create();
 	}else if( LAYER_TYPE_SPRITE3D == type ){

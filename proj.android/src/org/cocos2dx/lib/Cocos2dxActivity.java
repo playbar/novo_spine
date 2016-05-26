@@ -329,7 +329,6 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
     public void onWindowFocusChanged(boolean hasFocus) {
     	Log.d(TAG, "onWindowFocusChanged() hasFocus=" + hasFocus);
         super.onWindowFocusChanged(hasFocus);
-        
         this.hasFocus = hasFocus;
         resumeIfHasFocus();
     }
@@ -443,13 +442,8 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
             mFrameLayout.addView(glSurfaceView);
             mMagicCameraDisplay = new MagicCameraDisplay(this, glSurfaceView);
         }
-        
- 
-        setContentView(mFrameLayout);
        
-    	
-        
-        
+        setContentView(mFrameLayout);
 		return;
     }
 

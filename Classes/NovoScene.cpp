@@ -22,16 +22,16 @@ Scene* NovoScene::createScene()
     //auto layerIsland = SkeletonLayer::create();
     //layerIsland->InitSkeleton("spine/island.json", "spine/island.atlas", 1.0f);
 
-    
     //auto parLayer = ParticleLayer::create();
     //auto sprintLayer = Sprite3DLayer::create();
     // add layer as a child to scene
     //scene->addChild(sprintLayer);
     //scene->addChild(layerfish, 4);
     //layerfish->mbUpdatepos = true;
+    //layerfish->setPosition(400, 100);
     //scene->addChild(layerIsland, 3);
     //layerIsland->setPosition(400, 0);
-    //layerfish->setPosition(400, 100);
+
     //scene->addChild(parLayer);
     
     // return the scene

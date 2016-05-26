@@ -106,14 +106,16 @@ public class Cocos2dxRenderer implements Renderer  {
        
 		
     }
-
+    
+    private boolean mbAdd = false;
     @Override
     public void onDrawFrame(final GL10 gl) {
         /*
          * No need to use algorithm in default(60 FPS) situation,
          * since onDrawFrame() was called by system 60 times per second by default.
          */
-    	GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
+    		GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
 		
 		
@@ -134,6 +136,10 @@ public class Cocos2dxRenderer implements Renderer  {
             */
             this.mLastTickInNanoSeconds = System.nanoTime();
             Cocos2dxRenderer.nativeRender();
+			if( !mbAdd ){
+				Cocos2dxLayerManager.addLayer("test", Cocos2dxLayerManager.EnLayerType.LAYER_TYPE_SKELETON.nCode);
+				mbAdd = true;
+			}
         }
         /////////////////////////
 		

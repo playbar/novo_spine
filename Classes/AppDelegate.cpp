@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "NovoScene.h"
+#include "LayerManager.h"
 
 USING_NS_CC;
 
@@ -76,9 +77,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     auto scene = NovoScene::createScene();
-
+    log("applicationDidFinishLaunching");
     // run
     director->runWithScene(scene);
+
+    //LayerManager::getInstance()->addLayer( "test", (LayerManager::EnLayerType)1 );
 
     return true;
 }

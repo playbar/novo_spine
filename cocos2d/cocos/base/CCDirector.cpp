@@ -1344,7 +1344,10 @@ void Director::addLayer(Node *node, int zOrder){
 void Director::addLayer(Node *node, int zOrder, const std::string &name)
 {
     if( _runningScene != nullptr ){
+    		log("Director::addLayer");
         _runningScene->addChild(node, zOrder, name );
+    }else{
+    	log("Director::addLayer error");
     }
 }
 

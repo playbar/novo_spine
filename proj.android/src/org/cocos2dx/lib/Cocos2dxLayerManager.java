@@ -7,7 +7,7 @@ public class Cocos2dxLayerManager {
 		LAYER_TYPE_PARTICLE(2),
 		LAYER_TYPE_SPRITE3D(3);
 		
-		private int nCode;
+		public int nCode;
 		private EnLayerType(int code){
 			nCode = code;
 		}

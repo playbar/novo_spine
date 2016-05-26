@@ -19,14 +19,14 @@ using namespace std;
 
 extern "C" {
 
-    JNIEXPORT void JNICALL Java_org_cocos2dx_lib_Cocos2dxLayer_nativeAddLayer(JNIEnv*  env, jobject thiz,
+    JNIEXPORT void JNICALL Java_org_cocos2dx_lib_Cocos2dxLayerManager_nativeAddLayer(JNIEnv*  env, jobject thiz,
     		jstring jstrName, jint type) {
         string strName = JniHelper::jstring2string(jstrName);
         LayerManager::getInstance()->addLayer( strName, (LayerManager::EnLayerType)type );
         return;
     }
 
-    JNIEXPORT void JNICALL Java_org_cocos2dx_lib_Cocos2dxLayer_nativeDelLayer(JNIEnv*  env, jobject thiz, jstring jstrName) {
+    JNIEXPORT void JNICALL Java_org_cocos2dx_lib_Cocos2dxLayerManager_nativeDelLayer(JNIEnv*  env, jobject thiz, jstring jstrName) {
     		string strName = JniHelper::jstring2string(jstrName);
     		LayerManager::getInstance()->delLayer( strName );
     		return;
