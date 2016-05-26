@@ -74,7 +74,6 @@ void Sprite3DLayer::addNewSpriteWithCoords(cocos2d::Vec2 p)
 	if (animation)
 	{
 		auto animate = Animate3D::create(animation);
-
 		sprite->runAction(RepeatForever::create(animate));
 	}
 	_sprite = sprite;

@@ -1,9 +1,9 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := cocos3d_static
+LOCAL_MODULE := novo3d_static
 
-LOCAL_MODULE_FILENAME := libcocos3d
+LOCAL_MODULE_FILENAME := libnovo3d
 
 LOCAL_SRC_FILES := \
 CCRay.cpp \
@@ -30,6 +30,6 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/..
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/..
 
-LOCAL_STATIC_LIBRARIES := cocos2dx_internal_static
+LOCAL_STATIC_LIBRARIES := novo2d_internal_static
 
 include $(BUILD_STATIC_LIBRARY)

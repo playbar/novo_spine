@@ -2,9 +2,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := cocos2dx_internal_static
+LOCAL_MODULE := novo2d_internal_static
 
-LOCAL_MODULE_FILENAME := libcocos2dxinternal
+LOCAL_MODULE_FILENAME := libnovo2dinternal
 
 ifeq ($(USE_ARM_MODE),1)
 LOCAL_ARM_MODE := arm
@@ -266,10 +266,10 @@ include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := cocos2dx_static
-LOCAL_MODULE_FILENAME := libcocos2d
+LOCAL_MODULE := novo2d_static
+LOCAL_MODULE_FILENAME := libnovo2d
 
-LOCAL_STATIC_LIBRARIES += cocos3d_static
+LOCAL_STATIC_LIBRARIES += novo3d_static
 LOCAL_STATIC_LIBRARIES += spine_static
 LOCAL_STATIC_LIBRARIES += audioengine_static
 
@@ -285,6 +285,5 @@ $(call import-module,webp/prebuilt/android)
 $(call import-module,3d)
 $(call import-module,audio/android)
 $(call import-module,editor-support/spine)
-$(call import-module,extensions)
 # $(call import-module,curl/prebuilt/android)
 $(call import-module,flatbuffers)

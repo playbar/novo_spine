@@ -40,6 +40,6 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/..
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/..
 
-LOCAL_STATIC_LIBRARIES := cocos2dx_internal_static
+LOCAL_STATIC_LIBRARIES := novo2d_internal_static
 
 include $(BUILD_STATIC_LIBRARY)
