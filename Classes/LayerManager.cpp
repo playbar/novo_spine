@@ -9,16 +9,24 @@ static LayerManager *g_LayerManager = nullptr;
 
 int LayerManager::mzOrder = 0;
 
-LayerManager::LayerManager(){
-
-}
-
 LayerManager *LayerManager::getInstance(){
 	if( nullptr == g_LayerManager ){
 		g_LayerManager = new (std::nothrow) LayerManager();
 		g_LayerManager->init();
 	}
 	return g_LayerManager;
+}
+
+LayerManager::LayerManager(){
+
+}
+
+LayerManager::~LayerManager(){
+
+}
+
+void LayerManager::init(){
+
 }
 
 bool LayerManager::addLayer(std::string strName, EnLayerType type )

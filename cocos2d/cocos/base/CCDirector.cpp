@@ -871,7 +871,7 @@ void Director::delLayer(Node *layer){
 }
 
 void Director::delLayer(const std::string &name){
-	Node *node = findChildByName( name );
+	Node *node = _runningScene->findChildByName( name );
 	if( node != nullptr ){
 		_deleteLayer.pushBack(node);
 		mbNeeddellayer = true;
