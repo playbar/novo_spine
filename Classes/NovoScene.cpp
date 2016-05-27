@@ -18,6 +18,7 @@ Scene* NovoScene::createScene()
     // 'layer' is an autorelease object
     auto layerfish = SkeletonLayer::create();
     layerfish->InitSkeleton("spine/fatfish.json", "spine/fatfish.atlas", 1.0f);
+    layerfish->InitSkeleton("test.json");
     
     //auto layerIsland = SkeletonLayer::create();
     //layerIsland->InitSkeleton("spine/island.json", "spine/island.atlas", 1.0f);

@@ -104,41 +104,36 @@ void SkeletonLayer::InitSkeleton(const std::string& name) {
 
 	using rapidjson::Document;
 	Document doc;
-	//doc.Parse<0>(data.getBytes());
+	doc.Parse((char* )data.getBytes());
+    //doc.Parse(json);
     if (doc.HasParseError()) {
         rapidjson::ParseErrorCode code = doc.GetParseError();
-        //psln(code);
+        log("%d", code );
         return;
     }
-    	using rapidjson::Value;
-    	Value & v = doc["dictVersion"];
-    	if (v.IsInt()) {
-            log("%d", v.GetInt());
-    	}
+    using rapidjson::Value;
+    Value & v = doc["ID"];
+    if (v.IsString()) {
+        log("%s", v.GetString());
+    }
+    Value &contents = doc["Skeleton"];
+    if( contents.IsArray()){
+        for( size_t i = 0; i < contents.Size(); ++i ){
+            Value &v = contents[i];
+            if( v.HasMember("file") && v["file"].IsString()){
+                log("%s", v["file"].GetString());
+            }
+            if (v.HasMember("scale") && v["scale"].IsDouble()) {
+                log("%f", v["scale"].GetDouble());
+            }
+            
+        }
+    }
+    
+    
+    return;
 
-//
-//	// read json content into string.
-//	string stringFromStream;
-//	ifstream in;
-//	in.open("test.json", ifstream::in);
-//	if (!in.is_open())
-//		return;
-//	string line;
-//	while (getline(in, line)) {
-//		stringFromStream.append(line + "\n");
-//	}
-//	in.close();
-//
-//	// parse json from string.
 
-	//	using rapidjson::Document;
-	//	Document doc;
-	//	doc.Parse<0>(stringFromStream.c_str());
-//	if (doc.HasParseError()) {
-//		rapidjson::ParseErrorCode code = doc.GetParseError();
-//		psln(code);
-//		return;
-//	}
 //
 //	// use values in parse result.
 //	using rapidjson::Value;
