@@ -9,6 +9,7 @@ class SkeletonLayer : public cocos2d::Layer
     
 public:
     void InitSkeleton(const std::string& skeletonDataFile, const std::string& atlasFile, float scale);
+    void InitSkeleton(const std::string& name);
     
     virtual void update(float delta);
 

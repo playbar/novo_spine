@@ -2,6 +2,7 @@
 #include "spine/spine.h"
 #include "base/ccMacros.h"
 #include "PlayInfo.h"
+#include "json/document.h"
 
 USING_NS_CC;
 using namespace spine;
@@ -63,8 +64,8 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 	skeletonNode->setMix("walk", "jump", 0.2f);
 	skeletonNode->setMix("jump", "run", 0.2f);
 	skeletonNode->setAnimation(0, "animation", true );
-	skeletonNode->addAnimation(0, "jump", false, 3);
-	skeletonNode->addAnimation(0, "run", false);
+	//skeletonNode->addAnimation(0, "jump", false, 3);
+	//skeletonNode->addAnimation(0, "run", false);
 
     PlayInfo *pInfo = PlayInfo::getInstance();
 	skeletonNode->setPosition(0, 0);
@@ -88,6 +89,77 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 		return true;
 	};
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+}
+
+//#define psln(x) std::cout << #x " = " << (x) << std::endl
+
+void SkeletonLayer::InitSkeleton(const std::string& name) {
+
+	using std::string;
+	using std::ifstream;
+
+	Data data = FileUtils::getInstance()->getDataFromFile(
+				FileUtils::getInstance()->fullPathForFilename(name));
+
+	using rapidjson::Document;
+	Document doc;
+	//doc.Parse<0>(data.getBytes());
+    if (doc.HasParseError()) {
+        rapidjson::ParseErrorCode code = doc.GetParseError();
+        //psln(code);
+        return;
+    }
+    	using rapidjson::Value;
+    	Value & v = doc["dictVersion"];
+    	if (v.IsInt()) {
+            log("%d", v.GetInt());
+    	}
+
+//
+//	// read json content into string.
+//	string stringFromStream;
+//	ifstream in;
+//	in.open("test.json", ifstream::in);
+//	if (!in.is_open())
+//		return;
+//	string line;
+//	while (getline(in, line)) {
+//		stringFromStream.append(line + "\n");
+//	}
+//	in.close();
+//
+//	// parse json from string.
+
+	//	using rapidjson::Document;
+	//	Document doc;
+	//	doc.Parse<0>(stringFromStream.c_str());
+//	if (doc.HasParseError()) {
+//		rapidjson::ParseErrorCode code = doc.GetParseError();
+//		psln(code);
+//		return;
+//	}
+//
+//	// use values in parse result.
+//	using rapidjson::Value;
+//	Value & v = doc["dictVersion"];
+//	if (v.IsInt()) {
+//		psln(v.GetInt());
+//	}
+//
+//	Value & contents = doc["content"];
+//	if (contents.IsArray()) {
+//		for (size_t i = 0; i < contents.Size(); ++i) {
+//			Value & v = contents[i];
+//			assert(v.IsObject());
+//			if (v.HasMember("key") && v["key"].IsString()) {
+//				psln(v["key"].GetString());
+//			}
+//			if (v.HasMember("value") && v["value"].IsString()) {
+//				psln(v["value"].GetString());
+//			}
+//		}
+//	}
 
 }
 

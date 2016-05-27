@@ -136,10 +136,10 @@ public class Cocos2dxRenderer implements Renderer  {
             */
             this.mLastTickInNanoSeconds = System.nanoTime();
             Cocos2dxRenderer.nativeRender();
-			if( !mbAdd ){
-				Cocos2dxLayerManager.addLayer("test", Cocos2dxLayerManager.EnLayerType.LAYER_TYPE_SKELETON.nCode);
-				mbAdd = true;
-			}
+//			if( !mbAdd ){
+//				Cocos2dxLayerManager.addLayer("test", Cocos2dxLayerManager.EnLayerType.LAYER_TYPE_SKELETON.nCode);
+//				mbAdd = true;
+//			}
         }
         /////////////////////////
 		
