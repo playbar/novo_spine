@@ -23,7 +23,7 @@ public class Cocos2dxLayerManager {
 	}
 	
 	public static void delLayer(String strName){
-		
+		nativeDelLayer(strName);
 	}
 	
 	
