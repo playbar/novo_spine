@@ -168,7 +168,7 @@ namespace cocos2d {
             LOGE("Failed to get JNIEnv");
             return false;
         }
-            
+        //LOGE("classname:%s", className);
         jclass classID = _getClassID(className);
         if (! classID) {
             LOGE("Failed to find class %s", className);

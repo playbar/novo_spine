@@ -6,10 +6,12 @@
 #include "platform/android/CCFileUtils-android.h"
 #include "android/asset_manager_jni.h"
 #include "deprecated/CCString.h"
-#include "Java_org_cocos2dx_lib_ManagerLayer.h"
 #include "LayerManager.h"
 #include "base/ccUTF8.h"
-#define  LOG_TAG    "Java_org_cocos2dx_lib_ManagerLayer.cpp"
+#include "globaldef.h"
+
+#include "Java_org_cocos2dx_lib_LayerManager.h"
+#define  LOG_TAG    "Java_org_cocos2dx_lib_LayerManager.cpp"
 
 #define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 
@@ -32,6 +34,17 @@ extern "C" {
     		return;
     }
 
+    void GFunSkeletonEnd(std::string strName){
+			JniMethodInfo t;
+			int ret = -1;
+			if(JniHelper::getStaticMethodInfo(t, LAYERMANAGER_CLASSNAME,"skeletonEnd", "(Ljava/lang/String;)V"))
+			{
+				JniHelper::callStaticVoidMethod(LAYERMANAGER_CLASSNAME, "skeletonEnd", strName);
+				//ret = t.env->CallStaticIntMethod(t.classID, t.methodID, JniHelper::convert(t, strName));
+				t.env->DeleteLocalRef(t.classID);
+			}
+			return;
+    }
 
 }
 

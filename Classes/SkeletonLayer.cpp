@@ -3,6 +3,7 @@
 #include "base/ccMacros.h"
 #include "PlayInfo.h"
 #include "json/document.h"
+#include "Java_org_cocos2dx_lib_LayerManager.h"
 
 USING_NS_CC;
 using namespace spine;
@@ -126,6 +127,7 @@ void SkeletonLayer::InitSkeleton(const std::string& name){
                 skeletonTmp = SkeletonAnimation::createWithFile(jsonFile, atlasFile, 1.0 );
                 skeletonTmp->setEndListener([this](int trackIndex){
                     //skeletonTmp->stopAllActions();
+                		GFunSkeletonEnd(this->getName());
                     Director::getInstance()->delLayer(this);
                 });
             }
@@ -148,6 +150,7 @@ void SkeletonLayer::InitSkeleton(const std::string& name){
                 static int iloop = v["loopcount"].GetInt();
                 skeletonTmp->setCompleteListener([this](int trackIndex, int loopCount){
                     if(iloop == loopCount ){
+                    	    GFunSkeletonEnd(this->getName());
                         Director::getInstance()->delLayer(this);
                     }
                 });

@@ -26,9 +26,6 @@ private:
 	LayerManager();
 	virtual ~LayerManager();
 
-
-
-
 };
 
 

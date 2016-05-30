@@ -1,5 +1,7 @@
 package org.cocos2dx.lib;
 
+import android.util.Log;
+
 public class Cocos2dxLayerManager {
 	
 	public enum EnLayerType{
@@ -26,6 +28,9 @@ public class Cocos2dxLayerManager {
 		nativeDelLayer(strName);
 	}
 	
+	public static void skeletonEnd(String strName){
+		Log.e("Cocos2dxLayerManager->skeletonEnd", strName);
+	}
 	
 	 private static native void nativeAddLayer(String strName, int type);
 	 private static native void nativeDelLayer(String strName);

@@ -20,7 +20,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/VisibleRect.cpp \
                    ../../Classes/PlayInfo.cpp \
                    ../../Classes/LayerManager.cpp \
-                   ../../Classes/Java_org_cocos2dx_lib_ManagerLayer.cpp \
+                   ../../Classes/Java_org_cocos2dx_lib_LayerManager.cpp \
 				   
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

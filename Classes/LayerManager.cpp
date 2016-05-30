@@ -64,3 +64,5 @@ bool LayerManager::delLayer(std::string strName)
 	return false;
 }
 
+
+

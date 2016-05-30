@@ -3,4 +3,9 @@
 
 #include <string>
 
+extern "C" {
+
+	void GFunSkeletonEnd(std::string strName);
+
+}
 #endif
