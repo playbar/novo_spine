@@ -12,6 +12,7 @@
 		04796A681CF3FB9100869D77 /* Sprite3DLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A661CF3FB9100869D77 /* Sprite3DLayer.cpp */; };
 		04796A6B1CF3FE7D00869D77 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A691CF3FE7D00869D77 /* VisibleRect.cpp */; };
 		04BE76DF1CFBCB340051BEAE /* bouquet in Resources */ = {isa = PBXBuildFile; fileRef = 04BE76DE1CFBCB340051BEAE /* bouquet */; };
+		04BE76E31CFC1BFE0051BEAE /* LayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04BE76E11CFC1BFE0051BEAE /* LayerManager.cpp */; };
 		04C749691CEEAA1200FFF14C /* Particles in Resources */ = {isa = PBXBuildFile; fileRef = 04C749661CEEAA1200FFF14C /* Particles */; };
 		04C7496A1CEEAA1200FFF14C /* spine in Resources */ = {isa = PBXBuildFile; fileRef = 04C749671CEEAA1200FFF14C /* spine */; };
 		04C7496B1CEEAA1200FFF14C /* Sprite3DTest in Resources */ = {isa = PBXBuildFile; fileRef = 04C749681CEEAA1200FFF14C /* Sprite3DTest */; };
@@ -133,6 +134,8 @@
 		04796A691CF3FE7D00869D77 /* VisibleRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisibleRect.cpp; sourceTree = "<group>"; };
 		04796A6A1CF3FE7D00869D77 /* VisibleRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisibleRect.h; sourceTree = "<group>"; };
 		04BE76DE1CFBCB340051BEAE /* bouquet */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bouquet; sourceTree = "<group>"; };
+		04BE76E11CFC1BFE0051BEAE /* LayerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerManager.cpp; sourceTree = "<group>"; };
+		04BE76E21CFC1BFE0051BEAE /* LayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerManager.h; sourceTree = "<group>"; };
 		04C749661CEEAA1200FFF14C /* Particles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Particles; sourceTree = "<group>"; };
 		04C749671CEEAA1200FFF14C /* spine */ = {isa = PBXFileReference; lastKnownFileType = folder; path = spine; sourceTree = "<group>"; };
 		04C749681CEEAA1200FFF14C /* Sprite3DTest */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sprite3DTest; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				04BE76E11CFC1BFE0051BEAE /* LayerManager.cpp */,
+				04BE76E21CFC1BFE0051BEAE /* LayerManager.h */,
 				04CFBE5B1CF83CE800963255 /* globaldef.h */,
 				04796A691CF3FE7D00869D77 /* VisibleRect.cpp */,
 				04796A6A1CF3FE7D00869D77 /* VisibleRect.h */,
@@ -565,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BE76E31CFC1BFE0051BEAE /* LayerManager.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
@@ -618,6 +624,7 @@
 					USE_FILE32API,
 					"COCOS2D_DEBUG=1",
 					"CC_ENABLE_CHIPMUNK_INTEGRATION=0",
+					__APPLE__,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";

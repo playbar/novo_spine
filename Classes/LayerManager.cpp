@@ -64,5 +64,14 @@ bool LayerManager::delLayer(std::string strName)
 	return false;
 }
 
+#ifdef __APPLE__
+extern "C" {
+void GFunSkeletonEnd(std::string strName){
+
+}
+}
+
+#endif
+
 
 
