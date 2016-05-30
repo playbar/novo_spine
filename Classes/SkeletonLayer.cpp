@@ -102,7 +102,7 @@ void SkeletonLayer::InitSkeleton(const std::string& name){
     //doc.Parse(json);
     if (doc.HasParseError()) {
         rapidjson::ParseErrorCode code = doc.GetParseError();
-        log("%d", code );
+        log("SkeletonLayer::InitSkeleton error: %d, data:%d", code, data.getSize() );
         return;
     }
 
