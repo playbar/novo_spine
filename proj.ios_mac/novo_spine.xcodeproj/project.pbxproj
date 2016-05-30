@@ -11,6 +11,7 @@
 		04796A641CF3F8D600869D77 /* ParticleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A621CF3F8D600869D77 /* ParticleLayer.cpp */; };
 		04796A681CF3FB9100869D77 /* Sprite3DLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A661CF3FB9100869D77 /* Sprite3DLayer.cpp */; };
 		04796A6B1CF3FE7D00869D77 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A691CF3FE7D00869D77 /* VisibleRect.cpp */; };
+		04BE76DF1CFBCB340051BEAE /* bouquet in Resources */ = {isa = PBXBuildFile; fileRef = 04BE76DE1CFBCB340051BEAE /* bouquet */; };
 		04C749691CEEAA1200FFF14C /* Particles in Resources */ = {isa = PBXBuildFile; fileRef = 04C749661CEEAA1200FFF14C /* Particles */; };
 		04C7496A1CEEAA1200FFF14C /* spine in Resources */ = {isa = PBXBuildFile; fileRef = 04C749671CEEAA1200FFF14C /* spine */; };
 		04C7496B1CEEAA1200FFF14C /* Sprite3DTest in Resources */ = {isa = PBXBuildFile; fileRef = 04C749681CEEAA1200FFF14C /* Sprite3DTest */; };
@@ -131,6 +132,7 @@
 		04796A671CF3FB9100869D77 /* Sprite3DLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite3DLayer.h; sourceTree = "<group>"; };
 		04796A691CF3FE7D00869D77 /* VisibleRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisibleRect.cpp; sourceTree = "<group>"; };
 		04796A6A1CF3FE7D00869D77 /* VisibleRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisibleRect.h; sourceTree = "<group>"; };
+		04BE76DE1CFBCB340051BEAE /* bouquet */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bouquet; sourceTree = "<group>"; };
 		04C749661CEEAA1200FFF14C /* Particles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Particles; sourceTree = "<group>"; };
 		04C749671CEEAA1200FFF14C /* spine */ = {isa = PBXFileReference; lastKnownFileType = folder; path = spine; sourceTree = "<group>"; };
 		04C749681CEEAA1200FFF14C /* Sprite3DTest */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sprite3DTest; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04BE76DE1CFBCB340051BEAE /* bouquet */,
 				04CFBE561CF82B7800963255 /* novo_info.json */,
 				04C749661CEEAA1200FFF14C /* Particles */,
 				04C749671CEEAA1200FFF14C /* spine */,
@@ -522,6 +525,7 @@
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				04BE76DF1CFBCB340051BEAE /* bouquet in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,

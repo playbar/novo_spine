@@ -92,9 +92,111 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 
 }
 
+void SkeletonLayer::InitSkeleton(const std::string& name){
+    
+    Data data = FileUtils::getInstance()->getDataFromFile( FileUtils::getInstance()->fullPathForFilename(name));
+    
+    using rapidjson::Document;
+    Document doc;
+    doc.Parse((char* )data.getBytes());
+    //doc.Parse(json);
+    if (doc.HasParseError()) {
+        rapidjson::ParseErrorCode code = doc.GetParseError();
+        log("%d", code );
+        return;
+    }
+
+    int pos = name.find_last_of('/');
+    std::string dir = name.substr(0, pos + 1);
+    
+    
+    using rapidjson::Value;
+    Value & v = doc["ID"];
+    if (v.IsString()) {
+        log("%s", v.GetString());
+    }
+    Value &contents = doc["Skeleton"];
+    if( contents.IsArray()){
+        for( int i = 0; i < contents.Size(); ++i ){
+            Value &v = contents[i];
+            spine::SkeletonAnimation* skeletonTmp = nullptr;
+            if( v.HasMember("file") && v["file"].IsString()){
+                std::string jsonFile = dir + v["file"].GetString() + ".json";
+                std::string atlasFile = dir + v["file"].GetString() + ".atlas";
+                skeletonTmp = SkeletonAnimation::createWithFile(jsonFile, atlasFile, 1.0 );
+                skeletonTmp->setEndListener([this](int trackIndex){
+                    //skeletonTmp->stopAllActions();
+                    Director::getInstance()->delLayer(this);
+                });
+            }
+            else{
+                return;
+            }
+            if (v.HasMember("scale") && v["scale"].IsDouble()) {
+                if( skeletonTmp != nullptr ){
+                    skeletonTmp->setScale(v["scale"].GetDouble());
+                }
+            }
+            if(v.HasMember("posx") && v["posx"].IsInt()
+               &&v.HasMember("posy") && v["posy"].IsInt()){
+                if( skeletonTmp != nullptr ){
+                    skeletonTmp->setPosition(v["posx"].GetInt(), v["posy"].GetInt());
+                }
+            }
+       
+            if(v.HasMember("loopcount") && v["loopcount"].IsInt()){
+                static int iloop = v["loopcount"].GetInt();
+                skeletonTmp->setCompleteListener([this](int trackIndex, int loopCount){
+                    if(iloop == loopCount ){
+                        Director::getInstance()->delLayer(this);
+                    }
+                });
+                
+            }
+            Value &mix = v["mix"];
+            if( mix.IsArray() ){
+                for( int j = 0; j < mix.Size(); ++j){
+                    Value &mixValue = mix[j];
+                    if( mixValue.HasMember("from") && mixValue["from"].IsString()
+                       && mixValue.HasMember("to") && mixValue["to"].IsString()
+                       && mixValue.HasMember("duration") && mixValue["duration"].IsDouble()){
+                        if( skeletonTmp != nullptr ){
+                            log("%s", mixValue["from"].GetString());
+                            log("%s", mixValue["to"].GetString());
+                            log("%f", mixValue["duration"].GetDouble());
+                            skeletonTmp->setMix(mixValue["from"].GetString(), mixValue["to"].GetString(), mixValue["duration"].GetDouble());
+                        }
+                        
+                    }
+                   
+                }
+            }
+            Value &addAnimatoin = v["addAnimatoin"];
+            if( addAnimatoin.IsArray()){
+                for( int x = 0; x < addAnimatoin.Size(); ++x ){
+                    Value &valAddAnimatoin = addAnimatoin[x];
+                    if( valAddAnimatoin.HasMember("index") && valAddAnimatoin["index"].IsInt()
+                       && valAddAnimatoin.HasMember("name") && valAddAnimatoin["name"].IsString()
+                       && valAddAnimatoin.HasMember("loop") && valAddAnimatoin["loop"].IsBool()){
+                        if( skeletonTmp != nullptr ){
+                            skeletonTmp->setAnimation(valAddAnimatoin["index"].GetInt(), valAddAnimatoin["name"].GetString(), valAddAnimatoin["loop"].GetBool());
+                        }
+                        
+                    }
+                }
+            }
+            addChild( skeletonTmp);
+            scheduleUpdate();
+            
+        }
+    }
+
+    return;
+}
+
 //#define psln(x) std::cout << #x " = " << (x) << std::endl
 
-void SkeletonLayer::InitSkeleton(const std::string& name) {
+void SkeletonLayer::TestInitJson(const std::string& name) {
 
 	using std::string;
 	using std::ifstream;
@@ -132,7 +234,39 @@ void SkeletonLayer::InitSkeleton(const std::string& name) {
             if( v.HasMember("posy") && v["posy"].IsInt()){
                 log("%d", v["posy"].GetInt());
             }
-            //if()
+            if(v.HasMember("loopcount") && v["loopcount"].IsInt()){
+                log("%d", v["loopcount"].GetInt());
+            }
+            Value &mix = v["mix"];
+            if( mix.IsArray() ){
+                for( size_t j = 0; j < mix.Size(); ++j){
+                    Value &mixValue = mix[j];
+                    if( mixValue.HasMember("from") && mixValue["from"].IsString()){
+                        log("%s", mixValue["from"].GetString());
+                    }
+                    if( mixValue.HasMember("to") && mixValue["to"].IsString()){
+                        log("%s", mixValue["to"].GetString());
+                    }
+                    if( mixValue.HasMember("duration") && mixValue["duration"].IsDouble()){
+                        log("%f", mixValue["duration"].GetDouble());
+                    }
+                }
+            }
+            Value &addAnimatoin = v["addAnimatoin"];
+            if( addAnimatoin.IsArray()){
+                for( size_t x = 0; x < addAnimatoin.Size(); ++x ){
+                    Value &valAddAnimatoin = addAnimatoin[x];
+                    if( valAddAnimatoin.HasMember("index") && valAddAnimatoin["index"].IsInt()){
+                        log("%d", valAddAnimatoin["index"].GetInt());
+                    }
+                    if( valAddAnimatoin.HasMember("name") && valAddAnimatoin["name"].IsString()){
+                        log("%s", valAddAnimatoin["name"].GetString());
+                    }
+                    if( valAddAnimatoin.HasMember("loop") && valAddAnimatoin["loop"].IsBool()){
+                        log("%d", valAddAnimatoin["loop"].GetBool());
+                    }
+                }
+            }
             
         }
     }

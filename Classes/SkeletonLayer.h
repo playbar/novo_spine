@@ -11,6 +11,8 @@ public:
     void InitSkeleton(const std::string& skeletonDataFile, const std::string& atlasFile, float scale);
     void InitSkeleton(const std::string& name);
     
+    void TestInitJson(const std::string& name);
+    
     virtual void update(float delta);
 
 private:
