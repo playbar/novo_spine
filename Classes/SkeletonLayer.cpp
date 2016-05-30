@@ -126,6 +126,13 @@ void SkeletonLayer::InitSkeleton(const std::string& name) {
             if (v.HasMember("scale") && v["scale"].IsDouble()) {
                 log("%f", v["scale"].GetDouble());
             }
+            if(v.HasMember("posx") && v["posx"].IsInt()){
+                log( "%d", v["posx"].GetInt());
+            }
+            if( v.HasMember("posy") && v["posy"].IsInt()){
+                log("%d", v["posy"].GetInt());
+            }
+            //if()
             
         }
     }

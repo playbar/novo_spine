@@ -28,7 +28,6 @@
 		04C7498B1CEEB02300FFF14C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04C7497F1CEEB02300FFF14C /* Default@2x.png */; };
 		04CD0A591CF2D494004D01A3 /* PlayInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD0A571CF2D494004D01A3 /* PlayInfo.cpp */; };
 		04CFBE571CF82B7800963255 /* novo_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CFBE561CF82B7800963255 /* novo_info.json */; };
-		04CFBE5A1CF82CB200963255 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CFBE591CF82CB200963255 /* test.json */; };
 		04D360A31CEFCEA7000A0582 /* NovoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D360A11CEFCEA7000A0582 /* NovoScene.cpp */; };
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
@@ -144,7 +143,7 @@
 		04CD0A571CF2D494004D01A3 /* PlayInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayInfo.cpp; sourceTree = "<group>"; };
 		04CD0A581CF2D494004D01A3 /* PlayInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayInfo.h; sourceTree = "<group>"; };
 		04CFBE561CF82B7800963255 /* novo_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = novo_info.json; sourceTree = "<group>"; };
-		04CFBE591CF82CB200963255 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		04CFBE5B1CF83CE800963255 /* globaldef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globaldef.h; sourceTree = "<group>"; };
 		04D360A11CEFCEA7000A0582 /* NovoScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovoScene.cpp; sourceTree = "<group>"; };
 		04D360A21CEFCEA7000A0582 /* NovoScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovoScene.h; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
@@ -322,7 +321,6 @@
 			isa = PBXGroup;
 			children = (
 				04CFBE561CF82B7800963255 /* novo_info.json */,
-				04CFBE591CF82CB200963255 /* test.json */,
 				04C749661CEEAA1200FFF14C /* Particles */,
 				04C749671CEEAA1200FFF14C /* spine */,
 				04C749681CEEAA1200FFF14C /* Sprite3DTest */,
@@ -338,6 +336,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				04CFBE5B1CF83CE800963255 /* globaldef.h */,
 				04796A691CF3FE7D00869D77 /* VisibleRect.cpp */,
 				04796A6A1CF3FE7D00869D77 /* VisibleRect.h */,
 				04796A661CF3FB9100869D77 /* Sprite3DLayer.cpp */,
@@ -512,7 +511,6 @@
 				04C7496A1CEEAA1200FFF14C /* spine in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
-				04CFBE5A1CF82CB200963255 /* test.json in Resources */,
 				04C7498A1CEEB02300FFF14C /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				04C749801CEEB02300FFF14C /* Default-568h@2x.png in Resources */,

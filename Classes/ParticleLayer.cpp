@@ -20,8 +20,9 @@ bool ParticleLayer::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    _emitter = ParticleSystemQuad::create("Particles/SmallSun.plist");
+    _emitter = ParticleSystemQuad::create("Particles/test.plist");
     _emitter->setPosition(400, 200);
+    //_emitter->setScale( 0.5);
     _emitter->retain();
     addChild(_emitter, 10);
 
