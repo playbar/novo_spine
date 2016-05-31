@@ -33,6 +33,7 @@ import android.graphics.Point;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager.OnActivityResultListener;
@@ -53,6 +54,12 @@ import com.seu.magicfilter.camera.MagicCameraDisplay;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.*;
 
 public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener {
     // ===========================================================
@@ -287,11 +294,52 @@ public class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener
         if(mEditBoxHelper == null){
             mEditBoxHelper = new Cocos2dxEditBoxHelper(mFrameLayout);
         }
+        
+        StringBuilder log = new StringBuilder();
+        String inPath = getInnerSDCardPath();
+        log.append("内置SD卡路径：" + inPath + "\r\n");
+
+        List<String> extPaths = getExtSDCardPath();
+        for (String path : extPaths) {
+            log.append("外置SD卡路径：" + path + "\r\n");
+        }
 
         Window window = this.getWindow();
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
+
+    public String getInnerSDCardPath() {
+        return Environment.getExternalStorageDirectory().getPath();
+    }
+
+    public List<String> getExtSDCardPath()
+    {
+        List<String> lResult = new ArrayList<String>();
+        try {
+            Runtime rt = Runtime.getRuntime();
+            Process proc = rt.exec("mount");
+            InputStream is = proc.getInputStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.contains("extSdCard"))
+                {
+                    String [] arr = line.split(" ");
+                    String path = arr[1];
+                    File file = new File(path);
+                    if (file.isDirectory())
+                    {
+                        lResult.add(path);
+                    }
+                }
+            }
+            isr.close();
+        } catch (Exception e) {
+        }
+        return lResult;
+    }
     
 	private void initConstants() {
 		Point outSize = new Point();
