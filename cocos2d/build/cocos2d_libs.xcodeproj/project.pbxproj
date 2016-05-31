@@ -19,6 +19,12 @@
 		043F37BD1CFD868E0092F119 /* AttachmentVertices.h in Headers */ = {isa = PBXBuildFile; fileRef = 043F37BB1CFD868E0092F119 /* AttachmentVertices.h */; };
 		043F37C01CFD86B00092F119 /* WeightedMeshAttachment.c in Sources */ = {isa = PBXBuildFile; fileRef = 043F37BE1CFD86B00092F119 /* WeightedMeshAttachment.c */; };
 		043F37C11CFD86B00092F119 /* WeightedMeshAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 043F37BF1CFD86B00092F119 /* WeightedMeshAttachment.h */; };
+		043F37C81CFD8D1E0092F119 /* WeightedMeshAttachment.c in Sources */ = {isa = PBXBuildFile; fileRef = 043F37BE1CFD86B00092F119 /* WeightedMeshAttachment.c */; };
+		043F37C91CFD8D3A0092F119 /* AttachmentVertices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 043F37BA1CFD868E0092F119 /* AttachmentVertices.cpp */; };
+		043F37CA1CFD8D5F0092F119 /* TransformConstraintData.c in Sources */ = {isa = PBXBuildFile; fileRef = 043F37B61CFD862A0092F119 /* TransformConstraintData.c */; };
+		043F37CB1CFD8D5F0092F119 /* TransformConstraint.c in Sources */ = {isa = PBXBuildFile; fileRef = 043F37B21CFD86130092F119 /* TransformConstraint.c */; };
+		043F37CC1CFD8D5F0092F119 /* Cocos2dAttachmentLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 043F37AE1CFD85B50092F119 /* Cocos2dAttachmentLoader.cpp */; };
+		043F37CD1CFD8D5F0092F119 /* SkeletonBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 043F37AA1CFD85850092F119 /* SkeletonBatch.cpp */; };
 		15AE180819AAD2F700C27E9E /* CCAABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15AE17E419AAD2F700C27E9E /* CCAABB.cpp */; };
 		15AE180919AAD2F700C27E9E /* CCAABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15AE17E419AAD2F700C27E9E /* CCAABB.cpp */; };
 		15AE180A19AAD2F700C27E9E /* CCAABB.h in Headers */ = {isa = PBXBuildFile; fileRef = 15AE17E519AAD2F700C27E9E /* CCAABB.h */; };
@@ -4890,6 +4896,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043F37CA1CFD8D5F0092F119 /* TransformConstraintData.c in Sources */,
+				043F37CB1CFD8D5F0092F119 /* TransformConstraint.c in Sources */,
+				043F37CC1CFD8D5F0092F119 /* Cocos2dAttachmentLoader.cpp in Sources */,
+				043F37CD1CFD8D5F0092F119 /* SkeletonBatch.cpp in Sources */,
+				043F37C91CFD8D3A0092F119 /* AttachmentVertices.cpp in Sources */,
+				043F37C81CFD8D1E0092F119 /* WeightedMeshAttachment.c in Sources */,
 				50ABBE2B1925AB6F00A911A9 /* ccCArray.cpp in Sources */,
 				382383F41A258FA7002C4610 /* idl_gen_cpp.cpp in Sources */,
 				B29A7E3B19EE1B7700872B35 /* Animation.c in Sources */,

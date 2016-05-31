@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		04193E4E1CF3F0C20059A9D1 /* SkeletonLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04193E4C1CF3F0C20059A9D1 /* SkeletonLayer.cpp */; };
+		043F37C21CFD8CB00092F119 /* NovoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D360A11CEFCEA7000A0582 /* NovoScene.cpp */; };
+		043F37C31CFD8CC30092F119 /* LayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04BE76E11CFC1BFE0051BEAE /* LayerManager.cpp */; };
+		043F37C41CFD8CC70092F119 /* Sprite3DLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A661CF3FB9100869D77 /* Sprite3DLayer.cpp */; };
+		043F37C51CFD8CCB0092F119 /* ParticleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A621CF3F8D600869D77 /* ParticleLayer.cpp */; };
+		043F37C61CFD8CCE0092F119 /* SkeletonLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04193E4C1CF3F0C20059A9D1 /* SkeletonLayer.cpp */; };
+		043F37C71CFD8CE00092F119 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A691CF3FE7D00869D77 /* VisibleRect.cpp */; };
+		043F37CE1CFD8D930092F119 /* spine in Resources */ = {isa = PBXBuildFile; fileRef = 04C749671CEEAA1200FFF14C /* spine */; };
 		04796A641CF3F8D600869D77 /* ParticleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A621CF3F8D600869D77 /* ParticleLayer.cpp */; };
 		04796A681CF3FB9100869D77 /* Sprite3DLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A661CF3FB9100869D77 /* Sprite3DLayer.cpp */; };
 		04796A6B1CF3FE7D00869D77 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A691CF3FE7D00869D77 /* VisibleRect.cpp */; };
@@ -544,6 +551,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043F37CE1CFD8D930092F119 /* spine in Resources */,
 				04C749871CEEB02300FFF14C /* Default-Landscape~ipad.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
@@ -582,6 +590,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043F37C71CFD8CE00092F119 /* VisibleRect.cpp in Sources */,
+				043F37C61CFD8CCE0092F119 /* SkeletonLayer.cpp in Sources */,
+				043F37C51CFD8CCB0092F119 /* ParticleLayer.cpp in Sources */,
+				043F37C41CFD8CC70092F119 /* Sprite3DLayer.cpp in Sources */,
+				043F37C31CFD8CC30092F119 /* LayerManager.cpp in Sources */,
+				043F37C21CFD8CB00092F119 /* NovoScene.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 			);

@@ -81,7 +81,7 @@ int Application::run()
     while (!glview->windowShouldClose())
     {
         lastTime = getCurrentMillSecond();
-        
+        director->Clear();
         director->mainLoop();
         glview->pollEvents();
 
