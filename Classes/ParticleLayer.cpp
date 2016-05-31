@@ -1,7 +1,6 @@
 #include "ParticleLayer.h"
 #include "spine/spine.h"
 #include "base/ccMacros.h"
-#include "PlayInfo.h"
 
 USING_NS_CC;
 using namespace spine;

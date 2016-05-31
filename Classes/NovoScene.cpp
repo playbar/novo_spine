@@ -1,7 +1,6 @@
 #include "NovoScene.h"
 #include "spine/spine.h"
 #include "base/ccMacros.h"
-#include "PlayInfo.h"
 #include "SkeletonLayer.h"
 #include "ParticleLayer.h"
 #include "Sprite3DLayer.h"

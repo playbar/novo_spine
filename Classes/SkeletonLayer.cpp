@@ -1,7 +1,6 @@
 #include "SkeletonLayer.h"
 #include "spine/spine.h"
 #include "base/ccMacros.h"
-#include "PlayInfo.h"
 #include "json/document.h"
 #include "Java_org_cocos2dx_lib_LayerManager.h"
 
@@ -68,7 +67,6 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 	//skeletonNode->addAnimation(0, "jump", false, 3);
 	//skeletonNode->addAnimation(0, "run", false);
 
-    PlayInfo *pInfo = PlayInfo::getInstance();
 	skeletonNode->setPosition(0, 0);
 
 	addChild(skeletonNode, 2);

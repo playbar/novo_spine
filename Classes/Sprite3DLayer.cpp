@@ -1,7 +1,6 @@
 #include "Sprite3DLayer.h"
 #include "spine/spine.h"
 #include "base/ccMacros.h"
-#include "PlayInfo.h"
 #include "VisibleRect.h"
 
 USING_NS_CC;

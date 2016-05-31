@@ -27,7 +27,6 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
-#include "PlayInfo.h"
 
 
 @implementation AppController
@@ -85,12 +84,6 @@ static AppDelegate s_sharedApplication;
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
     cocos2d::GLView *glview = cocos2d::GLViewImpl::createWithEAGLView(eaglView);
     cocos2d::Director::getInstance()->setOpenGLView(glview);
-    PlayInfo *pinfo = PlayInfo::getInstance();
-    pinfo->setKeletonDataFile("spine/ship.json");
-    pinfo->setAtlasFile("spine/ship.atlas");
-    
-    pinfo->setposx( 400);
-    pinfo->setposy(300 );
     
 
     app->run();

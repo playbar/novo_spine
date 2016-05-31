@@ -28,7 +28,6 @@
 		04C749891CEEB02300FFF14C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 04C7497E1CEEB02300FFF14C /* Default.png */; };
 		04C7498A1CEEB02300FFF14C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04C7497F1CEEB02300FFF14C /* Default@2x.png */; };
 		04C7498B1CEEB02300FFF14C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04C7497F1CEEB02300FFF14C /* Default@2x.png */; };
-		04CD0A591CF2D494004D01A3 /* PlayInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD0A571CF2D494004D01A3 /* PlayInfo.cpp */; };
 		04CFBE571CF82B7800963255 /* novo_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CFBE561CF82B7800963255 /* novo_info.json */; };
 		04D360A31CEFCEA7000A0582 /* NovoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D360A11CEFCEA7000A0582 /* NovoScene.cpp */; };
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
@@ -145,8 +144,6 @@
 		04C7497D1CEEB02300FFF14C /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		04C7497E1CEEB02300FFF14C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		04C7497F1CEEB02300FFF14C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		04CD0A571CF2D494004D01A3 /* PlayInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayInfo.cpp; sourceTree = "<group>"; };
-		04CD0A581CF2D494004D01A3 /* PlayInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayInfo.h; sourceTree = "<group>"; };
 		04CFBE561CF82B7800963255 /* novo_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = novo_info.json; sourceTree = "<group>"; };
 		04CFBE5B1CF83CE800963255 /* globaldef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globaldef.h; sourceTree = "<group>"; };
 		04D360A11CEFCEA7000A0582 /* NovoScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovoScene.cpp; sourceTree = "<group>"; };
@@ -353,8 +350,6 @@
 				04796A631CF3F8D600869D77 /* ParticleLayer.h */,
 				04193E4C1CF3F0C20059A9D1 /* SkeletonLayer.cpp */,
 				04193E4D1CF3F0C20059A9D1 /* SkeletonLayer.h */,
-				04CD0A571CF2D494004D01A3 /* PlayInfo.cpp */,
-				04CD0A581CF2D494004D01A3 /* PlayInfo.h */,
 				04D360A11CEFCEA7000A0582 /* NovoScene.cpp */,
 				04D360A21CEFCEA7000A0582 /* NovoScene.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
@@ -580,7 +575,6 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				04796A681CF3FB9100869D77 /* Sprite3DLayer.cpp in Sources */,
 				04193E4E1CF3F0C20059A9D1 /* SkeletonLayer.cpp in Sources */,
-				04CD0A591CF2D494004D01A3 /* PlayInfo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
