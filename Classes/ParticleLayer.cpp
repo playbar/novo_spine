@@ -20,11 +20,13 @@ bool ParticleLayer::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    _emitter = ParticleSystemQuad::create("Particles/test.plist");
+    _emitter = ParticleSystemQuad::create("Particles/Flower.plist");
     _emitter->setPosition(400, 200);
     //_emitter->setScale( 0.5);
     _emitter->retain();
     addChild(_emitter, 10);
+    
+    //scheduleUpdate();
 
     return true;
 }
@@ -35,6 +37,12 @@ bool ParticleLayer::init()
 void ParticleLayer::TestParticle()
 {
 
+}
+
+void ParticleLayer::update(float delta){
+    Layer::update(delta);
+    //log("ParticleLayer::update");
+    
 }
 
 

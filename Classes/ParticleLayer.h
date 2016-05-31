@@ -13,6 +13,8 @@ private:
 	void TestParticle();
 
 public:
+    
+    virtual void update(float delta) override;
 
     virtual bool init();
     

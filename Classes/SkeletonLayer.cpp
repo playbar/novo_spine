@@ -74,6 +74,8 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 	addChild(skeletonNode, 2);
 	scheduleUpdate();
     
+    spBone* particleBone = skeletonNode->findBone("Boss06_weapon01");
+    
     
 	EventListenerTouchOneByOne* listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = [this](Touch* touch, Event* event) -> bool {
@@ -189,11 +191,13 @@ void SkeletonLayer::InitSkeleton(const std::string& name){
                 }
             }
             addChild( skeletonTmp);
-            scheduleUpdate();
+            
             
         }
     }
 
+    scheduleUpdate();
+    
     return;
 }
 

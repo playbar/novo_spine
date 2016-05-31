@@ -55,6 +55,9 @@ void Sprite3DLayer::initSprite3D()
 	auto pMenu1 = Menu::create(item1, item2, item3, item4, item5, nullptr);
 	pMenu1->setPosition(Vec2(0, 0));
 	this->addChild(pMenu1, 3);
+    
+    //scheduleUpdate();
+    return;
 }
 
 void Sprite3DLayer::onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event)
@@ -135,6 +138,12 @@ void Sprite3DLayer::applyCurSkin()
 		}
 		_sprite->getMeshByIndex(static_cast<int>(i))->setVisible(isVisible);
 	}
+}
+
+void Sprite3DLayer::update(float delta)
+{
+    Layer::update(delta);
+    //log("Sprite3DLayer::update");
 }
 
 

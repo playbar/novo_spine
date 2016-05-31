@@ -13,6 +13,8 @@ private:
 public:
     static cocos2d::Scene* createScene();
     
+    virtual void update(float delta) override;
+    
     // implement the "static create()" method manually
     CREATE_FUNC(NovoScene);
 };
