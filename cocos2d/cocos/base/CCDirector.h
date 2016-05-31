@@ -598,7 +598,7 @@ protected:
     /* scheduled scenes */
     Vector<Scene*> _scenesStack;
     
-    Vector<Node*> _deleteLayer;
+    std::map<Node*, bool> _deleteLayer;
     bool mbNeeddellayer;
     
     /* last time the main loop was updated */

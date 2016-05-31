@@ -865,7 +865,8 @@ void Director::pushScene(Scene *scene)
 }
 
 void Director::delLayer(Node *layer){
-    _deleteLayer.pushBack(layer);
+    _deleteLayer[layer] = true;
+    //_deleteLayer.pushBack(layer);
     mbNeeddellayer = true;
     return;
 }
@@ -873,7 +874,8 @@ void Director::delLayer(Node *layer){
 void Director::delLayer(const std::string &name){
 	Node *node = _runningScene->findChildByName( name );
 	if( node != nullptr ){
-		_deleteLayer.pushBack(node);
+		//_deleteLayer.pushBack(node);
+        _deleteLayer[node] = true;
 		mbNeeddellayer = true;
 	}
 	return;
@@ -1441,11 +1443,19 @@ void DisplayLinkDirector::startAnimation()
 void DisplayLinkDirector::mainLoop()
 {
     if( mbNeeddellayer ){
-        Vector<Node*>::iterator iter = _deleteLayer.begin();
-        for( ; iter != _deleteLayer.end(); ++iter ){
-            removeLayer(*iter, true );
+        std::map<Node*, bool>::iterator iter = _deleteLayer.begin();
+        for( ; iter != _deleteLayer.end();  ){
+            
+            if( _runningScene != nullptr && iter->second ){
+                 _deleteLayer.erase(iter++);
+                _runningScene->removeChild(iter->first, true );
+               
+            }else{
+                ++iter;
+            }
+
         }
-        _deleteLayer.clear();
+
         mbNeeddellayer = false;
     }
     

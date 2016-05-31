@@ -9,8 +9,27 @@
 USING_NS_CC;
 using namespace spine;
 
+void Testmap(){
+    std::map<int, bool > datas;
+    datas[1] = true;
+    datas[2] = false;
+    datas[3] = true;
+    datas[4] = false;
+    
+    std::map<int, bool>::iterator iter = datas.begin();
+    for (; iter != datas.end();) {
+        if( iter->second )
+            datas.erase(iter++);
+        else{
+            ++iter;
+        }
+    }
+    return;
+}
+
 Scene* NovoScene::createScene()
 {
+    Testmap();
     // 'scene' is an autorelease object
     auto scene = NovoScene::create();
     log("NovoScene::createScene");
