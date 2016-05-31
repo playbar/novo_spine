@@ -67,7 +67,7 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 	//skeletonNode->addAnimation(0, "jump", false, 3);
 	//skeletonNode->addAnimation(0, "run", false);
 
-	skeletonNode->setPosition(0, 0);
+	skeletonNode->setPosition(400, 300);
 
 	addChild(skeletonNode, 2);
 	scheduleUpdate();

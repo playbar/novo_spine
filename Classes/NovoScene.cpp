@@ -34,8 +34,8 @@ Scene* NovoScene::createScene()
     log("NovoScene::createScene");
     
     // 'layer' is an autorelease object
-    //auto layerfish = SkeletonLayer::create();
-    //layerfish->InitSkeleton("spine/bouquet.json", "spine/bouquet.atlas", 1.0f);
+    auto layerfish = SkeletonLayer::create();
+    layerfish->InitSkeleton("spine/banana.json", "spine/banana.atlas", 1.0f);
     //layerfish->InitSkeleton("bouquet/novo_info.json");
     
     //auto layerIsland = SkeletonLayer::create();
@@ -45,7 +45,7 @@ Scene* NovoScene::createScene()
     //auto sprintLayer = Sprite3DLayer::create();
     // add layer as a child to scene
     //->addChild(sprintLayer);
-    //scene->addChild(layerfish, 4);
+    scene->addChild(layerfish, 4);
     //scene->addChild(parLayer);
 
     //layerfish->mbUpdatepos = true;

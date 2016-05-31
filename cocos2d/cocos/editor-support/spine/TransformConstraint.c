@@ -29,36 +29,30 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *****************************************************************************/
 
-#ifndef SPINE_POLYGONBATCH_H_
-#define SPINE_POLYGONBATCH_H_
+#include <spine/TransformConstraint.h>
+#include <spine/Skeleton.h>
+#include <spine/extension.h>
 
-#include "renderer/CCTexture2D.h"
-
-namespace spine {
-
-class PolygonBatch : public cocos2d::Ref {
-public:
-	static PolygonBatch* createWithCapacity (ssize_t capacity);
-
-	void add (const cocos2d::Texture2D* texture,
-		const float* vertices, const float* uvs, int verticesCount,
-		const int* triangles, int trianglesCount,
-		cocos2d::Color4B* color);
-	void flush ();
-
-protected:
-	PolygonBatch();
-	virtual ~PolygonBatch();
-	bool initWithCapacity (ssize_t capacity);
-
-	ssize_t _capacity;
-	cocos2d::V2F_C4B_T2F* _vertices;
-	int _verticesCount;
-	GLushort* _triangles;
-	int _trianglesCount;
-	const cocos2d::Texture2D* _texture;
-};
-
+spTransformConstraint* spTransformConstraint_create (spTransformConstraintData* data, const spSkeleton* skeleton) {
+	spTransformConstraint* self = NEW(spTransformConstraint);
+	CONST_CAST(spTransformConstraintData*, self->data) = data;
+	self->translateMix = data->translateMix;
+	self->x = data->x;
+	self->y = data->y;
+	self->bone = spSkeleton_findBone(skeleton, self->data->bone->name);
+	self->target = spSkeleton_findBone(skeleton, self->data->target->name);
+	return self;
 }
 
-#endif // SPINE_POLYGONBATCH_H_
+void spTransformConstraint_dispose (spTransformConstraint* self) {
+	FREE(self);
+}
+
+void spTransformConstraint_apply (spTransformConstraint* self) {
+	if (self->translateMix > 0) {
+		float tx, ty;
+		spBone_localToWorld(self->target, self->x, self->y, &tx, &ty);
+		CONST_CAST(float, self->bone->worldX) = self->bone->worldX + (tx - self->bone->worldX) * self->translateMix;
+		CONST_CAST(float, self->bone->worldY) = self->bone->worldY + (ty - self->bone->worldY) * self->translateMix;
+	}
+}
