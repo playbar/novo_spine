@@ -17,15 +17,59 @@ bool Sprite3DLayer::init()
 		return false;
 	}
     
-	initSprite3D();
+	//initSprite3D();
 
     return true;
 }
+
+void Sprite3DLayer::addTortoise()
+{
+    std::string fileName = "Sprite3DTest/tortoise.c3b";
+    auto sprite = Sprite3D::create(fileName);
+    sprite->setScale(0.1f);
+    auto s = Director::getInstance()->getWinSize();
+    sprite->setPosition(Vec2(s.width * 4.f / 5.f, s.height / 2.f));
+    addChild(sprite);
+    _sprite = sprite;
+    auto animation = Animation3D::create(fileName);
+    if (animation)
+    {
+        auto animate = Animate3D::create(animation, 0.f, 1.933f);
+        _swim = RepeatForever::create(animate);
+        sprite->runAction(_swim);
+        
+        _swim->retain();
+        _hurt = Animate3D::create(animation, 1.933f, 2.8f);
+        _hurt->retain();
+    }
+    
+    _moveAction = MoveBy::create(4.f, Vec2( - s.width * 3.0f /5, 0));
+    _moveAction->retain();
+    auto seq = Sequence::create(_moveAction, CallFunc::create(CC_CALLBACK_0(Sprite3DLayer::reachEndCallBack, this)), nullptr);
+    seq->setTag(100);
+    sprite->runAction(seq);
+}
+
+void Sprite3DLayer::reachEndCallBack()
+{
+    _sprite->stopActionByTag(100);
+    auto inverse = _moveAction->reverse();
+    _moveAction->release();
+    _moveAction = inverse;
+    _moveAction->retain();
+    
+    auto rot = RotateBy::create(1.f, Vec3(0.f, 180.f, 0.f));
+    auto seq = Sequence::create(rot, _moveAction, CallFunc::create(CC_CALLBACK_0(Sprite3DLayer::reachEndCallBack, this)), nullptr);
+    seq->setTag(100);
+    _sprite->runAction(seq);
+}
+
 
 void Sprite3DLayer::initSprite3D()
 {
 	auto s = Director::getInstance()->getWinSize();
 	addNewSpriteWithCoords(Vec2(s.width / 2, 200));
+    
 
 	auto listener = EventListenerTouchAllAtOnce::create();
 	listener->onTouchesEnded = CC_CALLBACK_2(Sprite3DLayer::onTouchesEnded, this);
@@ -79,6 +123,7 @@ void Sprite3DLayer::addNewSpriteWithCoords(cocos2d::Vec2 p)
 	{
 		auto animate = Animate3D::create(animation);
 		sprite->runAction(RepeatForever::create(animate));
+        //sprite->runAction(shaky3D);
 	}
 	_sprite = sprite;
 
@@ -156,3 +201,6 @@ void Sprite3DLayer::menuCloseCallback(Ref* pSender)
     exit(0);
 #endif
 }
+
+
+

@@ -6,9 +6,12 @@
 
 class Sprite3DLayer : public cocos2d::Layer
 {
-
+public:
+    void addTortoise();
+    void reachEndCallBack();
 
 private:
+   
 	void initSprite3D();
 	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
 	void addNewSpriteWithCoords(cocos2d::Vec2 p);
@@ -29,6 +32,10 @@ private:
 	std::vector<std::string> _skins[(int)SkinType::MAX_TYPE]; //all skins
 	int                      _curSkin[(int)SkinType::MAX_TYPE]; //current skin index
 	cocos2d::Sprite3D* _sprite;
+    
+    cocos2d::Action* _swim;
+    cocos2d::Animate3D* _hurt;
+    cocos2d::MoveBy* _moveAction;
 
 public:
 

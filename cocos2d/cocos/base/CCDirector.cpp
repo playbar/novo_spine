@@ -865,7 +865,10 @@ void Director::pushScene(Scene *scene)
 }
 
 void Director::delLayer(Node *layer){
+    std::string name = layer->getName();
     _deleteLayer[layer] = true;
+    //std::map<std::string, bool>::iterator iter = _deleteLayer.begin();
+    //std::string name1 = iter->first;
     //_deleteLayer.pushBack(layer);
     mbNeeddellayer = true;
     return;
@@ -874,7 +877,6 @@ void Director::delLayer(Node *layer){
 void Director::delLayer(const std::string &name){
 	Node *node = _runningScene->findChildByName( name );
 	if( node != nullptr ){
-		//_deleteLayer.pushBack(node);
         _deleteLayer[node] = true;
 		mbNeeddellayer = true;
 	}
@@ -1346,7 +1348,9 @@ void Director::addLayer(Node *node, int zOrder){
 void Director::addLayer(Node *node, int zOrder, const std::string &name)
 {
     if( _runningScene != nullptr ){
-    		log("Director::addLayer");
+        Node *node1 = _runningScene->findChildByName( name );
+        if( node1 != nullptr )
+            return;
         _runningScene->addChild(node, zOrder, name );
     }else{
     	log("Director::addLayer error");
@@ -1447,8 +1451,9 @@ void DisplayLinkDirector::mainLoop()
         for( ; iter != _deleteLayer.end();  ){
             
             if( _runningScene != nullptr && iter->second ){
-                 _deleteLayer.erase(iter++);
-                _runningScene->removeChild(iter->first, true );
+                //std::string name = iter->first;
+                _runningScene->removeChild(iter->first);
+                _deleteLayer.erase(iter++);
                
             }else{
                 ++iter;
