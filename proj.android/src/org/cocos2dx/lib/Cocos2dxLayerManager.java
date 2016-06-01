@@ -30,6 +30,7 @@ public class Cocos2dxLayerManager {
 	
 	public static void skeletonEnd(String strName){
 		Log.e("Cocos2dxLayerManager->skeletonEnd", strName);
+		nativeDelLayer(strName);
 	}
 	
 	 private static native void nativeAddLayer(String strName, int type);

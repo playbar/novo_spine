@@ -128,7 +128,7 @@ void SkeletonLayer::InitSkeleton(const std::string& name){
                 skeletonTmp->setEndListener([this](int trackIndex){
                     //skeletonTmp->stopAllActions();
                 		GFunSkeletonEnd(this->getName());
-                    Director::getInstance()->delLayer(this);
+                    //Director::getInstance()->delLayer(this);
                 });
             }
             else{
@@ -151,7 +151,7 @@ void SkeletonLayer::InitSkeleton(const std::string& name){
                 skeletonTmp->setCompleteListener([this](int trackIndex, int loopCount){
                     if(iloop == loopCount ){
                     	    GFunSkeletonEnd(this->getName());
-                        Director::getInstance()->delLayer(this);
+                        //Director::getInstance()->delLayer(this);
                     }
                 });
                 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04193E4E1CF3F0C20059A9D1 /* SkeletonLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04193E4C1CF3F0C20059A9D1 /* SkeletonLayer.cpp */; };
+		042A6F7E1CFE779B0085292E /* Sprite3DTest in Resources */ = {isa = PBXBuildFile; fileRef = 04C749681CEEAA1200FFF14C /* Sprite3DTest */; };
 		043F37C21CFD8CB00092F119 /* NovoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D360A11CEFCEA7000A0582 /* NovoScene.cpp */; };
 		043F37C31CFD8CC30092F119 /* LayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04BE76E11CFC1BFE0051BEAE /* LayerManager.cpp */; };
 		043F37C41CFD8CC70092F119 /* Sprite3DLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A661CF3FB9100869D77 /* Sprite3DLayer.cpp */; };
@@ -15,6 +16,8 @@
 		043F37C61CFD8CCE0092F119 /* SkeletonLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04193E4C1CF3F0C20059A9D1 /* SkeletonLayer.cpp */; };
 		043F37C71CFD8CE00092F119 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A691CF3FE7D00869D77 /* VisibleRect.cpp */; };
 		043F37CE1CFD8D930092F119 /* spine in Resources */ = {isa = PBXBuildFile; fileRef = 04C749671CEEAA1200FFF14C /* spine */; };
+		043F37D41CFD9F210092F119 /* Orangutan in Resources */ = {isa = PBXBuildFile; fileRef = 043F37D31CFD9F210092F119 /* Orangutan */; };
+		043F37D51CFD9F210092F119 /* Orangutan in Resources */ = {isa = PBXBuildFile; fileRef = 043F37D31CFD9F210092F119 /* Orangutan */; };
 		04796A641CF3F8D600869D77 /* ParticleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A621CF3F8D600869D77 /* ParticleLayer.cpp */; };
 		04796A681CF3FB9100869D77 /* Sprite3DLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A661CF3FB9100869D77 /* Sprite3DLayer.cpp */; };
 		04796A6B1CF3FE7D00869D77 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A691CF3FE7D00869D77 /* VisibleRect.cpp */; };
@@ -133,6 +136,7 @@
 /* Begin PBXFileReference section */
 		04193E4C1CF3F0C20059A9D1 /* SkeletonLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonLayer.cpp; sourceTree = "<group>"; };
 		04193E4D1CF3F0C20059A9D1 /* SkeletonLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonLayer.h; sourceTree = "<group>"; };
+		043F37D31CFD9F210092F119 /* Orangutan */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Orangutan; sourceTree = "<group>"; };
 		04796A621CF3F8D600869D77 /* ParticleLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleLayer.cpp; sourceTree = "<group>"; };
 		04796A631CF3F8D600869D77 /* ParticleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleLayer.h; sourceTree = "<group>"; };
 		04796A661CF3FB9100869D77 /* Sprite3DLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite3DLayer.cpp; sourceTree = "<group>"; };
@@ -329,6 +333,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				043F37D31CFD9F210092F119 /* Orangutan */,
 				04BE76DE1CFBCB340051BEAE /* bouquet */,
 				04CFBE561CF82B7800963255 /* novo_info.json */,
 				04C749661CEEAA1200FFF14C /* Particles */,
@@ -535,6 +540,7 @@
 				04BE76DF1CFBCB340051BEAE /* bouquet in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
+				043F37D41CFD9F210092F119 /* Orangutan in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				04C7496B1CEEAA1200FFF14C /* Sprite3DTest in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
@@ -551,11 +557,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042A6F7E1CFE779B0085292E /* Sprite3DTest in Resources */,
 				043F37CE1CFD8D930092F119 /* spine in Resources */,
 				04C749871CEEB02300FFF14C /* Default-Landscape~ipad.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
 				04C749831CEEB02300FFF14C /* Default-667h@2x.png in Resources */,
+				043F37D51CFD9F210092F119 /* Orangutan in Resources */,
 				04C749851CEEB02300FFF14C /* Default-736h@3x.png in Resources */,
 				04C7498B1CEEB02300FFF14C /* Default@2x.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,

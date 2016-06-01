@@ -7,8 +7,8 @@
     {
         "file":"bouquet",
         "scale":0.5,
-        "posx":0,  
-        "posy":200,
+        "posx":400,
+        "posy":300,
         "loopcount":4,  
         "mix":
         [
@@ -28,7 +28,7 @@
             {
                 "index":1,
                 "name":"animation",
-                "loop":true
+                "loop":false
             }
             
         ]  

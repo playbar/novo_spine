@@ -67,10 +67,12 @@ void Sprite3DLayer::onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, 
 void Sprite3DLayer::addNewSpriteWithCoords(cocos2d::Vec2 p)
 {
 	std::string fileName = "Sprite3DTest/ReskinGirl.c3b";
+    //std::string fileName = "Orangutan/Orangutan_FBX.c3b";
 	auto sprite = Sprite3D::create(fileName);
 	sprite->setScale(6);
 	sprite->setRotation3D(Vec3(0, 0, 0));
 	addChild(sprite, 1);
+    //return;
 	sprite->setPosition(Vec2(p.x, p.y - 100));
 	auto animation = Animation3D::create(fileName);
 	if (animation)
