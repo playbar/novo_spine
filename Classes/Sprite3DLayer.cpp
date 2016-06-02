@@ -22,33 +22,52 @@ bool Sprite3DLayer::init()
     return true;
 }
 
+
 void Sprite3DLayer::addTortoise()
 {
-    std::string fileName = "Sprite3DTest/tortoise.c3b";
-    auto sprite = Sprite3D::create(fileName);
-    sprite->setScale(0.1f);
     auto s = Director::getInstance()->getWinSize();
-    sprite->setPosition(Vec2(s.width * 4.f / 5.f, s.height / 2.f));
-    addChild(sprite);
-    _sprite = sprite;
-    auto animation = Animation3D::create(fileName);
-    if (animation)
-    {
-        auto animate = Animate3D::create(animation, 0.f, 1.933f);
-        _swim = RepeatForever::create(animate);
-        sprite->runAction(_swim);
-        
-        _swim->retain();
-        _hurt = Animate3D::create(animation, 1.933f, 2.8f);
-        _hurt->retain();
-    }
+    auto sprite1 = Sprite3D::create("Sprite3DTest/boss1.obj");
+    sprite1->setScale(4.f);
+    sprite1->setTexture("Sprite3DTest/boss.png");
+    sprite1->setPosition(Vec2(s.width/2, s.height/2));
+    addChild(sprite1);
     
-    _moveAction = MoveBy::create(4.f, Vec2( - s.width * 3.0f /5, 0));
-    _moveAction->retain();
-    auto seq = Sequence::create(_moveAction, CallFunc::create(CC_CALLBACK_0(Sprite3DLayer::reachEndCallBack, this)), nullptr);
-    seq->setTag(100);
-    sprite->runAction(seq);
+    sprite1->runAction(RepeatForever::create(RotateBy::create(3, 360)));
+    
+    
+
 }
+
+//
+//void Sprite3DLayer::addTortoise()
+//{
+//    std::string fileName = "Sprite3DTest/tortoise.c3b";
+//    auto sprite = Sprite3D::create(fileName);
+//    sprite->setScale(0.1f);
+//    auto s = Director::getInstance()->getWinSize();
+//    sprite->setPosition(Vec2(s.width * 4.f / 5.f, s.height / 2.f));
+//    addChild(sprite);
+//    _sprite = sprite;
+//    auto animation = Animation3D::create(fileName);
+//    if (animation)
+//    {
+//        auto animate = Animate3D::create(animation, 0.f, 1.933f);
+//        //animate->setSpeed(10.0f);
+//        _swim = RepeatForever::create(animate);
+//        sprite->runAction(_swim);
+//        
+//        _swim->retain();
+//        _hurt = Animate3D::create(animation, 1.933f, 2.8f);
+//        _hurt->retain();
+//    }
+//    
+//    _moveAction = MoveBy::create(4.f, Vec2( - s.width * 3.0f /5, 0));
+//    
+//    _moveAction->retain();
+//    auto seq = Sequence::create(_moveAction, CallFunc::create(CC_CALLBACK_0(Sprite3DLayer::reachEndCallBack, this)), nullptr);
+//    seq->setTag(100);
+//    sprite->runAction(seq);
+//}
 
 void Sprite3DLayer::reachEndCallBack()
 {

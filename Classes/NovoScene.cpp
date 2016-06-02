@@ -46,7 +46,7 @@ Scene* NovoScene::createScene()
     //auto spriteLayer = Sprite3DLayer::create();
     //spriteLayer->addTortoise();
     // add layer as a child to scene
-    //scene->addChild(spriteLayer,1);
+    // scene->addChild(spriteLayer,1);
     //scene->addChild(layerfish, 2, name);
     //scene->addChild(parLayer);
 
