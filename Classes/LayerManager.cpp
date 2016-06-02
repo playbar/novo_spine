@@ -33,15 +33,10 @@ bool LayerManager::addLayer(std::string strName, EnLayerType type )
 {
 	Layer *layer = nullptr;
 	if( LAYER_TYPE_SKELETON == type ){
-		std::string strfile = strName + "/novo_info.json";
-		log("%s", strfile.c_str());
+		//std::string strfile = strName + "/novo_info.json";
 	    auto layerSk= SkeletonLayer::create();
-	    //layerSk->InitSkeleton("spine/fatfish.json", "spine/fatfish.atlas", 1.0f);
-	    layerSk->InitSkeleton(strfile);
-	    //layerSk->mbUpdatepos = true;
-	    //layerSk->setPosition(400, 100);
+	    layerSk->InitSkeleton(strName);
 	    layer = layerSk;
-	    log("LayerManager::addLayer");
 	}else if( LAYER_TYPE_PARTICLE == type ){
 		  layer = ParticleLayer::create();
 	}else if( LAYER_TYPE_SPRITE3D == type ){

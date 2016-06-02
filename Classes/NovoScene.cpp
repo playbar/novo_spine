@@ -28,7 +28,7 @@ void Testmap(){
 
 Scene* NovoScene::createScene()
 {
-    Testmap();
+    //Testmap();
     // 'scene' is an autorelease object
     auto scene = NovoScene::create();
     log("NovoScene::createScene");
@@ -36,7 +36,7 @@ Scene* NovoScene::createScene()
     // 'layer' is an autorelease object
     //auto layerfish = SkeletonLayer::create();
     //layerfish->InitSkeleton("spine/banana.json", "spine/banana.atlas", 1.0f);
-    //std::string name = "bouquet/novo_info.json";
+    //std::string name = "rose";
     //layerfish->InitSkeleton(name);
     
     //auto layerIsland = SkeletonLayer::create();
@@ -44,9 +44,9 @@ Scene* NovoScene::createScene()
 
     //auto parLayer = ParticleLayer::create();
     //auto spriteLayer = Sprite3DLayer::create();
-    //spriteLayer->addTortoise();
+    //spriteLayer->addNewSpriteWithCoords();
     // add layer as a child to scene
-    // scene->addChild(spriteLayer,1);
+    //scene->addChild(spriteLayer,1);
     //scene->addChild(layerfish, 2, name);
     //scene->addChild(parLayer);
 

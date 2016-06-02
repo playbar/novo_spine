@@ -1350,10 +1350,13 @@ void Director::addLayer(Node *node, int zOrder, const std::string &name)
     if( _runningScene != nullptr ){
         Node *node1 = _runningScene->findChildByName( name );
         if( node1 != nullptr )
+        {
+        		log("Director::addLayer existence, name:%s", name.c_str());
             return;
+        }
         _runningScene->addChild(node, zOrder, name );
     }else{
-    	log("Director::addLayer error");
+    		log("Director::addLayer error");
     }
 }
 
@@ -1452,7 +1455,8 @@ void DisplayLinkDirector::mainLoop()
             
             if( _runningScene != nullptr && iter->second ){
                 //std::string name = iter->first;
-                _runningScene->removeChild(iter->first);
+            		//log("mainloop->name:%s", iter->first->getName().c_str());
+                _runningScene->removeChild(iter->first, true );
                 _deleteLayer.erase(iter++);
                
             }else{

@@ -120,6 +120,8 @@ public:
      */
     bool isNull() const;
     
+    void replace();
+    
 private:
     void move(Data& other);
     

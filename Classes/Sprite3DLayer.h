@@ -9,7 +9,8 @@ class Sprite3DLayer : public cocos2d::Layer
 public:
     void addTortoise();
     void reachEndCallBack();
-
+    void addNewSpriteWithCoords();
+    
 private:
    
 	void initSprite3D();

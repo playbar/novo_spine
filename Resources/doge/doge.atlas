@@ -1,0 +1,48 @@
+
+doge.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/black
+  rotate: true
+  xy: 467, 348
+  size: 154, 34
+  orig: 154, 34
+  offset: 0, 0
+  index: -1
+image/body
+  rotate: false
+  xy: 2, 112
+  size: 307, 390
+  orig: 307, 390
+  offset: 0, 0
+  index: -1
+image/bone
+  rotate: true
+  xy: 311, 293
+  size: 209, 154
+  orig: 209, 154
+  offset: 0, 0
+  index: -1
+image/left
+  rotate: false
+  xy: 229, 21
+  size: 81, 89
+  orig: 81, 89
+  offset: 0, 0
+  index: -1
+image/rigth
+  rotate: false
+  xy: 311, 173
+  size: 125, 118
+  orig: 125, 118
+  offset: 0, 0
+  index: -1
+image/white
+  rotate: false
+  xy: 2, 2
+  size: 225, 108
+  orig: 225, 108
+  offset: 0, 0
+  index: -1

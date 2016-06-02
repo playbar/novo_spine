@@ -1,0 +1,104 @@
+
+Oscar.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/arm
+  rotate: false
+  xy: 706, 510
+  size: 49, 109
+  orig: 49, 109
+  offset: 0, 0
+  index: -1
+images/arm2
+  rotate: true
+  xy: 266, 9
+  size: 53, 93
+  orig: 53, 93
+  offset: 0, 0
+  index: -1
+images/arm3
+  rotate: false
+  xy: 565, 173
+  size: 57, 120
+  orig: 57, 120
+  offset: 0, 0
+  index: -1
+images/arm4
+  rotate: true
+  xy: 1826, 1763
+  size: 97, 48
+  orig: 97, 48
+  offset: 0, 0
+  index: -1
+images/body
+  rotate: false
+  xy: 565, 295
+  size: 139, 324
+  orig: 139, 324
+  offset: 0, 0
+  index: -1
+images/botton
+  rotate: false
+  xy: 1028, 688
+  size: 301, 226
+  orig: 301, 226
+  offset: 0, 0
+  index: -1
+images/cmp-light
+  rotate: false
+  xy: 2, 64
+  size: 561, 555
+  orig: 561, 555
+  offset: 0, 0
+  index: -1
+images/dark
+  rotate: false
+  xy: 1818, 1036
+  size: 6, 998
+  orig: 6, 998
+  offset: 0, 0
+  index: -1
+images/flag
+  rotate: true
+  xy: 1028, 916
+  size: 1118, 788
+  orig: 1118, 788
+  offset: 0, 0
+  index: -1
+images/leg
+  rotate: true
+  xy: 2, 2
+  size: 60, 262
+  orig: 60, 262
+  offset: 0, 0
+  index: -1
+images/leg2
+  rotate: false
+  xy: 1826, 1862
+  size: 96, 172
+  orig: 96, 172
+  offset: 0, 0
+  index: -1
+images/leg3
+  rotate: false
+  xy: 1331, 748
+  size: 62, 166
+  orig: 62, 166
+  offset: 0, 0
+  index: -1
+images/leg4
+  rotate: true
+  xy: 1028, 637
+  size: 49, 181
+  orig: 49, 181
+  offset: 0, 0
+  index: -1
+images/light
+  rotate: false
+  xy: 2, 621
+  size: 1024, 1413
+  orig: 1024, 1413
+  offset: 0, 0
+  index: -1

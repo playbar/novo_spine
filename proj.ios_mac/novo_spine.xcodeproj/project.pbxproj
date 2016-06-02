@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0414196B1D0013AD00FB4B9D /* oscar in Resources */ = {isa = PBXBuildFile; fileRef = 0414196A1D0013AD00FB4B9D /* oscar */; };
+		0414196C1D0013AD00FB4B9D /* oscar in Resources */ = {isa = PBXBuildFile; fileRef = 0414196A1D0013AD00FB4B9D /* oscar */; };
 		04193E4E1CF3F0C20059A9D1 /* SkeletonLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04193E4C1CF3F0C20059A9D1 /* SkeletonLayer.cpp */; };
 		042A6F7E1CFE779B0085292E /* Sprite3DTest in Resources */ = {isa = PBXBuildFile; fileRef = 04C749681CEEAA1200FFF14C /* Sprite3DTest */; };
 		043F37C21CFD8CB00092F119 /* NovoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D360A11CEFCEA7000A0582 /* NovoScene.cpp */; };
@@ -18,6 +20,8 @@
 		043F37CE1CFD8D930092F119 /* spine in Resources */ = {isa = PBXBuildFile; fileRef = 04C749671CEEAA1200FFF14C /* spine */; };
 		043F37D41CFD9F210092F119 /* Orangutan in Resources */ = {isa = PBXBuildFile; fileRef = 043F37D31CFD9F210092F119 /* Orangutan */; };
 		043F37D51CFD9F210092F119 /* Orangutan in Resources */ = {isa = PBXBuildFile; fileRef = 043F37D31CFD9F210092F119 /* Orangutan */; };
+		0462BA441CFFFC9A0093D323 /* rose in Resources */ = {isa = PBXBuildFile; fileRef = 0462BA431CFFFC9A0093D323 /* rose */; };
+		0462BA451CFFFC9A0093D323 /* rose in Resources */ = {isa = PBXBuildFile; fileRef = 0462BA431CFFFC9A0093D323 /* rose */; };
 		04796A641CF3F8D600869D77 /* ParticleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A621CF3F8D600869D77 /* ParticleLayer.cpp */; };
 		04796A681CF3FB9100869D77 /* Sprite3DLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A661CF3FB9100869D77 /* Sprite3DLayer.cpp */; };
 		04796A6B1CF3FE7D00869D77 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A691CF3FE7D00869D77 /* VisibleRect.cpp */; };
@@ -134,9 +138,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0414196A1D0013AD00FB4B9D /* oscar */ = {isa = PBXFileReference; lastKnownFileType = folder; path = oscar; sourceTree = "<group>"; };
 		04193E4C1CF3F0C20059A9D1 /* SkeletonLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonLayer.cpp; sourceTree = "<group>"; };
 		04193E4D1CF3F0C20059A9D1 /* SkeletonLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonLayer.h; sourceTree = "<group>"; };
 		043F37D31CFD9F210092F119 /* Orangutan */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Orangutan; sourceTree = "<group>"; };
+		0462BA431CFFFC9A0093D323 /* rose */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rose; sourceTree = "<group>"; };
 		04796A621CF3F8D600869D77 /* ParticleLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleLayer.cpp; sourceTree = "<group>"; };
 		04796A631CF3F8D600869D77 /* ParticleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleLayer.h; sourceTree = "<group>"; };
 		04796A661CF3FB9100869D77 /* Sprite3DLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite3DLayer.cpp; sourceTree = "<group>"; };
@@ -333,6 +339,8 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0414196A1D0013AD00FB4B9D /* oscar */,
+				0462BA431CFFFC9A0093D323 /* rose */,
 				043F37D31CFD9F210092F119 /* Orangutan */,
 				04BE76DE1CFBCB340051BEAE /* bouquet */,
 				04CFBE561CF82B7800963255 /* novo_info.json */,
@@ -534,6 +542,7 @@
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				04C749841CEEB02300FFF14C /* Default-736h@3x.png in Resources */,
+				0414196B1D0013AD00FB4B9D /* oscar in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
@@ -550,6 +559,7 @@
 				04C749821CEEB02300FFF14C /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
+				0462BA441CFFFC9A0093D323 /* rose in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,7 +580,9 @@
 				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				04C749811CEEB02300FFF14C /* Default-568h@2x.png in Resources */,
+				0414196C1D0013AD00FB4B9D /* oscar in Resources */,
 				04C749891CEEB02300FFF14C /* Default.png in Resources */,
+				0462BA451CFFFC9A0093D323 /* rose in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

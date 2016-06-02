@@ -30,7 +30,10 @@ public class Cocos2dxLayerManager {
 	
 	public static void skeletonEnd(String strName){
 		Log.e("Cocos2dxLayerManager->skeletonEnd", strName);
-		nativeDelLayer(strName);
+		//nativeDelLayer(strName);
+		Cocos2dxRenderer.strNodeName = strName;
+		Cocos2dxRenderer.mbDel = true;
+		//nativeAddLayer( "rose", EnLayerType.LAYER_TYPE_SKELETON.nCode );
 	}
 	
 	 private static native void nativeAddLayer(String strName, int type);

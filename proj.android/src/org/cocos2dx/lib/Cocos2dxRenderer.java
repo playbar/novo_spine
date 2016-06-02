@@ -107,7 +107,9 @@ public class Cocos2dxRenderer implements Renderer  {
 		
     }
     
-    private boolean mbAdd = false;
+    public static boolean mbAdd = true;
+    public static boolean mbDel = false;
+    public static String strNodeName;
     @Override
     public void onDrawFrame(final GL10 gl) {
         /*
@@ -135,12 +137,18 @@ public class Cocos2dxRenderer implements Renderer  {
              * Render time MUST be counted in, or the FPS will slower than appointed.
             */
             this.mLastTickInNanoSeconds = System.nanoTime();
+            if( mbDel ){
+            		Cocos2dxLayerManager.delLayer(strNodeName);
+            		mbAdd = true;
+            		mbDel = false;
+            }
             Cocos2dxRenderer.nativeRender();
-			if( !mbAdd ){
+			if( mbAdd ){
 				//Cocos2dxLayerManager.addLayer("/storage/emulated/0", Cocos2dxLayerManager.EnLayerType.LAYER_TYPE_SKELETON.nCode);
-				Cocos2dxLayerManager.addLayer("bouquet", Cocos2dxLayerManager.EnLayerType.LAYER_TYPE_SKELETON.nCode);
-				mbAdd = true;
+				Cocos2dxLayerManager.addLayer("oscar", Cocos2dxLayerManager.EnLayerType.LAYER_TYPE_SKELETON.nCode);
+				mbAdd = false;
 			}
+			
         }
         /////////////////////////
 		

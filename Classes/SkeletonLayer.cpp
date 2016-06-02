@@ -11,6 +11,17 @@ using namespace spine;
 
 // on "init" you need to initialize your instance
 
+std::string& replace_all(std::string&   str,const   std::string&   old_value,const   std::string&   new_value)
+{
+    while(true)   {
+        std::string::size_type   pos(0);
+        if(   (pos=str.find(old_value))!=std::string::npos   )
+            str.replace(pos,old_value.length(),new_value);
+        else   break;
+    }
+    return   str;
+}
+
 SkeletonLayer::SkeletonLayer(){
     mbUpdatepos = false;
 }
@@ -94,21 +105,26 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 }
 
 void SkeletonLayer::InitSkeleton(const std::string& name){
+	std::string strfile = name + "/novo_info.json";
+    Data data = FileUtils::getInstance()->getDataFromFile( FileUtils::getInstance()->fullPathForFilename(strfile));
+    std::string strdata((char*)data.getBytes(), data.getSize());
     
-    Data data = FileUtils::getInstance()->getDataFromFile( FileUtils::getInstance()->fullPathForFilename(name));
+    std::string strRe = replace_all(strdata, "\r\n", "");
     
     using rapidjson::Document;
     Document doc;
-    doc.Parse((char* )data.getBytes());
-    //doc.Parse(json);
+    //doc.Parse((char* )data.getBytes());
+    doc.Parse(strRe.c_str());
+
     if (doc.HasParseError()) {
         rapidjson::ParseErrorCode code = doc.GetParseError();
         log("SkeletonLayer::InitSkeleton error: %d, data:%d", code, data.getSize() );
         return;
     }
 
-    int pos = name.find_last_of('/');
-    std::string dir = name.substr(0, pos + 1);
+    //int pos = name.find_last_of('/');
+    //std::string dir = name.substr(0, pos + 1);
+    std::string dir = name +"/";
     
     
     using rapidjson::Value;
@@ -125,10 +141,13 @@ void SkeletonLayer::InitSkeleton(const std::string& name){
                 std::string jsonFile = dir + v["file"].GetString() + ".json";
                 std::string atlasFile = dir + v["file"].GetString() + ".atlas";
                 skeletonTmp = SkeletonAnimation::createWithFile(jsonFile, atlasFile, 1.0 );
+                //log("%s", jsonFile.c_str());
                 skeletonTmp->setEndListener([this](int trackIndex){
                     //skeletonTmp->stopAllActions();
+                		log("skeletonTmp->setEndListener");
                 		GFunSkeletonEnd(this->getName());
-                    Director::getInstance()->delLayer(this);
+                		//unscheduleUpdate();
+                		//Director::getInstance()->delLayer(this);
                 });
             }
             else{
@@ -151,6 +170,8 @@ void SkeletonLayer::InitSkeleton(const std::string& name){
                 skeletonTmp->setCompleteListener([this](int trackIndex, int loopCount){
                     if(iloop == loopCount ){
                     	    GFunSkeletonEnd(this->getName());
+                    	    //unscheduleUpdate();
+                    	    log("skeletonTmp->setCompleteListener");
                         //Director::getInstance()->delLayer(this);
                     }
                 });
@@ -164,9 +185,9 @@ void SkeletonLayer::InitSkeleton(const std::string& name){
                        && mixValue.HasMember("to") && mixValue["to"].IsString()
                        && mixValue.HasMember("duration") && mixValue["duration"].IsDouble()){
                         if( skeletonTmp != nullptr ){
-                            log("%s", mixValue["from"].GetString());
-                            log("%s", mixValue["to"].GetString());
-                            log("%f", mixValue["duration"].GetDouble());
+                            //log("%s", mixValue["from"].GetString());
+                            //log("%s", mixValue["to"].GetString());
+                            //log("%f", mixValue["duration"].GetDouble());
                             skeletonTmp->setMix(mixValue["from"].GetString(), mixValue["to"].GetString(), mixValue["duration"].GetDouble());
                         }
                         
@@ -188,9 +209,10 @@ void SkeletonLayer::InitSkeleton(const std::string& name){
                     }
                 }
             }
+            //log("%s, addChild name:%s", __FILE__, skeletonTmp->getName().c_str());
             addChild( skeletonTmp );
             
-            
+
         }
     }
 

@@ -86,6 +86,13 @@ bool Data::isNull() const
 {
     return (_bytes == nullptr || _size == 0);
 }
+void Data::replace()
+{
+    for( int i = 0; i < _size; ++i ){
+        if( _bytes[i] == '\r' || _bytes[i] == '\n')
+            _bytes[i] = ' ';
+    }
+}
 
 unsigned char* Data::getBytes() const
 {

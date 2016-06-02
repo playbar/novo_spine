@@ -34,8 +34,55 @@ void Sprite3DLayer::addTortoise()
     
     sprite1->runAction(RepeatForever::create(RotateBy::create(3, 360)));
     
+    auto sprite2 = Sprite3D::create("Sprite3DTest/boss1.obj");
+    sprite2->setScale( 4.0f);
+    sprite2->setTexture("Sprite3DTest/boss.png");
+    sprite2->setPosition(Vec2(s.width / 2, s.height/2));
+    sprite2->setAnchorPoint(Vec2(0.5, 0.5));
+    
+    addChild(sprite2);
+    sprite2->runAction(RepeatForever::create(RotateBy::create(3, -360)));
+    
+    auto listener1 = EventListenerTouchOneByOne::create();
+    listener1->setSwallowTouches(true);
+    
+    listener1->onTouchBegan = [](Touch * touch, Event * event){
+        auto target = static_cast<Sprite3D*>(event->getCurrentTarget());
+        Rect rect = target->getBoundingBox();
+        if( rect.containsPoint(touch->getLocation())){
+            target->setOpacity(100);
+            return true;
+        }
+        return false;
+    };
+    
+    listener1->onTouchMoved = [](Touch*touch, Event *event){
+        auto target = static_cast<Sprite3D*>(event->getCurrentTarget());
+        target->setPosition(target->getPosition() + touch->getDelta());
+    };
+    
+    listener1->onTouchEnded = [](Touch*touch, Event *event ){
+        auto target = static_cast<Sprite3D*>(event->getCurrentTarget());
+        target->setOpacity(255);
+    };
+    
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, sprite1);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1->clone(), sprite2);
     
 
+}
+
+void Sprite3DLayer::addNewSpriteWithCoords(){
+    auto s = Director::getInstance()->getWinSize();
+    std::string fileName = "Sprite3DTest/orc.c3b";
+    auto sprite = Sprite3D::create( fileName);
+    sprite->setScale(5);
+    sprite->setRotation3D(Vec3(0, 180, 0));
+    addChild(sprite);
+    sprite->setPosition(Vec2(s.width / 2, s.height / 2 ));
+    
+    //auto sp = Sprite3D::create("Sprite3DTest/a");
+    
 }
 
 //
