@@ -24,3 +24,7 @@ proj.android/assets/
 proj.android/.externalToolBuilders/
 proj.android/gen/
 *.prefs
+.DS_Store
+build
+proj.ios_mac/novo_spine.xcodeproj/project.xcworkspace/xcuserdata
+proj.ios_mac/novo_spine.xcodeproj/xcuserdata
