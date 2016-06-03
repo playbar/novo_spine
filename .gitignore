@@ -1,4 +1,3 @@
-*.a
 cocos2d/licenses/
 *.obj
 *.tlog
