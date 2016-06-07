@@ -28,6 +28,7 @@
 		04796A681CF3FB9100869D77 /* Sprite3DLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A661CF3FB9100869D77 /* Sprite3DLayer.cpp */; };
 		04796A6B1CF3FE7D00869D77 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04796A691CF3FE7D00869D77 /* VisibleRect.cpp */; };
 		04BE76E31CFC1BFE0051BEAE /* LayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04BE76E11CFC1BFE0051BEAE /* LayerManager.cpp */; };
+		04C3BE6E1D06791700AA010B /* Particles in Resources */ = {isa = PBXBuildFile; fileRef = 04C749661CEEAA1200FFF14C /* Particles */; };
 		04C749691CEEAA1200FFF14C /* Particles in Resources */ = {isa = PBXBuildFile; fileRef = 04C749661CEEAA1200FFF14C /* Particles */; };
 		04C7496A1CEEAA1200FFF14C /* spine in Resources */ = {isa = PBXBuildFile; fileRef = 04C749671CEEAA1200FFF14C /* spine */; };
 		04C7496B1CEEAA1200FFF14C /* Sprite3DTest in Resources */ = {isa = PBXBuildFile; fileRef = 04C749681CEEAA1200FFF14C /* Sprite3DTest */; };
@@ -568,6 +569,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C3BE6E1D06791700AA010B /* Particles in Resources */,
 				042A6F7E1CFE779B0085292E /* Sprite3DTest in Resources */,
 				043F37CE1CFD8D930092F119 /* spine in Resources */,
 				04C749871CEEB02300FFF14C /* Default-Landscape~ipad.png in Resources */,

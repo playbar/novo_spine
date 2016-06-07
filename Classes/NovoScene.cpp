@@ -42,14 +42,15 @@ Scene* NovoScene::createScene()
     //auto layerIsland = SkeletonLayer::create();
     //layerIsland->InitSkeleton("spine/testMan.json", "spine/testMan.atlas", 1.0f);
 
-    //auto parLayer = ParticleLayer::create();
-    auto spriteLayer = Sprite3DLayer::create();
-    spriteLayer->addNewSpriteWithCoords();
+    auto parLayer = ParticleLayer::create();
+    parLayer->TestParticle1();
+    //auto spriteLayer = Sprite3DLayer::create();
+    //spriteLayer->addNewSpriteWithCoords();
     //spriteLayer->addTortoise();
     // add layer as a child to scene
-    scene->addChild(spriteLayer,1);
+    //scene->addChild(spriteLayer,1);
     //scene->addChild(layerfish, 2, name);
-    //scene->addChild(parLayer);
+    scene->addChild(parLayer);
 
     //layerfish->mbUpdatepos = true;
     //layerfish->setPosition(400, 100);

@@ -10,11 +10,14 @@ class ParticleLayer : public cocos2d::Layer
 private:
 
 	cocos2d::ParticleSystemQuad* _emitter;
-	void TestParticle();
 
 public:
     
     virtual void update(float delta) override;
+    
+    void TestParticle();
+    
+    void TestParticle1();
 
     virtual bool init();
     
