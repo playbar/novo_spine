@@ -33,6 +33,7 @@ THE SOFTWARE.
 #include "platform/CCFileUtils.h"
 #include "math/CCGeometry.h"
 #include "base/CCDirector.h"
+#include "../Classes/LayerManager.h"
 
 NS_CC_BEGIN
 
@@ -51,6 +52,7 @@ Application* Application::sm_pSharedApplication = 0;
 Application::Application()
 : _animationInterval(1.0f/60.0f*1000.0f)
 {
+    mbAdd = true;
     CCASSERT(! sm_pSharedApplication, "sm_pSharedApplication already exist");
     sm_pSharedApplication = this;
 }
@@ -84,6 +86,11 @@ int Application::run()
         director->Clear();
         director->mainLoop();
         glview->pollEvents();
+        
+//        if( mbAdd ){
+//            LayerManager::getInstance()->addLayer("oscar", LayerManager::EnLayerType::LAYER_TYPE_SKELETON );
+//            mbAdd = false;
+//        }
 
         curTime = getCurrentMillSecond();
         if (curTime - lastTime < _animationInterval)

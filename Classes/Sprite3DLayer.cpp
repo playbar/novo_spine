@@ -22,99 +22,126 @@ bool Sprite3DLayer::init()
     return true;
 }
 
-
-void Sprite3DLayer::addTortoise()
-{
-    auto s = Director::getInstance()->getWinSize();
-    auto sprite1 = Sprite3D::create("Sprite3DTest/boss1.obj");
-    sprite1->setScale(4.f);
-    sprite1->setTexture("Sprite3DTest/boss.png");
-    sprite1->setPosition(Vec2(s.width/2, s.height/2));
-    addChild(sprite1);
-    
-    sprite1->runAction(RepeatForever::create(RotateBy::create(3, 360)));
-    
-    auto sprite2 = Sprite3D::create("Sprite3DTest/boss1.obj");
-    sprite2->setScale( 4.0f);
-    sprite2->setTexture("Sprite3DTest/boss.png");
-    sprite2->setPosition(Vec2(s.width / 2, s.height/2));
-    sprite2->setAnchorPoint(Vec2(0.5, 0.5));
-    
-    addChild(sprite2);
-    sprite2->runAction(RepeatForever::create(RotateBy::create(3, -360)));
-    
-    auto listener1 = EventListenerTouchOneByOne::create();
-    listener1->setSwallowTouches(true);
-    
-    listener1->onTouchBegan = [](Touch * touch, Event * event){
-        auto target = static_cast<Sprite3D*>(event->getCurrentTarget());
-        Rect rect = target->getBoundingBox();
-        if( rect.containsPoint(touch->getLocation())){
-            target->setOpacity(100);
-            return true;
-        }
-        return false;
-    };
-    
-    listener1->onTouchMoved = [](Touch*touch, Event *event){
-        auto target = static_cast<Sprite3D*>(event->getCurrentTarget());
-        target->setPosition(target->getPosition() + touch->getDelta());
-    };
-    
-    listener1->onTouchEnded = [](Touch*touch, Event *event ){
-        auto target = static_cast<Sprite3D*>(event->getCurrentTarget());
-        target->setOpacity(255);
-    };
-    
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, sprite1);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1->clone(), sprite2);
-    
-
-}
+//
+//void Sprite3DLayer::addTortoise()
+//{
+//    auto s = Director::getInstance()->getWinSize();
+//    auto sprite1 = Sprite3D::create("Sprite3DTest/boss1.obj");
+//    sprite1->setScale(4.f);
+//    sprite1->setTexture("Sprite3DTest/boss.png");
+//    sprite1->setPosition(Vec2(s.width/2, s.height/2));
+//    addChild(sprite1);
+//    
+//    sprite1->runAction(RepeatForever::create(RotateBy::create(3, 360)));
+//    
+//    auto sprite2 = Sprite3D::create("Sprite3DTest/boss1.obj");
+//    sprite2->setScale( 4.0f);
+//    sprite2->setTexture("Sprite3DTest/boss.png");
+//    sprite2->setPosition(Vec2(s.width / 2, s.height/2));
+//    sprite2->setAnchorPoint(Vec2(0.5, 0.5));
+//    
+//    addChild(sprite2);
+//    sprite2->runAction(RepeatForever::create(RotateBy::create(3, -360)));
+//    
+//    auto listener1 = EventListenerTouchOneByOne::create();
+//    listener1->setSwallowTouches(true);
+//    
+//    listener1->onTouchBegan = [](Touch * touch, Event * event){
+//        auto target = static_cast<Sprite3D*>(event->getCurrentTarget());
+//        Rect rect = target->getBoundingBox();
+//        if( rect.containsPoint(touch->getLocation())){
+//            target->setOpacity(100);
+//            return true;
+//        }
+//        return false;
+//    };
+//    
+//    listener1->onTouchMoved = [](Touch*touch, Event *event){
+//        auto target = static_cast<Sprite3D*>(event->getCurrentTarget());
+//        target->setPosition(target->getPosition() + touch->getDelta());
+//    };
+//    
+//    listener1->onTouchEnded = [](Touch*touch, Event *event ){
+//        auto target = static_cast<Sprite3D*>(event->getCurrentTarget());
+//        target->setOpacity(255);
+//    };
+//    
+//    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, sprite1);
+//    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1->clone(), sprite2);
+//    
+//
+//}
 
 void Sprite3DLayer::addNewSpriteWithCoords(){
     auto s = Director::getInstance()->getWinSize();
-    std::string fileName = "Sprite3DTest/orc.c3b";
+    std::string fileName = "Sprite3DTest/orc.c3t";
     auto sprite = Sprite3D::create( fileName);
     sprite->setScale(5);
     sprite->setRotation3D(Vec3(0, 180, 0));
     addChild(sprite);
     sprite->setPosition(Vec2(s.width / 2, s.height / 2 ));
     
-    //auto sp = Sprite3D::create("Sprite3DTest/a");
+    auto sp = Sprite3D::create("Sprite3DTest/axe.c3b");
+    sprite->getAttachNode("Bip001 R Hand")->addChild(sp);
+    auto animation = Animation3D::create( fileName );
+    if( animation ){
+         auto animate = Animate3D::create(animation, 0.f, 1.933f);
+        sprite->runAction(RepeatForever::create(animate));
+        
+        auto hideAction = Hide::create();
+        auto moveTo = MoveTo::create(4.0f, Point(100, 100));
+        auto action = Sequence::create(moveTo, hideAction, nullptr);
+        sprite->runAction(action);
+    }
+    
+//    auto sprite1 = Sprite3D::create(fileName);
+//    sprite1->setScale(5);
+//    sprite1->setScaleX( -5);
+//    sprite1->setCullFace(GL_FRONT );
+//    sprite1->setRotation3D( Vec3(0, 180, 0));
+//    addChild(sprite1);
+//    sprite1->setPosition( Vec2(s.width / 2 + 80, s.height / 2));
+//    auto sp1 = Sprite3D::create("Sprite3DTest/axe.c3b");
+//    sprite1->getAttachNode("Bip001 R Hand")->addChild( sp1 );
+//    
+//    auto animation1 = Animation3D::create( fileName);
+//    if( animation1){
+//        auto animate1 = Animate3D::create(animation1, 0.f, 1.933f);
+//        sprite1->runAction(RepeatForever::create( animate1));
+//    }
     
 }
 
-//
-//void Sprite3DLayer::addTortoise()
-//{
-//    std::string fileName = "Sprite3DTest/tortoise.c3b";
-//    auto sprite = Sprite3D::create(fileName);
-//    sprite->setScale(0.1f);
-//    auto s = Director::getInstance()->getWinSize();
-//    sprite->setPosition(Vec2(s.width * 4.f / 5.f, s.height / 2.f));
-//    addChild(sprite);
-//    _sprite = sprite;
-//    auto animation = Animation3D::create(fileName);
-//    if (animation)
-//    {
-//        auto animate = Animate3D::create(animation, 0.f, 1.933f);
-//        //animate->setSpeed(10.0f);
-//        _swim = RepeatForever::create(animate);
-//        sprite->runAction(_swim);
-//        
-//        _swim->retain();
-//        _hurt = Animate3D::create(animation, 1.933f, 2.8f);
-//        _hurt->retain();
-//    }
-//    
-//    _moveAction = MoveBy::create(4.f, Vec2( - s.width * 3.0f /5, 0));
-//    
-//    _moveAction->retain();
-//    auto seq = Sequence::create(_moveAction, CallFunc::create(CC_CALLBACK_0(Sprite3DLayer::reachEndCallBack, this)), nullptr);
-//    seq->setTag(100);
-//    sprite->runAction(seq);
-//}
+
+void Sprite3DLayer::addTortoise()
+{
+    std::string fileName = "Sprite3DTest/tortoise.c3b";
+    auto sprite = Sprite3D::create(fileName);
+    sprite->setScale(0.1f);
+    auto s = Director::getInstance()->getWinSize();
+    sprite->setPosition(Vec2(s.width * 4.f / 5.f, s.height / 2.f));
+    addChild(sprite);
+    _sprite = sprite;
+    auto animation = Animation3D::create(fileName);
+    if (animation)
+    {
+        auto animate = Animate3D::create(animation, 0.f, 1.933f);
+        //animate->setSpeed(10.0f);
+        _swim = RepeatForever::create(animate);
+        sprite->runAction(_swim);
+        
+        _swim->retain();
+        _hurt = Animate3D::create(animation, 1.933f, 2.8f);
+        _hurt->retain();
+    }
+    
+    _moveAction = MoveBy::create(4.f, Vec2( - s.width * 3.0f /5, 0));
+    
+    _moveAction->retain();
+    auto seq = Sequence::create(_moveAction, CallFunc::create(CC_CALLBACK_0(Sprite3DLayer::reachEndCallBack, this)), nullptr);
+    seq->setTag(100);
+    sprite->runAction(seq);
+}
 
 void Sprite3DLayer::reachEndCallBack()
 {

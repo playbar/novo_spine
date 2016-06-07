@@ -72,18 +72,24 @@ void SkeletonLayer::InitSkeleton(const std::string& skeletonDataFile, const std:
 		log("%d event: %s, %d, %f, %s", trackIndex, event->data->name, event->intValue, event->floatValue, event->stringValue);
 	});
 
-	skeletonNode->setMix("walk", "jump", 0.2f);
-	skeletonNode->setMix("jump", "run", 0.2f);
-	skeletonNode->setAnimation(0, "animation", true );
-	//skeletonNode->addAnimation(0, "jump", false, 3);
-	//skeletonNode->addAnimation(0, "run", false);
+	skeletonNode->setMix("walk", "jump", 1.0f);
+	skeletonNode->setMix("jump", "walk", 1.0f);
+	//skeletonNode->setAnimation(1, "jump", true );
+    //skeletonNode->setAnimation(0, "walk", true);
+    //skeletonNode->setAnimation(2, "move", true);
+    //skeletonNode->setAnimation(1, "jump", true);
+    
+   
+	skeletonNode->addAnimation(1, "walk", true );
+	skeletonNode->addAnimation(0, "jump", true );
+    //skeletonNode->addAnimation(0, "move", true);
 
 	skeletonNode->setPosition(400, 300);
 
 	addChild(skeletonNode, 2);
 	scheduleUpdate();
     
-    spBone* particleBone = skeletonNode->findBone("Boss06_weapon01");
+    //spBone* particleBone = skeletonNode->findBone("Boss06_weapon01");
     
     
 	EventListenerTouchOneByOne* listener = EventListenerTouchOneByOne::create();

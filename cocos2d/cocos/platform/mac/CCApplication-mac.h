@@ -120,6 +120,7 @@ public:
     const std::string& getStartupScriptFilename(void);
     
 protected:
+    bool mbAdd;
     static Application * sm_pSharedApplication;
     
     long _animationInterval;  //micro second

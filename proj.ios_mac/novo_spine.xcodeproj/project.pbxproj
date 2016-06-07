@@ -722,6 +722,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../cocos2d/external/glfw3/include/mac",
+					"\"$(SRCROOT)/../Classes\"",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
 				LIBRARY_SEARCH_PATHS = "";
@@ -751,6 +752,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../cocos2d/external/glfw3/include/mac",
+					"\"$(SRCROOT)/../Classes\"",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
 				LIBRARY_SEARCH_PATHS = "";
