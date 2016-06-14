@@ -164,12 +164,25 @@ void SkeletonLayer::InitSkeleton(const std::string& name){
                     skeletonTmp->setScale(v["scale"].GetDouble());
                 }
             }
-            if(v.HasMember("posx") && v["posx"].IsInt()
-               &&v.HasMember("posy") && v["posy"].IsInt()){
-                if( skeletonTmp != nullptr ){
-                    skeletonTmp->setPosition(v["posx"].GetInt(), v["posy"].GetInt());
-                }
-            }
+//            if(v.HasMember("posx") && v["posx"].IsInt()
+//               &&v.HasMember("posy") && v["posy"].IsInt()){
+//                if( skeletonTmp != nullptr ){
+//                    skeletonTmp->setPosition(v["posx"].GetInt(), v["posy"].GetInt());
+//                }
+//            }
+
+            	if(v.HasMember("posx") && v["posx"].IsDouble()
+                  &&v.HasMember("posy") && v["posy"].IsDouble()){
+			   if( skeletonTmp != nullptr ){
+				   // 获取屏幕坐标比例
+				   double dx = v["posx"].GetDouble();
+				   double dy = v["posy"].GetDouble();
+				   Size wins = Director::getInstance()->getWinSize();
+				   dx = wins.width*dx;
+				   dy = wins.height*dy;
+				   skeletonTmp->setPosition(dx , dy);
+			   }
+		   }
        
             if(v.HasMember("loopcount") && v["loopcount"].IsInt()){
                 static int iloop = v["loopcount"].GetInt();
