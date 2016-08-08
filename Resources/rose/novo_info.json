@@ -7,8 +7,8 @@
     {
         "file":"rose",
         "scale":1.0,
-        "posx":400,  
-        "posy":100,
+        "posx":0.5,
+        "posy":0.5,
         "loopcount":40,
         "mix":
         [
